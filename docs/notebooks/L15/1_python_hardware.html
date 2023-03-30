@@ -1,0 +1,621 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" />
+
+    <!-- Generated with Sphinx 6.1.3 and Furo 2023.03.27 -->
+        <title>Python and Hardware - Introduction to Computer-based Physical Modeling 23 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=fad236701ea90a88636c2a8c73b44ae642ed2a53" />
+    <link rel="stylesheet" type="text/css" href="../../_static/nbsphinx-code-cells.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-half" viewBox="0 0 24 24">
+    <title>Auto light/dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M13 12h5" />
+      <path d="M13 15h4" />
+      <path d="M13 18h1" />
+      <path d="M13 9h4" />
+      <path d="M13 6h1" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../../index.html"><div class="brand">Introduction to Computer-based Physical Modeling 23 documentation</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../../index.html">
+  
+  <div class="sidebar-logo-container">
+    <img class="sidebar-logo" src="../../_static/mona_logo.png" alt="Logo"/>
+  </div>
+  
+  <span class="sidebar-brand-text">Introduction to Computer-based Physical Modeling 23 documentation</span>
+  
+</a><form class="sidebar-search-container" method="get" action="../../search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">Course Information:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/website.html">This Website</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/schedule.html">Course Schedule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/assignments.html">Assignments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/exam.html">Exams</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/exam.html#mechanics">Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/exam.html#thermodynamics-statistical-physics">Thermodynamics/Statistical Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/exam.html#optics">Optics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/exam.html#electrodynamics">Electrodynamics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/exam.html#quantum-mechanics">Quantum Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/resources.html">Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/instructor.html">Instructor</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Jupyter Notebooks:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../lectures/Intro/overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Intro/1_Introduction2Jupyter.html">Introduction to Jupyter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Intro/2_NotebookEditor.html">Notebook editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Intro/3_EditCells.html">Entering code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Intro/3_EditCells.html#Entering-Markdown">Entering Markdown</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Lecture 1:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../lectures/L1/overview_1.html">Lecture Contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L1/1_variables.html">Variables and types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L1/2_operators.html">Operators and comparisons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L1/3_datatypes.html">Data Types in Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L1/4_modules.html">Modules and namespaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lectures/L1/assignment_1.html">Exercise 1</a></li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          
+<div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main">
+          <div class="admonition note">
+<p>This page was generated from <cite>notebooks/L15/1_python_hardware.ipynb</cite>.
+<span class="raw-html"><br/><a href="https://mybinder.org/v2/gh/fcichos/CompSoft23/main?urlpath=tree/source/notebooks/L15/1_python_hardware.ipynb"><img alt="Binder badge" src="https://img.shields.io/badge/launch-%20myBinder-red.svg" style="vertical-align:text-bottom"></a></span> <span class="raw-html"><br/><a href="https://colab.research.google.com/github/fcichos/CompSoft22/blob/main/source/notebooks/L15/1_python_hardware.ipynb"><img alt="Binder badge" src="https://img.shields.io/badge/launch-%20colab-green.svg" style="vertical-align:text-bottom"></a></span></p>
+</div>
+<section id="Python-and-Hardware">
+<h1>Python and Hardware<a class="headerlink" href="#Python-and-Hardware" title="Permalink to this heading">#</a></h1>
+<p>In the last lecture, we would like to interface our Python notebook to the real world. We would like to control a small computer, which can measure and control things in the real world, like experiments. We show you how to setup and Arduino nano board and use that to output and input signals. To use this Notebook, you will need an Arduino board. It will do nothing than creating errors if you just use it in the mybinder service. You can find out more about Arduino on their
+<a class="reference external" href="https://arduino.cc">website</a>.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[92]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">print_function</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+
+<span class="kn">from</span> <span class="nn">ipycanvas</span> <span class="kn">import</span> <span class="n">MultiCanvas</span><span class="p">,</span> <span class="n">hold_canvas</span><span class="p">,</span><span class="n">Canvas</span>
+
+<span class="kn">from</span> <span class="nn">ipywidgets</span> <span class="kn">import</span> <span class="n">interact</span><span class="p">,</span> <span class="n">interactive</span><span class="p">,</span> <span class="n">fixed</span><span class="p">,</span> <span class="n">interact_manual</span>
+<span class="kn">import</span> <span class="nn">ipywidgets</span> <span class="k">as</span> <span class="nn">widgets</span>
+
+
+<span class="o">%</span><span class="k">config</span> InlineBackend.figure_format = &#39;retina&#39;
+
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s1">&#39;font.size&#39;</span><span class="p">:</span> <span class="mi">18</span><span class="p">,</span>
+                     <span class="s1">&#39;axes.titlesize&#39;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
+                     <span class="s1">&#39;axes.labelsize&#39;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
+                     <span class="s1">&#39;axes.labelpad&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+                     <span class="s1">&#39;lines.linewidth&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+                     <span class="s1">&#39;lines.markersize&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+                     <span class="s1">&#39;xtick.labelsize&#39;</span> <span class="p">:</span> <span class="mi">18</span><span class="p">,</span>
+                     <span class="s1">&#39;ytick.labelsize&#39;</span> <span class="p">:</span> <span class="mi">18</span><span class="p">,</span>
+                     <span class="s1">&#39;xtick.top&#39;</span> <span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+                     <span class="s1">&#39;xtick.direction&#39;</span> <span class="p">:</span> <span class="s1">&#39;in&#39;</span><span class="p">,</span>
+                     <span class="s1">&#39;ytick.right&#39;</span> <span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+                     <span class="s1">&#39;ytick.direction&#39;</span> <span class="p">:</span> <span class="s1">&#39;in&#39;</span>
+                    <span class="p">})</span>
+</pre></div>
+</div>
+</div>
+<section id="Arduino-Nano-Board">
+<h2>Arduino Nano Board<a class="headerlink" href="#Arduino-Nano-Board" title="Permalink to this heading">#</a></h2>
+<p>There are several diffrent Arduino boards available. The one I’m going to use is the Arduino nano, which looks like this</p>
+<img alt="../../_images/arduino_nano.png" src="../../_images/arduino_nano.png" />
+<p>It has an USB connector here on the left and a number of analog (A0-A7) and digital (D2-D13) input and outputs. All of these connectors can be used as inputs and outputs.</p>
+<section id="Arduino-Software">
+<h3>Arduino Software<a class="headerlink" href="#Arduino-Software" title="Permalink to this heading">#</a></h3>
+<p>The Arduino boards are typically programmed with a programming language, which is a bit like C. The programs are written on your computer, compiled and the uploaded to the Arduino. It then runs your program independently. The software interface to write and compile such programs for a number of different boards is available at the <a class="reference external" href="https://www.arduino.cc">Arduino Website</a>. We will need it actually only once. So go ahead and install the software on you computer.</p>
+</section>
+<section id="Setup-your-board">
+<h3>Setup your board<a class="headerlink" href="#Setup-your-board" title="Permalink to this heading">#</a></h3>
+<p>To communicate in Python with your Arduino you need to prepare your board with a program, that is provided for free with the Arduino programming environment. By the way, the programs for the Arduinos are called <code class="docutils literal notranslate"><span class="pre">Sketch</span></code>, because they are more like a sketch. The sketch that allows the interaction of the Arduino with Python is called <code class="docutils literal notranslate"><span class="pre">Firmata</span></code>.</p>
+<p>Before we upload the <code class="docutils literal notranslate"><span class="pre">Firmata</span></code> sketch to the Arduino, we need to setup the connection of your computer to the Arduino. To do so, you need to connect your Arduino via USB to your computer and then setup the connection in the <code class="docutils literal notranslate"><span class="pre">Tools</span></code> menu of your Arduino software. On my MacBook, this looks like that</p>
+<img alt="connection" src="../../_images/connection.png" />
+<p>You see that the select board is “Arduino Nano” and the USB port is <code class="docutils literal notranslate"><span class="pre">/dev/cu.usbserial-141220</span></code>. I selected the processor which works with my board. That could be sometimes a bit tedious. When you further click on the <code class="docutils literal notranslate"><span class="pre">Serial</span> <span class="pre">Monitor</span></code> menu above, a window will open, where you can select the speed of your seriaal connection with the board, which you should adjust to 57600 baud.</p>
+</section>
+<section id="Select-Firmata-Sketch">
+<h3>Select Firmata Sketch<a class="headerlink" href="#Select-Firmata-Sketch" title="Permalink to this heading">#</a></h3>
+<p>Next you have to select the firmata sketch. That is available from the examples menu, which should look like below</p>
+<img alt="firmata_sketch" src="../../_images/firmata_sketch.png" />
+<p>Select the <code class="docutils literal notranslate"><span class="pre">StandardFirmata</span></code> sketch.</p>
+<p>A window should open which displays the code of the sketch.</p>
+<img alt="firmata" src="../../_images/firmata.png" />
+<p>After that, you can compile the Sketch with the top left button</p>
+<img alt="compile" src="../../_images/compile.png" />
+<p>And finally you may upload the Sketch to your arduino with the button on the right of the compile button.</p>
+<img alt="upload" src="../../_images/upload.png" />
+</section>
+</section>
+<section id="Communicating-with-the-board">
+<h2>Communicating with the board<a class="headerlink" href="#Communicating-with-the-board" title="Permalink to this heading">#</a></h2>
+<p>The module, that allows us to communicate with the Arduino board and the Firmata sketch is the <code class="docutils literal notranslate"><span class="pre">pyfirmata</span></code> module. You can install the module on your computer by executing</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>!pip install pyfirmata
+</pre></div>
+</div>
+<p>in one of the Jupyter notebook cells. After you have done so, you may import the module functionality by</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[40]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pyfirmata</span>
+</pre></div>
+</div>
+</div>
+<p>The module allows you to connect to the board in a very easy way. You just have to provide the corresponding USB connection details. For Windows, this will be some of the <code class="docutils literal notranslate"><span class="pre">COM</span></code> ports. For Linux and also osX, it wil be one of the devices listed in the <code class="docutils literal notranslate"><span class="pre">/dev</span></code> directory. For my MacBook I just type</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ls /dev/*usb*
+</pre></div>
+</div>
+<p>into one of the Jupyter notebooks cells.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[42]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ls</span> <span class="o">/</span><span class="n">dev</span><span class="o">/*</span><span class="n">usb</span><span class="o">*</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-blue-fg ansi-yellow-bg">/dev/cu.usbserial-141220</span>   <span class="ansi-blue-fg ansi-yellow-bg">/dev/tty.usbserial-141220</span>
+</pre></div></div>
+</div>
+<p>Using that USB connection port we may simply assign a new board instance by</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[84]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">board</span> <span class="o">=</span> <span class="n">pyfirmata</span><span class="o">.</span><span class="n">Arduino</span><span class="p">(</span><span class="s1">&#39;/dev/cu.usbserial-141220&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="Let-the-on-board-LED-blink">
+<h2>Let the on-board LED blink<a class="headerlink" href="#Let-the-on-board-LED-blink" title="Permalink to this heading">#</a></h2>
+<p>The onboard LED of the Arduino nano is connected to the digital port <code class="docutils literal notranslate"><span class="pre">D13</span></code>. So if we output something to <code class="docutils literal notranslate"><span class="pre">D13</span></code> we get out board LED (the one with the <code class="docutils literal notranslate"><span class="pre">L</span></code>) blinking.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[52]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">i</span><span class="o">=</span><span class="mi">0</span>
+<span class="k">while</span> <span class="n">i</span><span class="o">&lt;</span><span class="mi">100</span><span class="p">:</span>
+    <span class="n">board</span><span class="o">.</span><span class="n">digital</span><span class="p">[</span><span class="mi">13</span><span class="p">]</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
+    <span class="n">board</span><span class="o">.</span><span class="n">digital</span><span class="p">[</span><span class="mi">13</span><span class="p">]</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
+    <span class="n">i</span><span class="o">+=</span><span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+<img alt="blinking" src="../../_images/blinking.gif" />
+<p>We can also measure the output voltage at the corresponding pin <code class="docutils literal notranslate"><span class="pre">D13</span></code>. Whenever the LED is on, we measrue a voltage of about 4.7 V, which corresponds to the TTL <code class="docutils literal notranslate"><span class="pre">HIGH</span></code> level, while the voltage of about 0.9 V represents the <code class="docutils literal notranslate"><span class="pre">LOW</span></code> level.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">i</span><span class="o">=</span><span class="mi">0</span>
+<span class="k">while</span> <span class="n">i</span><span class="o">&lt;</span><span class="mi">100</span><span class="p">:</span>
+    <span class="n">board</span><span class="o">.</span><span class="n">digital</span><span class="p">[</span><span class="mi">13</span><span class="p">]</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">board</span><span class="o">.</span><span class="n">digital</span><span class="p">[</span><span class="mi">13</span><span class="p">]</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">i</span><span class="o">+=</span><span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+<p>The values are visible in the video below.</p>
+<img alt="voltage" src="../../_images/voltage.gif" />
+<section id="Tunable-output">
+<h3>Tunable output<a class="headerlink" href="#Tunable-output" title="Permalink to this heading">#</a></h3>
+<p>You may also output some voltages with the Arduino nano. Yet the signal output here works with a so called <a class="reference external" href="https://www.arduino.cc/en/tutorial/PWM">pulse width modulation</a> (PWM). The pulse width modulation switches a digital port quickly between the HIGH and the LOW values. By varying the time the output is HIGH as compared to LOW, the average voltage is set to a value between 0 V and 5 V. This fast switching is done with a freqeuncy of 500 Hz.</p>
+<img alt="pwm_swtching" src="../../_images/pwm.png" />
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[100]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">board</span> <span class="o">=</span> <span class="n">pyfirmata</span><span class="o">.</span><span class="n">Arduino</span><span class="p">(</span><span class="s1">&#39;/dev/cu.usbserial-141220&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>We can use the PWM mode by setting one of the digital outputs accordingly. The <code class="docutils literal notranslate"><span class="pre">get_pin</span></code> command below, allows you to configure one of the outputs. The string ‘d:3:p’ configure output <code class="docutils literal notranslate"><span class="pre">D3</span></code> to PWM mode. You may also configure the as input ‘d:3:i’ or output ‘d:3:o’.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[101]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">outPWM</span> <span class="o">=</span> <span class="n">board</span><span class="o">.</span><span class="n">get_pin</span><span class="p">(</span><span class="s1">&#39;d:3:p&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>The rest is very simple. We can actually use the <code class="docutils literal notranslate"><span class="pre">ipywidgets</span></code> module to create a slider, which allows us to modulate the output voltage.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[102]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">output</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="n">outPWM</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[103]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[104]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">interact</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">1.0</span><span class="p">,</span><span class="mf">0.01</span><span class="p">));</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "772f9475356f4ccb93d021cb1d05e554", "version_major": 2, "version_minor": 0}</script></div>
+</div>
+<p>Here is the movie of what I tried with the slider.</p>
+<img alt="tuning" src="../../_images/tuning.gif" />
+</section>
+</section>
+<section id="Creating-an-Oscilloscope">
+<h2>Creating an Oscilloscope<a class="headerlink" href="#Creating-an-Oscilloscope" title="Permalink to this heading">#</a></h2>
+<p>One of the cool things among many other things you can do with the analog and digital ports of an arduino is to create yout own simple oscilloscope. Its not really as versatile as a more expensive one, but at leat you are able to follow a voltage signal over time easily. The voltage range is limited to 0-5 V without additional electronics, but this may be already enout to couple some sensors.</p>
+<p>To allow for continuous reporting of the voltage a certain board analog input, we use <code class="docutils literal notranslate"><span class="pre">board.analog[0].enable_reporting()</span></code>. This will switch on the reporting of the analog voltage at port <code class="docutils literal notranslate"><span class="pre">A0</span></code>.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[106]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">board</span><span class="o">.</span><span class="n">analog</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">enable_reporting</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<p>The command read, will then read a single value from the input.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[111]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">board</span><span class="o">.</span><span class="n">analog</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+0.3021
+</pre></div></div>
+</div>
+<p>The reporting will start reporting the analog values continuously without any control. We may, however, use the <code class="docutils literal notranslate"><span class="pre">pyfirmata.util.Iterator(board)</span></code> method to take control over the reading. We get then a new value, whenever a value is read. The iterator is started with <code class="docutils literal notranslate"><span class="pre">it.start()</span></code>.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[112]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">it</span> <span class="o">=</span> <span class="n">pyfirmata</span><span class="o">.</span><span class="n">util</span><span class="o">.</span><span class="n">Iterator</span><span class="p">(</span><span class="n">board</span><span class="p">)</span>
+<span class="n">it</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+
+<span class="n">board</span><span class="o">.</span><span class="n">analog</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">enable_reporting</span><span class="p">()</span>
+<br/></pre></div>
+</div>
+</div>
+<p>Since we want to have an oscilloscope, we need to plot the data somewhere. We can use out beloved <code class="docutils literal notranslate"><span class="pre">ipycanvas</span></code> module for that purpose.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[129]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## setup the canvas</span>
+<span class="n">canvas</span> <span class="o">=</span> <span class="n">Canvas</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">800</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span><span class="n">sync_image_data</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">canvas</span><span class="o">.</span><span class="n">font</span> <span class="o">=</span> <span class="s1">&#39;20px serif&#39;</span>
+<span class="n">display</span><span class="p">(</span><span class="n">canvas</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "50d0618568454eddb2c6560ebe3ca3b4", "version_major": 2, "version_minor": 0}</script></div>
+</div>
+<img alt="oscilloscope" src="../../_images/oscilloscope.gif" />
+<p>The rest is just easy for us. We create a buffer <code class="docutils literal notranslate"><span class="pre">data</span></code> where we store the voltage value for each x point in the canvas (here 800 px). If we have read 800 values, we will shift the data in the array to the left such that we can insert the new point as the rightmost entry. In addition, I have inserted some autoscaling of the data and a display of the minimum and maximum voltage of the current signal trace. There is much room for improvement.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[131]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">canvas</span><span class="o">.</span><span class="n">width</span><span class="p">)</span>
+<span class="n">i</span><span class="o">=</span><span class="mi">0</span>
+
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="n">analog_value</span> <span class="o">=</span> <span class="n">board</span><span class="o">.</span><span class="n">analog</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">i</span><span class="o">&lt;</span><span class="mi">799</span><span class="p">:</span>
+        <span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="n">analog_value</span>
+        <span class="n">i</span><span class="o">+=</span><span class="mi">1</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">data</span><span class="p">[:</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">data</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span><span class="o">=</span><span class="n">analog_value</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.05</span><span class="p">)</span>
+    <span class="k">with</span> <span class="n">hold_canvas</span><span class="p">(</span><span class="n">canvas</span><span class="p">):</span>
+        <span class="n">canvas</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+        <span class="n">canvas</span><span class="o">.</span><span class="n">line_width</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="n">canvas</span><span class="o">.</span><span class="n">begin_path</span><span class="p">()</span>
+        <span class="nb">min</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
+        <span class="nb">max</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+
+        <span class="n">canvas</span><span class="o">.</span><span class="n">fill_text</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="nb">max</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39; V&#39;</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+        <span class="n">canvas</span><span class="o">.</span><span class="n">fill_text</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="nb">min</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39; V&#39;</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">canvas</span><span class="o">.</span><span class="n">height</span><span class="o">-</span><span class="mi">20</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+            <span class="n">canvas</span><span class="o">.</span><span class="n">move_to</span><span class="p">(</span><span class="n">j</span><span class="p">,</span><span class="n">canvas</span><span class="o">.</span><span class="n">height</span><span class="o">-</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">-</span><span class="nb">min</span><span class="p">)</span><span class="o">*</span><span class="n">canvas</span><span class="o">.</span><span class="n">height</span><span class="o">/</span><span class="p">(</span><span class="nb">max</span><span class="o">-</span><span class="nb">min</span><span class="p">))</span>
+            <span class="n">canvas</span><span class="o">.</span><span class="n">line_to</span><span class="p">(</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">canvas</span><span class="o">.</span><span class="n">height</span><span class="o">-</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="nb">min</span><span class="p">)</span><span class="o">*</span><span class="n">canvas</span><span class="o">.</span><span class="n">height</span><span class="o">/</span><span class="p">(</span><span class="nb">max</span><span class="o">-</span><span class="nb">min</span><span class="p">))</span>
+        <span class="n">canvas</span><span class="o">.</span><span class="n">stroke</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">KeyboardInterrupt</span>                         Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-131-f7bc658ca79a&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-intense-fg ansi-bold">     22</span>         <span class="ansi-green-fg">for</span> j <span class="ansi-green-fg">in</span> range<span class="ansi-blue-fg">(</span>i<span class="ansi-blue-fg">-</span><span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">     23</span>             canvas<span class="ansi-blue-fg">.</span>move_to<span class="ansi-blue-fg">(</span>j<span class="ansi-blue-fg">,</span>canvas<span class="ansi-blue-fg">.</span>height<span class="ansi-blue-fg">-</span><span class="ansi-blue-fg">(</span>data<span class="ansi-blue-fg">[</span>j<span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">-</span>min<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">*</span>canvas<span class="ansi-blue-fg">.</span>height<span class="ansi-blue-fg">/</span><span class="ansi-blue-fg">(</span>max<span class="ansi-blue-fg">-</span>min<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-fg">---&gt; 24</span><span class="ansi-red-fg">             </span>canvas<span class="ansi-blue-fg">.</span>line_to<span class="ansi-blue-fg">(</span>j<span class="ansi-blue-fg">+</span><span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">,</span>canvas<span class="ansi-blue-fg">.</span>height<span class="ansi-blue-fg">-</span><span class="ansi-blue-fg">(</span>data<span class="ansi-blue-fg">[</span>j<span class="ansi-blue-fg">+</span><span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">-</span>min<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">*</span>canvas<span class="ansi-blue-fg">.</span>height<span class="ansi-blue-fg">/</span><span class="ansi-blue-fg">(</span>max<span class="ansi-blue-fg">-</span>min<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">     25</span>         canvas<span class="ansi-blue-fg">.</span>stroke<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">     26</span>
+
+<span class="ansi-red-fg">KeyboardInterrupt</span>:
+</pre></div></div>
+</div>
+<script type="application/vnd.jupyter.widget-state+json">
+{"state": {}, "version_major": 2, "version_minor": 0}
+</script></section>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          
+          
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2023, Frank Cichos
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            <div class="last-updated">
+              Last updated on Mar 30, 2023</div>
+          </div>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Python and Hardware</a><ul>
+<li><a class="reference internal" href="#Arduino-Nano-Board">Arduino Nano Board</a><ul>
+<li><a class="reference internal" href="#Arduino-Software">Arduino Software</a></li>
+<li><a class="reference internal" href="#Setup-your-board">Setup your board</a></li>
+<li><a class="reference internal" href="#Select-Firmata-Sketch">Select Firmata Sketch</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#Communicating-with-the-board">Communicating with the board</a></li>
+<li><a class="reference internal" href="#Let-the-on-board-LED-blink">Let the on-board LED blink</a><ul>
+<li><a class="reference internal" href="#Tunable-output">Tunable output</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#Creating-an-Oscilloscope">Creating an Oscilloscope</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/scripts/furo.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"equationNumbers": {"autoNumber": "AMS", "useLabelIds": true}}, "tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "tex2jax_ignore|mathjax_ignore|document", "processClass": "tex2jax_process|mathjax_process|math|output_area"}})</script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    </body>
+</html>
