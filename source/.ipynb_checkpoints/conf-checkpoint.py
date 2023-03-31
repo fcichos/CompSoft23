@@ -57,7 +57,7 @@ mathjax3_config = {
 
 #html_theme = 'sphinx_rtd_theme'
 #html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
-html_theme = 'sphinx_book_theme'
+html_theme = 'furo'
 
 #def setup(app):
 #    app.add_stylesheet('theme_overrides.css')
@@ -118,7 +118,9 @@ nbsphinx_prolog = r"""
 
     .. nbinfo::
         This page was generated from `{{ docname }}`.        
-        :raw-html:`<br/><a href="https://mybinder.org/v2/gh/fcichos/CompSoft23/master?urlpath=tree/source/{{ docname }}"><img alt="Binder badge" src="https://img.shields.io/badge/launch-%20myBinder-red.svg" style="vertical-align:text-bottom"></a>` :raw-html:`<br/><a href="https://colab.research.google.com/github/fcichos/CompSoft22/blob/master/source/{{ docname }}"><img alt="Binder badge" src="https://img.shields.io/badge/launch-%20colab-green.svg" style="vertical-align:text-bottom"></a>`
+        :raw-html:`<br/><a href="https://colab.research.google.com/github/fcichos/CompSoft22/blob/master/source/{{ docname }}"><img alt="Binder badge" src="https://img.shields.io/badge/launch-%20colab-green.svg" style="vertical-align:text-bottom"></a>`
+        :raw-html:`<br/><a href="https://mybinder.org/v2/gh/fcichos/CompSoft23/master?urlpath=tree/source/{{ docname }}"><img alt="Binder badge" src="https://img.shields.io/badge/launch-%20myBinder-red.svg" style="vertical-align:text-bottom"></a>` 
+        
 
 .. only:: latex
 
@@ -129,4 +131,4 @@ nbsphinx_allow_errors = True
 
 # Sphinx versioning settings
 scv_show_banner = True
-scv_whitelist_branches = ('main', 'develop')
+scv_whitelist_branches = ('main', 'master')
