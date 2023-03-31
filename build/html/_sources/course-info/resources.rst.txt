@@ -45,4 +45,4 @@ Julia Tutorial
 Pluto NoteBook
 ~~~~~~~~~~~~~~
 
-* `Pluto GitHub Webpage <https://github.com/fonsp/Pluto.jl>`_
+ * `Pluto GitHub Webpage <https://github.com/fonsp/Pluto.jl>`_

@@ -18,12 +18,12 @@
 # -- Project information -----------------------------------------------------
 
 project = 'Introduction to Computer-based Physical Modeling'
-copyright = '2022, Frank Cichos'
+copyright = '2023, Frank Cichos'
 author = 'Frank Cichos'
 master_doc = 'index'
 
 # The full version, including alpha/beta/rc tags
-release = '22'
+release = '23'
 
 
 # -- General configuration ---------------------------------------------------
@@ -43,7 +43,7 @@ extensions = [
 exclude_patterns = ['_build', '**.ipynb_checkpoints']
 templates_path = ['_templates']
 
-mathjax_config = {
+mathjax3_config = {
 'TeX': {'equationNumbers': {'autoNumber': 'AMS', 'useLabelIds': True}},
 }
 
@@ -97,7 +97,7 @@ html_context = {
     # Set the following variables to generate the resulting github URL for each page.
     # Format Template: https://{{ github_host|default("github.com") }}/{{ github_user }}/{{ github_repo }}/blob/{{ github_version }}{{ conf_py_path }}{{ pagename }}{{ suffix }}
     'github_user': 'fcichos',
-    'github_repo': 'CompSoft22',
+    'github_repo': 'CompSoft23',
     'github_version': 'main/',
     'conf_py_path': '/source/'
 }
@@ -117,7 +117,7 @@ nbsphinx_prolog = r"""
 
     .. nbinfo::
         This page was generated from `{{ docname }}`.        
-        :raw-html:`<br/><a href="https://mybinder.org/v2/gh/fcichos/CompSoft22/main?urlpath=tree/source/{{ docname }}"><img alt="Binder badge" src="https://img.shields.io/badge/launch-%20myBinder-red.svg" style="vertical-align:text-bottom"></a>` :raw-html:`<br/><a href="https://colab.research.google.com/github/fcichos/CompSoft22/blob/main/source/{{ docname }}"><img alt="Binder badge" src="https://img.shields.io/badge/launch-%20colab-green.svg" style="vertical-align:text-bottom"></a>`
+        :raw-html:`<br/><a href="https://mybinder.org/v2/gh/fcichos/CompSoft23/main?urlpath=tree/source/{{ docname }}"><img alt="Binder badge" src="https://img.shields.io/badge/launch-%20myBinder-red.svg" style="vertical-align:text-bottom"></a>` :raw-html:`<br/><a href="https://colab.research.google.com/github/fcichos/CompSoft22/blob/main/source/{{ docname }}"><img alt="Binder badge" src="https://img.shields.io/badge/launch-%20colab-green.svg" style="vertical-align:text-bottom"></a>`
 
 .. only:: latex
 

@@ -27,7 +27,7 @@ The videos shall
 
 The videos will be made available to all students in the course after they have been handed in. They will be able to rate the videos. The notbooks will be graded. 
 
-The deadline for handing in the project is **3. September 2022** 
+The deadline for handing in the project is **3. September 2023** 
 
 The projects and videos shall be handed in via the `Molecular Nanophotonics Website <https://home.uni-leipzig.de/~physik/sites/mona/teaching/periodic-lectures/introduction-to-computer-based-physical-modeling-ss-2021/>`_
 
