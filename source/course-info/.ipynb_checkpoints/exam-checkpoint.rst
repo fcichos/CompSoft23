@@ -36,7 +36,7 @@ Since many of you asked for some guiding topics abnd I as well hope that you do 
 
 
 Mechanics
-=========
+*********
 - planetary motion (of course)
 - the Brachistochrone, first find out what it is, and then simulate it
 - N-coupled pendula and mechanical waves
@@ -45,7 +45,7 @@ Mechanics
 
 
 Thermodynamics/Statistical Physics
-==================================
+**********************************
 - ideal gas law from microscopic particle motions and wall collisions
 - Maxwell deamon, find out what it is and simulate
 - entropy from microstates
@@ -54,7 +54,7 @@ Thermodynamics/Statistical Physics
 
 
 Optics
-======
+******
 - Caustics: ray tracing through spherical surfaces with paraxial approximation
 - Caustics: ray tracing through spherical surfaces without paraxial approximation
 - imaging errors, aberations 
@@ -63,7 +63,7 @@ Optics
 
 
 Electrodynamics
-===============
+***************
 - thin film interference
 - electromagnetic wave propagation through thin films (Fresnel coefficients)
 - double slit experiment with light 
@@ -72,7 +72,7 @@ Electrodynamics
 - array of freely rotating magnets
 
 Quantum Mechanics
-=================
+*****************
 - wave packet in a periodic potential
 - scattering of an electron on a coulomb potential (quantum mechanical)
 
