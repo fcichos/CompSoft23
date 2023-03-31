@@ -37,6 +37,7 @@ extensions = [
     'nbsphinx',
     'IPython.sphinxext.ipython_console_highlighting',
     'IPython.sphinxext.ipython_directive',
+    'furo.sphinxext',
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -71,9 +72,13 @@ html_last_updated_fmt = ""
 # documentation.
 #
 
+#html_theme_options = {
+#    "collapse_navigation" : False
+#}
+
 html_theme_options = {
-    "collapse_navigation" : False
-}
+        'show_toc_level' : 2
+ }
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
