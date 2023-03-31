@@ -3,12 +3,10 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Exams
-=====
+Exam
+====
 
-We will close this course with an exam in form of a final project.
-This final project shall be on a topic of your choice or on one of the topics we provide as example topics.
-**The final project shall be handed in as a Jupyter Notebook and a short Video presenting the notebook. Each individual student is required to hand in a Jupyter Notebook. No group work is allowed.
+We will close this course with an exam in form of a final project. This final project shall be on a topic of your choice or on one of the topics we provide as example topics. **The final project shall be handed in as a Jupyter Notebook and a short Video presenting the notebook.** Each individual student is required to hand in a Jupyter Notebook. No group work is allowed.
 
 All notebooks shall follow the following outline
 
@@ -29,7 +27,7 @@ The videos will be made available to all students in the course after they have 
 
 The deadline for handing in the project is **3. September 2023** 
 
-The projects and videos shall be handed in via the `Molecular Nanophotonics Website <https://home.uni-leipzig.de/~physik/sites/mona/teaching/periodic-lectures/introduction-to-computer-based-physical-modeling-ss-2021/>`_
+The projects and videos shall be handed in via the `Molecular Nanophotonics Website <https://home.uni-leipzig.de/~physik/sites/mona/>`_
 
 
 Since many of you asked for some guiding topics abnd I as well hope that you do not submit a simulation of planetary motion, here are some topics, though some of them might be for the advanced physicist.
@@ -49,7 +47,7 @@ Thermodynamics/Statistical Physics
 - ideal gas law from microscopic particle motions and wall collisions
 - Maxwell deamon, find out what it is and simulate
 - entropy from microstates
-- Carnot cycle 
+- Carnot cycle
 - Vicsek model, find out what it is and simulate
 
 
@@ -75,7 +73,3 @@ Quantum Mechanics
 *****************
 - wave packet in a periodic potential
 - scattering of an electron on a coulomb potential (quantum mechanical)
-
-
-
-
