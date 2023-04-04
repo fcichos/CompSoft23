@@ -18,7 +18,22 @@ This Website
 
 This website will contain all the information that are required for our **Computer-based Physical Modeling** Course course. You will find a new lecture and a new assignment every week. The lecture notebooks will be accompanied with videos explaining the lecture contents but you may get along with just reading as well. You will be guided from here to several resources that you can use to learn programming in Python. Thereby we will make use of some great tools in the web, like
 
-1. **myBinder** service to host Jupyter Notebooks (https://mybinder.org). The Binder project offers an easy place to share computing environments to everyone
+
+1. **Google Colab** service to host Jupyter Notebooks (https://colab.research.google.com) as well. The Google Colab project offers an advanced place to share computing environments to everyone
+
+    .. image:: img/colab.png
+       :width: 600px
+       :alt: google colab screen
+       :align: center
+
+    When you are exploring the following website you will notice the following icon on several places. 
+
+    |Substitution Name1|
+
+    This icon indicates that this webpage is based on a Jupyter Notebook. Rather than just looking at the website, you may click on the icon and the Google Colab service will be opened to allow you to interactively use the notebook. Google Colab opens much faster than myBinder, yet the notebooks are made to work with myBinder and not all features may work with Colab. Nevertheless, I'm working on the compatibility.
+
+
+2. **myBinder** service to host Jupyter Notebooks (https://mybinder.org). The Binder project offers an easy place to share computing environments to everyone
 
     .. image:: img/binder.png
        :width: 600px
@@ -31,18 +46,6 @@ This website will contain all the information that are required for our **Comput
 
     This icon indicates that this webpage is based on a Jupyter Notebook. Rather than just looking at the website, you may click on the icon and the myBinder service will be opened to allow you to interactively use the notebook. *Please be patient and wait until binder has started.*  All notebooks on myBinder will be hosted temporarily. If you show inactivity for to long, the server will close the connection. If you are finsihed working on a notebook, you may download it to keep a copy. Go ahead and click on the icon to get an empty notebook.
 
-2. **Google Colab** service to host Jupyter Notebooks (https://colab.research.google.com) as well. The Google Colab project offers an advanced place to share computing environments to everyone
-
-    .. image:: img/colab.png
-       :width: 600px
-       :alt: google colab screen
-       :align: center
-
-    When you are exploring the following website you will notice the following icon on several places. 
-
-    |Substitution Name1|
-
-    This icon indicates that this webpage is based on a Jupyter Notebook. Rather than just looking at the website, you may click on the icon and the Google Colab service will be opened to allow you to interactively use the notebook. Google Colab opens much faster than myBinder, yet the notebooks are made to work with myBinder and not all features may work with Colab. Nevertheless, I'm working on the compatibility.
 
 3. **GitHub and GitHub Pages** for hosting notebooks and website (https://github.com). GitHub is a great place to host you collaborative coding projects including version control. In the upper right corner, you will also find a link to the GitHub repository hosting the notebooks. 
 

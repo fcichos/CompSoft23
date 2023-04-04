@@ -6,13 +6,13 @@
 Resources
 =========
 
-There are tons of additional well structured resources on Python in the net. Below you find only a very small selection.
+There are tons of additional well-structured resources on Python in the net. Below you find only a very small selection.
 
 Molecular Nanophotonics Group
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
  * `Molecular Nanophotonics Group Website <https://home.uni-leipzig.de/~physik/sites/mona/>`_
- * `Computer-based Physical Modeling Website @ MONA <https://home.uni-leipzig.de/~physik/sites/mona/teaching/periodic-lectures/introduction-to-computer-based-physical-modeling-ss-2021/>`_
+ * `Computer-based Physical Modeling Website @ MONA <https://home.uni-leipzig.de/~physik/sites/mona/teaching/periodic-lectures/introduction-to-computer-based-physical-modeling-ss-2023/>`_
 
 
 Additional Advanced Courses 
