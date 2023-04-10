@@ -3,7 +3,7 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
-<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" />
+<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Random numbers" href="3_randomnumbers.html" /><link rel="prev" title="NumPy arrays" href="1_numpy.html" />
 
     <!-- Generated with Sphinx 6.1.3 and Furo 2023.03.27 -->
         <title>Plotting data - Introduction to Computer-based Physical Modeling 23 documentation</title>
@@ -183,6 +183,13 @@
 <li class="toctree-l1"><a class="reference internal" href="../L1/3_datatypes.html">Data Types in Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../L1/4_modules.html">Modules and namespaces</a></li>
 </ul>
+<p class="caption" role="heading"><span class="caption-text">Lecture 2:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../lectures/L2/overview_2.html">Lecture Contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_numpy.html">NumPy arrays</a></li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Plotting data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_randomnumbers.html">Random numbers</a></li>
+</ul>
 
 </div>
 </div>
@@ -221,45 +228,21 @@
 <span class="raw-html"><br/><a href="https://colab.research.google.com/github/fcichos/CompSoft22/blob/master/source/notebooks/L2/2_plotting.ipynb"><img alt="Binder badge" src="https://img.shields.io/badge/launch-%20colab-green.svg" style="vertical-align:text-bottom"></a></span>
 <span class="raw-html"><br/><a href="https://mybinder.org/v2/gh/fcichos/CompSoft23/master?urlpath=tree/source/notebooks/L2/2_plotting.ipynb"><img alt="Binder badge" src="https://img.shields.io/badge/launch-%20myBinder-red.svg" style="vertical-align:text-bottom"></a></span></p>
 </div>
-<h1><p>Table of Contents</p>
-</h1><div class="toc"><ul class="toc-item"><li><p>1  Plotting data</p>
-<ul class="toc-item"><li><p>1.1  Simple Plotting</p>
-<ul class="toc-item"><li><p>1.1.1  Line Plot</p>
-<ul class="toc-item"><li><p>1.1.1.1  Axis Labels</p>
-</li><li><p>1.1.1.2  Legends</p>
-</li></ul></li><li><p>1.1.2  Scatter plot</p>
-</li><li><p>1.1.3  Histograms</p>
-</li><li><p>1.1.4  Combined plots</p>
-</li></ul></li><li><p>1.2  Saving figures</p>
-</li><li><p>1.3  Plots with error bars</p>
-<ul class="toc-item"><li><p>1.3.1  Setting plotting limits and excluding data</p>
-<ul class="toc-item"><li><p>1.3.1.1  Masked arrays</p>
-</li></ul></li></ul></li><li><p>1.4  Logarithmic plots</p>
-<ul class="toc-item"><li><p>1.4.1  Semi-log plots</p>
-</li><li><p>1.4.2  Log-log plots</p>
-</li></ul></li><li><p>1.5  Arranging multiple plots</p>
-</li><li><p>1.6  Contour and Density Plots</p>
-<ul class="toc-item"><li><p>1.6.1  Simple contour plot</p>
-</li><li><p>1.6.2  Color contour plot</p>
-</li><li><p>1.6.3  Image plot</p>
-</li></ul></li><li><p>1.7  3D Plotting</p>
-<ul class="toc-item"><li><p>1.7.1  Projection Scence</p>
-</li><li><p>1.7.2  Line Plotting in 3D</p>
-</li><li><p>1.7.3  Surface Plotting</p>
-</li></ul></li><li><p>1.8  Additional Plotting</p>
-<ul class="toc-item"><li><p>1.8.1  Insets</p>
-</li><li><p>1.8.2  Spine axis</p>
-</li><li><p>1.8.3  Polar plot</p>
-</li></ul></li><li><p>1.9  Text annotation</p>
-</li></ul></li></ul></div><section id="Plotting-data">
+<section id="Plotting-data">
 <h1>Plotting data<a class="headerlink" href="#Plotting-data" title="Permalink to this heading">#</a></h1>
 <p>The graphical representation of data plotting is one of the most important tools for evaluating and understanding scientific data and theoretical predictions. However, plotting is not a part of core Python but is provided through one of several possible library modules. The de factor standard for plotting in Python is MatPlotLib. There are nevertheless several other very good modules like PlotLy, Seaborn, Bokeh and other available.</p>
 <p>Because MatPlotLib is an external library (in fact it’s a collection of libraries) it must be imported into any routine that uses it. MatPlotLib makes extensive use of NumPy so the two should be imported together. Therefore, for any program for which you would like to produce 2-d plots, you should include the lines</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>import matplotlib.pyplot as plt
 </pre></div>
 </div>
+<p>This already implies one way, the implicit interface of <code class="docutils literal notranslate"><span class="pre">pyplot</span></code> to create figures and plot. In general there are two interfaces:</p>
+<ul class="simple">
+<li><p>an implicit “pyplot” interface that keeps track of the last Figure and Axes created, and adds Artists to the object it thinks the user wants.</p></li>
+<li><p>an explicit “Axes” interface that uses methods on a Figure or Axes object to create other Artists, and build a visualization step by step. This has also been called an “object-oriented” interface.</p></li>
+</ul>
+<p>We will use most of the the the <code class="docutils literal notranslate"><span class="pre">pyplot</span></code> interface as in the examples below. The section <em>Additional Plotting</em> will refer to the explicit programming of figures.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -320,7 +303,7 @@
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_L2_2_plotting_10_0.png" class="no-scaled-link" src="../../_images/notebooks_L2_2_plotting_10_0.png" style="width: 392px; height: 250px;" />
+<img alt="../../_images/notebooks_L2_2_plotting_9_0.png" class="no-scaled-link" src="../../_images/notebooks_L2_2_plotting_9_0.png" style="width: 392px; height: 250px;" />
 </div>
 </div>
 <section id="Axis-Labels">
@@ -345,7 +328,7 @@ plt.ylabel(&#39;y-label&#39;)
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_L2_2_plotting_13_0.png" class="no-scaled-link" src="../../_images/notebooks_L2_2_plotting_13_0.png" style="width: 423px; height: 281px;" />
+<img alt="../../_images/notebooks_L2_2_plotting_12_0.png" class="no-scaled-link" src="../../_images/notebooks_L2_2_plotting_12_0.png" style="width: 423px; height: 281px;" />
 </div>
 </div>
 </section>
@@ -372,7 +355,7 @@ plt.legend(loc=&#39;lower left&#39;)
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_L2_2_plotting_15_0.png" class="no-scaled-link" src="../../_images/notebooks_L2_2_plotting_15_0.png" style="width: 423px; height: 281px;" />
+<img alt="../../_images/notebooks_L2_2_plotting_14_0.png" class="no-scaled-link" src="../../_images/notebooks_L2_2_plotting_14_0.png" style="width: 423px; height: 281px;" />
 </div>
 </div>
 </section>
@@ -399,7 +382,7 @@ plt.legend(loc=&#39;lower left&#39;)
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_L2_2_plotting_18_0.png" class="no-scaled-link" src="../../_images/notebooks_L2_2_plotting_18_0.png" style="width: 423px; height: 281px;" />
+<img alt="../../_images/notebooks_L2_2_plotting_17_0.png" class="no-scaled-link" src="../../_images/notebooks_L2_2_plotting_17_0.png" style="width: 423px; height: 281px;" />
 </div>
 </div>
 </section>
@@ -457,7 +440,7 @@ p(x)dx=\frac{1}{\pi \Delta x}\frac{dx}{\sqrt{1-\left (\frac{x(t)}{\Delta x}\righ
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_L2_2_plotting_29_0.png" class="no-scaled-link" src="../../_images/notebooks_L2_2_plotting_29_0.png" style="width: 409px; height: 281px;" />
+<img alt="../../_images/notebooks_L2_2_plotting_28_0.png" class="no-scaled-link" src="../../_images/notebooks_L2_2_plotting_28_0.png" style="width: 409px; height: 281px;" />
 </div>
 </div>
 </section>
@@ -495,7 +478,7 @@ p(x)dx=\frac{1}{\pi \Delta x}\frac{dx}{\sqrt{1-\left (\frac{x(t)}{\Delta x}\righ
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_L2_2_plotting_32_0.png" class="no-scaled-link" src="../../_images/notebooks_L2_2_plotting_32_0.png" style="width: 491px; height: 347px;" />
+<img alt="../../_images/notebooks_L2_2_plotting_31_0.png" class="no-scaled-link" src="../../_images/notebooks_L2_2_plotting_31_0.png" style="width: 491px; height: 347px;" />
 </div>
 </div>
 </section>
@@ -522,7 +505,7 @@ p(x)dx=\frac{1}{\pi \Delta x}\frac{dx}{\sqrt{1-\left (\frac{x(t)}{\Delta x}\righ
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_L2_2_plotting_35_0.png" class="no-scaled-link" src="../../_images/notebooks_L2_2_plotting_35_0.png" style="width: 534px; height: 390px;" />
+<img alt="../../_images/notebooks_L2_2_plotting_34_0.png" class="no-scaled-link" src="../../_images/notebooks_L2_2_plotting_34_0.png" style="width: 534px; height: 390px;" />
 </div>
 </div>
 </section>
@@ -558,7 +541,7 @@ p(x)dx=\frac{1}{\pi \Delta x}\frac{dx}{\sqrt{1-\left (\frac{x(t)}{\Delta x}\righ
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_L2_2_plotting_38_0.png" class="no-scaled-link" src="../../_images/notebooks_L2_2_plotting_38_0.png" style="width: 525px; height: 390px;" />
+<img alt="../../_images/notebooks_L2_2_plotting_37_0.png" class="no-scaled-link" src="../../_images/notebooks_L2_2_plotting_37_0.png" style="width: 525px; height: 390px;" />
 </div>
 </div>
 <section id="Setting-plotting-limits-and-excluding-data">
@@ -584,7 +567,7 @@ p(x)dx=\frac{1}{\pi \Delta x}\frac{dx}{\sqrt{1-\left (\frac{x(t)}{\Delta x}\righ
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_L2_2_plotting_41_0.png" class="no-scaled-link" src="../../_images/notebooks_L2_2_plotting_41_0.png" style="width: 500px; height: 365px;" />
+<img alt="../../_images/notebooks_L2_2_plotting_40_0.png" class="no-scaled-link" src="../../_images/notebooks_L2_2_plotting_40_0.png" style="width: 500px; height: 365px;" />
 </div>
 </div>
 <section id="Masked-arrays">
@@ -618,11 +601,11 @@ p(x)dx=\frac{1}{\pi \Delta x}\frac{dx}{\sqrt{1-\left (\frac{x(t)}{\Delta x}\righ
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_L2_2_plotting_43_0.png" class="no-scaled-link" src="../../_images/notebooks_L2_2_plotting_43_0.png" style="width: 487px; height: 365px;" />
+<img alt="../../_images/notebooks_L2_2_plotting_42_0.png" class="no-scaled-link" src="../../_images/notebooks_L2_2_plotting_42_0.png" style="width: 487px; height: 365px;" />
 </div>
 </div>
 <p>If you look at the resulting array, you will find, that the entries have not been removed but replaced by <code class="docutils literal notranslate"><span class="pre">--</span></code>, so the values are not existent and thefore not plotted.</p>
-<p><img alt="7ee4018ddcce442aaa2df0541438ec26" class="no-scaled-link" src="../../_images/masked.png" style="width: 400px;" /></p>
+<p><img alt="51f95702953e42c8a2ba0798ca8a1e84" class="no-scaled-link" src="../../_images/masked.png" style="width: 400px;" /></p>
 </section>
 </section>
 </section>
@@ -661,7 +644,7 @@ p(x)dx=\frac{1}{\pi \Delta x}\frac{dx}{\sqrt{1-\left (\frac{x(t)}{\Delta x}\righ
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_L2_2_plotting_47_0.png" class="no-scaled-link" src="../../_images/notebooks_L2_2_plotting_47_0.png" style="width: 418px; height: 346px;" />
+<img alt="../../_images/notebooks_L2_2_plotting_46_0.png" class="no-scaled-link" src="../../_images/notebooks_L2_2_plotting_46_0.png" style="width: 418px; height: 346px;" />
 </div>
 </div>
 </section>
@@ -693,7 +676,7 @@ p(x)dx=\frac{1}{\pi \Delta x}\frac{dx}{\sqrt{1-\left (\frac{x(t)}{\Delta x}\righ
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_L2_2_plotting_49_0.png" class="no-scaled-link" src="../../_images/notebooks_L2_2_plotting_49_0.png" style="width: 643px; height: 283px;" />
+<img alt="../../_images/notebooks_L2_2_plotting_48_0.png" class="no-scaled-link" src="../../_images/notebooks_L2_2_plotting_48_0.png" style="width: 643px; height: 283px;" />
 </div>
 </div>
 </section>
@@ -736,7 +719,7 @@ p(x)dx=\frac{1}{\pi \Delta x}\frac{dx}{\sqrt{1-\left (\frac{x(t)}{\Delta x}\righ
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_L2_2_plotting_51_0.png" class="no-scaled-link" src="../../_images/notebooks_L2_2_plotting_51_0.png" style="width: 562px; height: 563px;" />
+<img alt="../../_images/notebooks_L2_2_plotting_50_0.png" class="no-scaled-link" src="../../_images/notebooks_L2_2_plotting_50_0.png" style="width: 562px; height: 563px;" />
 </div>
 </div>
 </section>
@@ -801,7 +784,7 @@ I(r)\propto |U(r)|^2
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_L2_2_plotting_58_0.png" class="no-scaled-link" src="../../_images/notebooks_L2_2_plotting_58_0.png" style="width: 389px; height: 359px;" />
+<img alt="../../_images/notebooks_L2_2_plotting_57_0.png" class="no-scaled-link" src="../../_images/notebooks_L2_2_plotting_57_0.png" style="width: 389px; height: 359px;" />
 </div>
 </div>
 </section>
@@ -822,7 +805,7 @@ I(r)\propto |U(r)|^2
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_L2_2_plotting_60_0.png" class="no-scaled-link" src="../../_images/notebooks_L2_2_plotting_60_0.png" style="width: 415px; height: 365px;" />
+<img alt="../../_images/notebooks_L2_2_plotting_59_0.png" class="no-scaled-link" src="../../_images/notebooks_L2_2_plotting_59_0.png" style="width: 415px; height: 365px;" />
 </div>
 </div>
 </section>
@@ -844,7 +827,7 @@ I(r)\propto |U(r)|^2
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_L2_2_plotting_62_0.png" class="no-scaled-link" src="../../_images/notebooks_L2_2_plotting_62_0.png" style="width: 415px; height: 352px;" />
+<img alt="../../_images/notebooks_L2_2_plotting_61_0.png" class="no-scaled-link" src="../../_images/notebooks_L2_2_plotting_61_0.png" style="width: 415px; height: 352px;" />
 </div>
 </div>
 </section>
@@ -888,7 +871,7 @@ Text(0.5, 0, &#39;z&#39;)
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_L2_2_plotting_67_1.png" class="no-scaled-link" src="../../_images/notebooks_L2_2_plotting_67_1.png" style="width: 572px; height: 340px;" />
+<img alt="../../_images/notebooks_L2_2_plotting_66_1.png" class="no-scaled-link" src="../../_images/notebooks_L2_2_plotting_66_1.png" style="width: 572px; height: 340px;" />
 </div>
 </div>
 <p>With this three-dimensional axes enabled, we can now plot a variety of three-dimensional plot types. Three-dimensional plotting is one of the functionalities that benefits immensely from viewing figures interactively rather than statically in the notebook; recall that to use interactive figures, you can use %matplotlib notebook rather than %matplotlib inline when running this code.</p>
@@ -923,7 +906,7 @@ Text(0.5, 0, &#39;z&#39;)
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_L2_2_plotting_70_0.png" class="no-scaled-link" src="../../_images/notebooks_L2_2_plotting_70_0.png" style="width: 572px; height: 340px;" />
+<img alt="../../_images/notebooks_L2_2_plotting_69_0.png" class="no-scaled-link" src="../../_images/notebooks_L2_2_plotting_69_0.png" style="width: 572px; height: 340px;" />
 </div>
 </div>
 <p>Notice that by default, the scatter points have their transparency adjusted to give a sense of depth on the page. While the three-dimensional effect is sometimes difficult to see within a static image, an interactive view can lead to some nice intuition about the layout of the points. Use the <code class="docutils literal notranslate"><span class="pre">scatter3D</span></code> or the <code class="docutils literal notranslate"><span class="pre">plot3D</span></code> method to plot a random walk in 3-dimensions in your exercise.</p>
@@ -977,14 +960,16 @@ Text(0.5, 0, &#39;z&#39;)
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_L2_2_plotting_75_0.png" class="no-scaled-link" src="../../_images/notebooks_L2_2_plotting_75_0.png" style="width: 572px; height: 340px;" />
+<img alt="../../_images/notebooks_L2_2_plotting_74_0.png" class="no-scaled-link" src="../../_images/notebooks_L2_2_plotting_74_0.png" style="width: 572px; height: 340px;" />
 </div>
 </div>
 </section>
 </section>
 <section id="Additional-Plotting">
 <h2>Additional Plotting<a class="headerlink" href="#Additional-Plotting" title="Permalink to this heading">#</a></h2>
-<p>While we have so far largely relied on the default setting and the automatic arrangement of plots, there is also a way to precisely design your plot. Python provides the tools of object oriented programming and thus modules provide classes which can be instanced into objects. This is also the case</p>
+<p>While we have so far largely relied on the default setting and the automatic arrangement of plots, there is also a way to precisely design your plot. Python provides the tools of object oriented programming and thus modules provide classes which can be instanced into objects. This explicit interfaces allows you to control all details without the automatisms of <code class="docutils literal notranslate"><span class="pre">pyplot</span></code>.</p>
+<p>The figure below, which is taken from the matplotlib documentation website shows the sets of commands and the objects in the figure, the commands refer to. It is a nice reference, when creating a figure.</p>
+<img alt="anatomy of a figure" src="../../_images/anatomy_oaf.png" />
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
@@ -1024,7 +1009,7 @@ Text(0.5, 0, &#39;z&#39;)
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_L2_2_plotting_80_0.png" class="no-scaled-link" src="../../_images/notebooks_L2_2_plotting_80_0.png" style="width: 458px; height: 345px;" />
+<img alt="../../_images/notebooks_L2_2_plotting_81_0.png" class="no-scaled-link" src="../../_images/notebooks_L2_2_plotting_81_0.png" style="width: 458px; height: 345px;" />
 </div>
 </div>
 </section>
@@ -1054,7 +1039,7 @@ Text(0.5, 0, &#39;z&#39;)
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_L2_2_plotting_82_0.png" class="no-scaled-link" src="../../_images/notebooks_L2_2_plotting_82_0.png" style="width: 349px; height: 231px;" />
+<img alt="../../_images/notebooks_L2_2_plotting_83_0.png" class="no-scaled-link" src="../../_images/notebooks_L2_2_plotting_83_0.png" style="width: 349px; height: 231px;" />
 </div>
 </div>
 </section>
@@ -1076,7 +1061,7 @@ Text(0.5, 0, &#39;z&#39;)
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_L2_2_plotting_84_0.png" class="no-scaled-link" src="../../_images/notebooks_L2_2_plotting_84_0.png" style="width: 236px; height: 223px;" />
+<img alt="../../_images/notebooks_L2_2_plotting_85_0.png" class="no-scaled-link" src="../../_images/notebooks_L2_2_plotting_85_0.png" style="width: 236px; height: 223px;" />
 </div>
 </div>
 </section>
@@ -1101,7 +1086,7 @@ Text(0.5, 0, &#39;z&#39;)
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_L2_2_plotting_87_0.png" class="no-scaled-link" src="../../_images/notebooks_L2_2_plotting_87_0.png" style="width: 378px; height: 250px;" />
+<img alt="../../_images/notebooks_L2_2_plotting_88_0.png" class="no-scaled-link" src="../../_images/notebooks_L2_2_plotting_88_0.png" style="width: 378px; height: 250px;" />
 </div>
 </div>
 <script type="application/vnd.jupyter.widget-state+json">
@@ -1114,8 +1099,26 @@ Text(0.5, 0, &#39;z&#39;)
       <footer>
         
         <div class="related-pages">
-          
-          
+          <a class="next-page" href="3_randomnumbers.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">Random numbers</div>
+              </div>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="1_numpy.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">NumPy arrays</div>
+                
+              </div>
+            </a>
         </div>
         <div class="bottom-of-page">
           <div class="left-details">
