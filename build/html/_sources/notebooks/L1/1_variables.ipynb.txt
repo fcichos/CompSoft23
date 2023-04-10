@@ -16,7 +16,8 @@
    "metadata": {
     "slideshow": {
      "slide_type": "subslide"
-    }
+    },
+    "tags": []
    },
    "source": [
     "## Symbol names \n",
