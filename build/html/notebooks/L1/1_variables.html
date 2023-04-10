@@ -331,7 +331,28 @@ int
 </section>
 <section id="Number-types">
 <h2>Number types<a class="headerlink" href="#Number-types" title="Permalink to this heading">#</a></h2>
-<p>Python allows as any programming language different types of variables. The type of a variable can be always accessed with the help of the <em>type()</em> command.</p>
+<p>Python allows as any programming language different types of variables. The type of a variable can be always accessed with the help of the <em>type()</em> command. The variable can store different data types. A list of different data types can be found in the notebook on data types. Here we treat numbers or the numeric data type a bit special.</p>
+<p>Numbers can be represented in different number systems by adding a special character in the number</p>
+<div class="table-wrapper docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Number System</p></th>
+<th class="head"><p>Prefix</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Binary</p></td>
+<td><p>0b or 0B</p></td>
+</tr>
+<tr class="row-odd"><td><p>Octal</p></td>
+<td><p>0o or 0O</p></td>
+</tr>
+<tr class="row-even"><td><p>Hexadecimal</p></td>
+<td><p>00x or 0X</p></td>
+</tr>
+</tbody>
+</table>
+</div>
 <section id="Integers">
 <h3>Integers<a class="headerlink" href="#Integers" title="Permalink to this heading">#</a></h3>
 <p>Python treats numbers without a decimal point automatically as an integer. In Python 2 there has been a maximum integer possible, which does not exist in Python 3 anymore.</p>
@@ -352,6 +373,42 @@ int
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 int
+</pre></div></div>
+</div>
+<p>a binary number</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mb">0b10101</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+21
+</pre></div></div>
+</div>
+<p>a hexadecimal number</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mh">0xFE</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+254
 </pre></div></div>
 </div>
 </section>
@@ -484,8 +541,112 @@ inf
 </pre></div></div>
 </div>
 </section>
-<section id="Type-casting">
-<h3>Type casting<a class="headerlink" href="#Type-casting" title="Permalink to this heading">#</a></h3>
+<section id="Type-conversion">
+<h3>Type conversion<a class="headerlink" href="#Type-conversion" title="Permalink to this heading">#</a></h3>
+<p>Different number types can be converted into each other in python. There is either an</p>
+<ol class="arabic simple">
+<li><p>implicit</p></li>
+<li><p>explicit</p></li>
+</ol>
+<p>way of type conversion.</p>
+<p>The <strong>implicit conversion</strong> can be very useful but also dangerous. Python automatically may convers one data type to another, which is known as implicit type conversion.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">integer_number</span> <span class="o">=</span> <span class="mi">123</span>
+<span class="n">float_number</span> <span class="o">=</span> <span class="mf">1.23</span>
+
+<span class="nb">type</span><span class="p">(</span><span class="n">integer_number</span><span class="p">),</span><span class="nb">type</span><span class="p">(</span><span class="n">float_number</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+(int, float)
+</pre></div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">new_number</span><span class="o">=</span><span class="n">integer_number</span><span class="o">+</span><span class="n">float_number</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">new_number</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+float
+</pre></div></div>
+</div>
+<p>In <strong>explicit type conversion</strong>, users convert the data type of an object to required data type using the built-in functions like int(), float(), str(), etc to perform explicit type conversion.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">num_string</span> <span class="o">=</span> <span class="s1">&#39;12&#39;</span>
+<span class="n">num_integer</span> <span class="o">=</span> <span class="mi">23</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">num_string</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+str
+</pre></div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">num_string</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">num_string</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">num_string</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+int
+</pre></div></div>
+</div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[39]:
 </pre></div>
@@ -650,7 +811,7 @@ float
 <li><a class="reference internal" href="#Integers">Integers</a></li>
 <li><a class="reference internal" href="#Floating-Point">Floating Point</a></li>
 <li><a class="reference internal" href="#Complex-Numbers">Complex Numbers</a></li>
-<li><a class="reference internal" href="#Type-casting">Type casting</a></li>
+<li><a class="reference internal" href="#Type-conversion">Type conversion</a></li>
 </ul>
 </li>
 </ul>

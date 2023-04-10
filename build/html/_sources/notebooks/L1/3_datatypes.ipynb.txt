@@ -19,7 +19,18 @@
     }
    },
    "source": [
-    "It's time to look at different data types we may find useful in our course. Besides the number types mentioned previously, there are also other types like **strings**, **lists**, **tuples** and **dictionaries**. \n",
+    "It's time to look at different data types we may find useful in our course. Besides the number types mentioned previously, there are also other types like **strings**, **lists**, **tuples**, **dictionaries** and **sets**. \n",
+    "\n",
+    "| Data Types | Classes | Description |\n",
+    "| :--- | :--- | :--- |\n",
+    "| Numeric | int, float, complex | holds numeric values |\n",
+    "| String | str | stores sequence of characters |\n",
+    "| Sequence| list, tuple, range | stores collection of items |\n",
+    "| Mapping | dict | stores data as a key-value:pair  |\n",
+    "| Boolean | bool | holds either True or False | \n",
+    "| Set | set, frozeenset | hold collection of unique items |\n",
+    "\n",
+    "\n",
     "\n",
     "Each of these data types has a number of connected `methods` (functions) which allow to manipulate the data contained in a variable. If you want to know which methods are available for a certain object use the command `dir`, e.g.\n",
     "\n",
@@ -46,7 +57,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 3,
+   "execution_count": 53,
    "metadata": {
     "ExecuteTime": {
      "end_time": "2018-04-16T15:05:13.381263Z",
@@ -54,7 +65,8 @@
     },
     "slideshow": {
      "slide_type": "fragment"
-    }
+    },
+    "tags": []
    },
    "outputs": [
     {
@@ -63,7 +75,7 @@
        "'Hello'"
       ]
      },
-     "execution_count": 3,
+     "execution_count": 53,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -1226,6 +1238,248 @@
    ],
    "source": [
     "room.values()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Sets\n",
+    "\n",
+    "\n",
+    "**Sets** are like lists but have immutable unique entries, which means the elements can not be changed once defined. \n",
+    "An emtpy set is created by the `set()` method. \n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Phone ID: {112, 114, 115, 116, 118}\n"
+     ]
+    }
+   ],
+   "source": [
+    "phone_id = {112, 114, 116, 118, 115}\n",
+    "print('Phone ID:', phone_id)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 47,
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "set"
+      ]
+     },
+     "execution_count": 47,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "type(phone_id)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 20,
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Fruits: {'Strawberry', 'Banana', 'Mango', 'Kiwi'}\n"
+     ]
+    }
+   ],
+   "source": [
+    "fruits = {'Banana', 'Mango', 'Kiwi', 'Strawberry', 'Mango'}\n",
+    "print('Fruits:', fruits)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 21,
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Set of mixed data types: {112, 'Python', -2, 'Good'}\n"
+     ]
+    }
+   ],
+   "source": [
+    "mixed_set = {'Python', 112, -2, 'Good'}\n",
+    "print('Set of mixed data types:', mixed_set)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "You may add elements to a set with the `add` method:\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 50,
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [],
+   "source": [
+    "fruits.add(\"Orange\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 51,
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "{'Banana', 'Kiwi', 'Mango', 'Orange', 'Strawberry'}"
+      ]
+     },
+     "execution_count": 51,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "fruits"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "You may also remove objects with the `discard` method:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 24,
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [],
+   "source": [
+    "fruits.discard(\"Orange\")"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "tags": []
+   },
+   "source": [
+    "You may also apply a variety of operation to sets checking their *intersection*, *union* or *difference*."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 32,
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [],
+   "source": [
+    "A = {1, 3, 5}\n",
+    "B = {1, 2, 3}"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 34,
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "{1, 3}"
+      ]
+     },
+     "execution_count": 34,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "#intersection\n",
+    "A & B"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 43,
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "{2, 5}"
+      ]
+     },
+     "execution_count": 43,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "#symmetric difference\n",
+    "A^B"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 45,
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "{1, 2, 3, 5}"
+      ]
+     },
+     "execution_count": 45,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# union\n",
+    "A | B"
    ]
   }
  ],

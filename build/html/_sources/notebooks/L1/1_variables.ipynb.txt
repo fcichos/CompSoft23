@@ -240,7 +240,15 @@
     }
    },
    "source": [
-    "Python allows as any programming language different types of variables. The type of a variable can be always accessed with the help of the *type()* command. "
+    "Python allows as any programming language different types of variables. The type of a variable can be always accessed with the help of the *type()* command. The variable can store different data types. A list of different data types can be found in the notebook on data types. Here we treat numbers or the numeric data type a bit special. \n",
+    "\n",
+    "Numbers can be represented in different number systems by adding a special character in the number \n",
+    "\n",
+    "| Number System | Prefix |\n",
+    "| :--- | :--- |\n",
+    "| Binary | 0b or 0B |\n",
+    "| Octal | 0o or 0O |\n",
+    "| Hexadecimal | 00x or 0X |"
    ]
   },
   {
@@ -285,6 +293,66 @@
     "# integer number\n",
     "x = 1 \n",
     "type(x)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "a binary number"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 6,
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "21"
+      ]
+     },
+     "execution_count": 6,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "0b10101"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "tags": []
+   },
+   "source": [
+    "a hexadecimal number "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 8,
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "254"
+      ]
+     },
+     "execution_count": 8,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "0xFE"
    ]
   },
   {
@@ -498,12 +566,156 @@
   {
    "cell_type": "markdown",
    "metadata": {
-    "slideshow": {
-     "slide_type": "slide"
-    }
+    "tags": []
    },
    "source": [
-    "### Type casting"
+    "### Type conversion\n",
+    "\n",
+    "Different number types can be converted into each other in python. There is either an \n",
+    "\n",
+    "1) implicit \n",
+    "2) explicit \n",
+    "\n",
+    "way of type conversion.\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "The **implicit conversion** can be very useful but also dangerous. Python automatically may convers one data type to another, which is known as implicit type conversion."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 19,
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "(int, float)"
+      ]
+     },
+     "execution_count": 19,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "integer_number = 123\n",
+    "float_number = 1.23\n",
+    "\n",
+    "type(integer_number),type(float_number)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 20,
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [],
+   "source": [
+    "new_number=integer_number+float_number"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 17,
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "float"
+      ]
+     },
+     "execution_count": 17,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "type(new_number)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "In **explicit type conversion**, users convert the data type of an object to required data type using the built-in functions like int(), float(), str(), etc to perform explicit type conversion."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 24,
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [],
+   "source": [
+    "num_string = '12'\n",
+    "num_integer = 23"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 25,
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "str"
+      ]
+     },
+     "execution_count": 25,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "type(num_string)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 26,
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [],
+   "source": [
+    "num_string = int(num_string)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 27,
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "int"
+      ]
+     },
+     "execution_count": 27,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "type(num_string)"
    ]
   },
   {
