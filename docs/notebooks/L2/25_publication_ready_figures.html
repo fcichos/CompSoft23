@@ -225,7 +225,7 @@
         <article role="main">
           <div class="admonition note">
 <p>This page was generated from <cite>notebooks/L2/25_publication_ready_figures.ipynb</cite>.
-<span class="raw-html"><br/><a href="https://colab.research.google.com/github/fcichos/CompSoft22/blob/master/source/notebooks/L2/25_publication_ready_figures.ipynb"><img alt="Binder badge" src="https://img.shields.io/badge/launch-%20colab-green.svg" style="vertical-align:text-bottom"></a></span>
+<span class="raw-html"><br/><a href="https://colab.research.google.com/github/fcichos/CompSoft23/blob/master/source/notebooks/L2/25_publication_ready_figures.ipynb"><img alt="Binder badge" src="https://img.shields.io/badge/launch-%20colab-green.svg" style="vertical-align:text-bottom"></a></span>
 <span class="raw-html"><br/><a href="https://mybinder.org/v2/gh/fcichos/CompSoft23/master?urlpath=tree/source/notebooks/L2/25_publication_ready_figures.ipynb"><img alt="Binder badge" src="https://img.shields.io/badge/launch-%20myBinder-red.svg" style="vertical-align:text-bottom"></a></span></p>
 </div>
 <section id="Making-publication-ready-figures">
@@ -262,6 +262,99 @@ used without scaling, i.e. by `</span>includegraphics{Figure 1.pdf}``to show up 
 If you want to be completely independent</p></li>
 <li><p>The <code class="docutils literal notranslate"><span class="pre">plt.savefig</span></code>command uses and additional <code class="docutils literal notranslate"><span class="pre">bbox_inches</span> <span class="pre">=</span> <span class="pre">'tight'</span></code>parameter, which ensures that the bounding box is really enclosing all plot components accurately.</p></li>
 </ul>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#| label: fig-1</span>
+<span class="c1">#| fig-cap: Real part of the electric field of a plane wave propagating along the z-axis.</span>
+<span class="c1">#| echo: false</span>
+
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s1">&#39;font.size&#39;</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span>
+                     <span class="s1">&#39;lines.linewidth&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+                     <span class="s1">&#39;lines.markersize&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+                     <span class="s1">&#39;axes.labelsize&#39;</span><span class="p">:</span> <span class="mi">11</span><span class="p">,</span>
+                     <span class="s1">&#39;xtick.labelsize&#39;</span> <span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+                     <span class="s1">&#39;ytick.labelsize&#39;</span> <span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+                     <span class="s1">&#39;xtick.top&#39;</span> <span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+                     <span class="s1">&#39;xtick.direction&#39;</span> <span class="p">:</span> <span class="s1">&#39;in&#39;</span><span class="p">,</span>
+                     <span class="s1">&#39;ytick.right&#39;</span> <span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+                     <span class="s1">&#39;ytick.direction&#39;</span> <span class="p">:</span> <span class="s1">&#39;in&#39;</span><span class="p">,})</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">150</span><span class="p">)</span>
+<span class="n">x</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="mi">4</span><span class="p">,</span><span class="mi">200</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">),</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;angle $\theta$ in [rad]&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$\sin(\theta)$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;figure_example1.pdf&quot;</span><span class="p">,</span><span class="n">bbox_inches</span> <span class="o">=</span> <span class="s1">&#39;tight&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<br/></pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/notebooks_L2_25_publication_ready_figures_3_0.png" src="../../_images/notebooks_L2_25_publication_ready_figures_3_0.png" />
+</div>
+</div>
+</section>
+<section id="Creating-a-plot-with-a-specific-axis-frame-size">
+<h2>Creating a plot with a specific axis frame size<a class="headerlink" href="#Creating-a-plot-with-a-specific-axis-frame-size" title="Permalink to this heading">#</a></h2>
+<p>The axis frame is the box of the frame providing the axes. When creating a figure with the <code class="docutils literal notranslate"><span class="pre">plt.figure()</span></code> command the axis frame is calculated by matplotlib to be inside the bounding box specified by the <code class="docutils literal notranslate"><span class="pre">figsize</span></code>, such that all axis annotations fit inside as well. The axis frame is therefore smaller than the specified bounding box and often depends on the axis labels and additional things. If you want to create a plot with a fixed size of the axis frame, it is useful to add a function to
+your code that sets this size of the axis frame. This function could be</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>def set_size(w,h, ax=None):
+    &quot;&quot;&quot; w, h: width, height in inches &quot;&quot;&quot;
+    if not ax: ax=plt.gca()
+    l = ax.figure.subplotpars.left
+    r = ax.figure.subplotpars.right
+    t = ax.figure.subplotpars.top
+    b = ax.figure.subplotpars.bottom
+    figw = float(w)/(r-l)
+    figh = float(h)/(t-b)
+    ax.figure.set_size_inches(figw, figh)
+</pre></div>
+</div>
+<p>where you have to specify the desired width and height (in inches) of the current axis <em>ax</em>. The function does not return anything but sets directly the size.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#| label: fig-2</span>
+<span class="c1">#| fig-cap: Real part of the electric field of a plane wave propagating along the z-axis.</span>
+<span class="c1">#| echo: false</span>
+<span class="k">def</span> <span class="nf">set_size</span><span class="p">(</span><span class="n">w</span><span class="p">,</span><span class="n">h</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; w, h: width, height in inches &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">ax</span><span class="p">:</span> <span class="n">ax</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span>
+    <span class="n">l</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">figure</span><span class="o">.</span><span class="n">subplotpars</span><span class="o">.</span><span class="n">left</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">figure</span><span class="o">.</span><span class="n">subplotpars</span><span class="o">.</span><span class="n">right</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">figure</span><span class="o">.</span><span class="n">subplotpars</span><span class="o">.</span><span class="n">top</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">figure</span><span class="o">.</span><span class="n">subplotpars</span><span class="o">.</span><span class="n">bottom</span>
+    <span class="n">figw</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">w</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">r</span><span class="o">-</span><span class="n">l</span><span class="p">)</span>
+    <span class="n">figh</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">h</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">t</span><span class="o">-</span><span class="n">b</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">figure</span><span class="o">.</span><span class="n">set_size_inches</span><span class="p">(</span><span class="n">figw</span><span class="p">,</span> <span class="n">figh</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">dpi</span><span class="o">=</span><span class="mi">150</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">axes</span><span class="p">()</span>
+<span class="mi">3</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">),</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;angle $\theta$ in [rad]&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$\sin(\theta)$&quot;</span><span class="p">)</span>
+<span class="n">set_size</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;figure_example2.pdf&quot;</span><span class="p">,</span><span class="n">bbox_inches</span> <span class="o">=</span> <span class="s1">&#39;tight&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/notebooks_L2_25_publication_ready_figures_5_0.png" src="../../_images/notebooks_L2_25_publication_ready_figures_5_0.png" />
+</div>
+</div>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
@@ -315,6 +408,7 @@ If you want to be completely independent</p></li>
             <ul>
 <li><a class="reference internal" href="#">Making publication ready figures</a><ul>
 <li><a class="reference internal" href="#Creating-a-plot-with-a-specific-bounding-box-size">Creating a plot with a specific bounding box size</a></li>
+<li><a class="reference internal" href="#Creating-a-plot-with-a-specific-axis-frame-size">Creating a plot with a specific axis frame size</a></li>
 </ul>
 </li>
 </ul>
