@@ -110,6 +110,22 @@
   },
   {
    "cell_type": "markdown",
+   "id": "58122149-0e24-4058-bc05-ab7c16c0f4a5",
+   "metadata": {},
+   "source": [
+    "Loading this figure into any software will result in a Figure with a size corresponding to the adjusted width."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "666a7d27-b505-4e98-9358-63bae9cc2a35",
+   "metadata": {},
+   "source": [
+    "![](img/bbox_size.png)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
    "id": "608919fc-ad7e-4a0c-b76b-ca0e6fa1c553",
    "metadata": {
     "tags": []
@@ -179,6 +195,22 @@
     "set_size(3,2)\n",
     "plt.savefig(\"figure_example2.pdf\",bbox_inches = 'tight')\n",
     "plt.show()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "23ae89a9-b55f-42ec-b9b6-fcd7a3dbb401",
+   "metadata": {},
+   "source": [
+    "If you load this Figure into a graphics software or text processing software, the Figure box, should have a dimension of 7.62 cm times 5.08 cm, without any rescaling:"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "bda410b3-4259-4cac-a7ba-b76088c3fe59",
+   "metadata": {},
+   "source": [
+    "![](img/box_size.png)"
    ]
   }
  ],
