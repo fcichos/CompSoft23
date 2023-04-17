@@ -48,11 +48,12 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 4,
+   "execution_count": 2,
    "metadata": {
     "slideshow": {
      "slide_type": "fragment"
-    }
+    },
+    "tags": []
    },
    "outputs": [
     {
@@ -65,8 +66,11 @@
    ],
    "source": [
     "import math\n",
+    "import numpy\n",
     "\n",
     "x = math.sqrt(2 * math.pi)\n",
+    "x = numpy.sqrt(2 * numpy.pi)\n",
+    "\n",
     "\n",
     "print(x)"
    ]
@@ -84,11 +88,12 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 7,
+   "execution_count": 4,
    "metadata": {
     "slideshow": {
      "slide_type": "fragment"
-    }
+    },
+    "tags": []
    },
    "outputs": [
     {
@@ -142,11 +147,12 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 6,
+   "execution_count": 5,
    "metadata": {
     "slideshow": {
      "slide_type": "fragment"
-    }
+    },
+    "tags": []
    },
    "outputs": [
     {
@@ -178,29 +184,16 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 7,
+   "execution_count": 6,
    "metadata": {
     "slideshow": {
      "slide_type": "fragment"
-    }
+    },
+    "tags": []
    },
-   "outputs": [
-    {
-     "data": {
-      "text/plain": [
-       "11.548739357257746"
-      ]
-     },
-     "execution_count": 7,
-     "metadata": {},
-     "output_type": "execute_result"
-    }
-   ],
+   "outputs": [],
    "source": [
-    "from math import sinh as mysinh\n",
-    "from math import pi as mypi\n",
-    "\n",
-    "mysinh(mypi)"
+    "from math import sinh as mysinh"
    ]
   },
   {
@@ -227,18 +220,19 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 8,
+   "execution_count": 11,
    "metadata": {
     "slideshow": {
      "slide_type": "fragment"
-    }
+    },
+    "tags": []
    },
    "outputs": [
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "['__doc__', '__file__', '__loader__', '__name__', '__package__', '__spec__', 'acos', 'acosh', 'asin', 'asinh', 'atan', 'atan2', 'atanh', 'ceil', 'copysign', 'cos', 'cosh', 'degrees', 'e', 'erf', 'erfc', 'exp', 'expm1', 'fabs', 'factorial', 'floor', 'fmod', 'frexp', 'fsum', 'gamma', 'gcd', 'hypot', 'inf', 'isclose', 'isfinite', 'isinf', 'isnan', 'ldexp', 'lgamma', 'log', 'log10', 'log1p', 'log2', 'modf', 'nan', 'pi', 'pow', 'radians', 'remainder', 'sin', 'sinh', 'sqrt', 'tan', 'tanh', 'tau', 'trunc']\n"
+      "['__doc__', '__file__', '__loader__', '__name__', '__package__', '__spec__', 'acos', 'acosh', 'asin', 'asinh', 'atan', 'atan2', 'atanh', 'ceil', 'comb', 'copysign', 'cos', 'cosh', 'degrees', 'dist', 'e', 'erf', 'erfc', 'exp', 'expm1', 'fabs', 'factorial', 'floor', 'fmod', 'frexp', 'fsum', 'gamma', 'gcd', 'hypot', 'inf', 'isclose', 'isfinite', 'isinf', 'isnan', 'isqrt', 'ldexp', 'lgamma', 'log', 'log10', 'log1p', 'log2', 'modf', 'nan', 'perm', 'pi', 'pow', 'prod', 'radians', 'remainder', 'sin', 'sinh', 'sqrt', 'tan', 'tanh', 'tau', 'trunc']\n"
      ]
     }
    ],
@@ -261,11 +255,12 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 9,
+   "execution_count": 12,
    "metadata": {
     "slideshow": {
      "slide_type": "fragment"
-    }
+    },
+    "tags": []
    },
    "outputs": [
     {
@@ -289,11 +284,12 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 10,
+   "execution_count": 13,
    "metadata": {
     "slideshow": {
      "slide_type": "fragment"
-    }
+    },
+    "tags": []
    },
    "outputs": [
     {
@@ -302,7 +298,7 @@
        "2.302585092994046"
       ]
      },
-     "execution_count": 10,
+     "execution_count": 13,
      "metadata": {},
      "output_type": "execute_result"
     }
