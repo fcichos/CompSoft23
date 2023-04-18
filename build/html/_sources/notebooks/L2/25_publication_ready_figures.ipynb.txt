@@ -260,9 +260,10 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 24,
+   "execution_count": 60,
    "id": "3ffd0d57-1d06-4a28-b36e-231da752e4ec",
    "metadata": {
+    "scrolled": true,
     "tags": []
    },
    "outputs": [
@@ -708,7 +709,7 @@
        "<IPython.core.display.HTML object>"
       ]
      },
-     "execution_count": 24,
+     "execution_count": 60,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -721,7 +722,7 @@
     "def make_html(fontname):\n",
     "    return \"<p>{font}: <span style='font-family:{font}; font-size: 24px;'>{font}</p>\".format(font=fontname)\n",
     "\n",
-    "code = \"\\n\".join([make_html(font) for font in sorted(set([f.name for f in matplotlib.font_manager.fontManager.ttflist]))])\n",
+    "code = \"\\n\".join([make_html(font) for font in sorted(set([f.name for f in font_manager.fontManager.ttflist]))])\n",
     "\n",
     "HTML(\"<div style='column-count: 2;'>{}</div>\".format(code))"
    ]
