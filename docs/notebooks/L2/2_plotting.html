@@ -3,7 +3,7 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
-<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Random numbers" href="3_randomnumbers.html" /><link rel="prev" title="NumPy arrays" href="1_numpy.html" />
+<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Exercise 2" href="../../lectures/L2/assignment_2.html" /><link rel="prev" title="NumPy arrays" href="1_numpy.html" />
 
     <!-- Generated with Sphinx 6.1.3 and Furo 2023.03.27 -->
         <title>Plotting data - Introduction to Computer-based Physical Modeling 23 documentation</title>
@@ -189,7 +189,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../../lectures/L2/overview_2.html">Lecture Contents</a></li>
 <li class="toctree-l1"><a class="reference internal" href="1_numpy.html">NumPy arrays</a></li>
 <li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Plotting data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="3_randomnumbers.html">Random numbers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../lectures/L2/assignment_2.html">Exercise 2</a></li>
 <li class="toctree-l1"><a class="reference internal" href="25_publication_ready_figures.html">Add On: Making publication ready figures</a></li>
 </ul>
@@ -246,7 +245,7 @@
 </ul>
 <p>We will use most of the the the <code class="docutils literal notranslate"><span class="pre">pyplot</span></code> interface as in the examples below. The section <em>Additional Plotting</em> will refer to the explicit programming of figures.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[78]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -263,10 +262,10 @@
 </div>
 <p>function, which takes a dictionary with the specific parameters as key.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[93]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s1">&#39;font.size&#39;</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s1">&#39;font.size&#39;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
                      <span class="s1">&#39;axes.titlesize&#39;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
                      <span class="s1">&#39;axes.labelsize&#39;</span><span class="p">:</span> <span class="mi">14</span><span class="p">,</span>
                      <span class="s1">&#39;axes.labelpad&#39;</span><span class="p">:</span> <span class="mi">14</span><span class="p">,</span>
@@ -292,7 +291,7 @@
 </div>
 <p>command. You may, however, modify in the parameters the appearance of the plot to a scatter plot. But by default, it creates a line plot.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[100]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">4.</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
@@ -318,7 +317,7 @@ plt.ylabel(&#39;y-label&#39;)
 </pre></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[94]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="c1"># using x-axis</span>
@@ -343,10 +342,10 @@ plt.legend(loc=&#39;lower left&#39;)
 </pre></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[112]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">),</span><span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;$\lambda(x)$&#39;</span><span class="p">)</span> <span class="c1">#define an additional label</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">),</span><span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;$\lambda(x)$&quot;</span><span class="p">)</span> <span class="c1">#define an additional label</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;t&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;sin(t)&#39;</span><span class="p">)</span>
 
@@ -372,10 +371,10 @@ plt.legend(loc=&#39;lower left&#39;)
 </div>
 <p>command of pylab. Note that the scatter command requires a <em>x</em> and <em>y</em> values and you can set the marker symbol (see an overview of the <a class="reference external" href="https://matplotlib.org/api/markers_api.html">marker symbols</a>).</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[107]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">),</span><span class="n">marker</span><span class="o">=</span><span class="s1">&#39;+&#39;</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">),</span><span class="n">marker</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;t&#39;</span><span class="p">)</span> <span class="c1"># set the x-axis label</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span> <span class="c1"># set the y-axis label</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
@@ -397,7 +396,7 @@ plt.legend(loc=&#39;lower left&#39;)
 <p class="admonition-title"><strong>Note:</strong> Physics Interlude</p>
 <p>Probability density for finding an oscillating particle</p>
 </div>
-<p>We want to use this occasion to combine histograms with some physics problem. Lets have a look at the simple harmonic oscillators in one dimension, which as yoou remember follows the following equation of motion.</p>
+<p>We want to use this occasion to combine histograms with some physics problem. Lets have a look at the simple harmonic oscillators in one dimension, which as you remember follows the following equation of motion.</p>
 <p><span class="math">\begin{equation}
 \ddot{x}(t)=-\omega^{2}x(t)
 \end{equation}</span></p>
@@ -419,12 +418,23 @@ p(x)dx=\frac{1}{\pi \Delta x}\frac{dx}{\sqrt{1-\left (\frac{x(t)}{\Delta x}\righ
 \end{equation}</span></p>
 <p>This is the probability density of finding an oscillating spring at a certain elongation <span class="math notranslate nohighlight">\(x(t)\)</span>. If you look at the example more closely, it tells you, that you find and elongation more likely when the speed of the mass is low. This is even a more general issue in non-equilibrium physics. If cells or cars are moving with variable speed, they are more likely to be found at places where they are slow.</p>
 <p>This can be also addressed with the histogram function. If we use the solution of the equation of motion and evaluate the position at equidistant times, the the historgram over the corresponding positions will tell us the probability of finding a certain position value if normalized properly.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[116]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[127]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span><span class="mi">10000</span><span class="p">)</span>
-<span class="n">b</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">1.1</span><span class="p">,</span><span class="mf">1.1</span><span class="p">,</span><span class="mi">50</span><span class="p">)</span>
+<span class="n">y</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+<span class="n">ymin</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">y</span><span class="p">)</span><span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+<span class="n">ymax</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">y</span><span class="p">)</span><span class="o">+</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+<span class="n">b</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">ymin</span><span class="p">,</span><span class="n">ymax</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
 
 <span class="c1"># plot the histogram</span>
 <span class="n">n</span><span class="p">,</span> <span class="n">bins</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">t</span><span class="p">),</span><span class="n">bins</span><span class="o">=</span><span class="n">b</span><span class="p">,</span><span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;lightgreen&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;histogram&#39;</span><span class="p">)</span>
@@ -444,7 +454,7 @@ p(x)dx=\frac{1}{\pi \Delta x}\frac{dx}{\sqrt{1-\left (\frac{x(t)}{\Delta x}\righ
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_L2_2_plotting_28_0.png" class="no-scaled-link" src="../../_images/notebooks_L2_2_plotting_28_0.png" style="width: 585px; height: 449px;" />
+<img alt="../../_images/notebooks_L2_2_plotting_29_0.png" class="no-scaled-link" src="../../_images/notebooks_L2_2_plotting_29_0.png" style="width: 590px; height: 449px;" />
 </div>
 </div>
 </section>
@@ -482,7 +492,7 @@ p(x)dx=\frac{1}{\pi \Delta x}\frac{dx}{\sqrt{1-\left (\frac{x(t)}{\Delta x}\righ
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_L2_2_plotting_31_0.png" class="no-scaled-link" src="../../_images/notebooks_L2_2_plotting_31_0.png" style="width: 684px; height: 485px;" />
+<img alt="../../_images/notebooks_L2_2_plotting_32_0.png" class="no-scaled-link" src="../../_images/notebooks_L2_2_plotting_32_0.png" style="width: 684px; height: 485px;" />
 </div>
 </div>
 </section>
@@ -509,7 +519,7 @@ p(x)dx=\frac{1}{\pi \Delta x}\frac{dx}{\sqrt{1-\left (\frac{x(t)}{\Delta x}\righ
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_L2_2_plotting_34_0.png" class="no-scaled-link" src="../../_images/notebooks_L2_2_plotting_34_0.png" style="width: 723px; height: 541px;" />
+<img alt="../../_images/notebooks_L2_2_plotting_35_0.png" class="no-scaled-link" src="../../_images/notebooks_L2_2_plotting_35_0.png" style="width: 723px; height: 541px;" />
 </div>
 </div>
 </section>
@@ -517,7 +527,7 @@ p(x)dx=\frac{1}{\pi \Delta x}\frac{dx}{\sqrt{1-\left (\frac{x(t)}{\Delta x}\righ
 <h2>Plots with error bars<a class="headerlink" href="#Plots-with-error-bars" title="Permalink to this heading">#</a></h2>
 <p>When plotting experimental data it is customary to include error bars that indicate graphically the degree of uncertainty that exists in the measurement of each data point. The MatPlotLib function errorbar plots data with error bars attached. It can be used in a way that either replaces or augments the plot function. Both vertical and horizontal error bars can be displayed. The figure below illustrates the use of error bars.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[130]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -545,7 +555,7 @@ p(x)dx=\frac{1}{\pi \Delta x}\frac{dx}{\sqrt{1-\left (\frac{x(t)}{\Delta x}\righ
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_L2_2_plotting_37_0.png" class="no-scaled-link" src="../../_images/notebooks_L2_2_plotting_37_0.png" style="width: 715px; height: 541px;" />
+<img alt="../../_images/notebooks_L2_2_plotting_38_0.png" class="no-scaled-link" src="../../_images/notebooks_L2_2_plotting_38_0.png" style="width: 715px; height: 541px;" />
 </div>
 </div>
 <section id="Setting-plotting-limits-and-excluding-data">
@@ -571,7 +581,7 @@ p(x)dx=\frac{1}{\pi \Delta x}\frac{dx}{\sqrt{1-\left (\frac{x(t)}{\Delta x}\righ
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_L2_2_plotting_40_0.png" class="no-scaled-link" src="../../_images/notebooks_L2_2_plotting_40_0.png" style="width: 682px; height: 509px;" />
+<img alt="../../_images/notebooks_L2_2_plotting_41_0.png" class="no-scaled-link" src="../../_images/notebooks_L2_2_plotting_41_0.png" style="width: 682px; height: 509px;" />
 </div>
 </div>
 <section id="Masked-arrays">
@@ -605,11 +615,11 @@ p(x)dx=\frac{1}{\pi \Delta x}\frac{dx}{\sqrt{1-\left (\frac{x(t)}{\Delta x}\righ
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_L2_2_plotting_42_0.png" class="no-scaled-link" src="../../_images/notebooks_L2_2_plotting_42_0.png" style="width: 669px; height: 509px;" />
+<img alt="../../_images/notebooks_L2_2_plotting_43_0.png" class="no-scaled-link" src="../../_images/notebooks_L2_2_plotting_43_0.png" style="width: 669px; height: 509px;" />
 </div>
 </div>
 <p>If you look at the resulting array, you will find, that the entries have not been removed but replaced by <code class="docutils literal notranslate"><span class="pre">--</span></code>, so the values are not existent and thefore not plotted.</p>
-<p><img alt="901956f577334d0ebb68815f7311df69" class="no-scaled-link" src="../../_images/masked.png" style="width: 400px;" /></p>
+<p><img alt="fafc321aa8904695abd2924e8a86e1a6" class="no-scaled-link" src="../../_images/masked.png" style="width: 400px;" /></p>
 </section>
 </section>
 </section>
@@ -621,20 +631,19 @@ p(x)dx=\frac{1}{\pi \Delta x}\frac{dx}{\sqrt{1-\left (\frac{x(t)}{\Delta x}\righ
 <p>For data sets that vary exponentially in the independent variable, it is often useful to use one or more logarithmic axes. Radioactive decay of unstable nuclei, for example, exhibits an exponential decrease in the number of particles emitted from the nuclei as a function of time.</p>
 <p>MatPlotLib provides two functions for making semi-logarithmic plots, semilogx and semilogy, for creating plots with logarithmic x and y axes, with linear y and x axes, respectively. We illustrate their use in the program below, which made the above plots.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[139]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># create theoretical curve</span>
 <span class="n">tau</span> <span class="o">=</span> <span class="mf">20.2</span> <span class="c1"># Phosphorus-32 half life = 14 days; tau = t_half/ln(2)</span>
 <span class="n">N0</span> <span class="o">=</span> <span class="mf">8200.</span> <span class="c1"># Initial count rate (per second)</span>
-<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">180</span><span class="p">,</span> <span class="mi">128</span><span class="p">)</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">180</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span>
 <span class="n">N</span> <span class="o">=</span> <span class="n">N0</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">t</span><span class="o">/</span><span class="n">tau</span><span class="p">)</span>
 
 <span class="c1"># create plot</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span> <span class="p">)</span>
 
-<span class="n">plt</span><span class="o">.</span><span class="n">semilogy</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="s1">&#39;b-&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;theory&quot;</span><span class="p">)</span>
-<span class="c1">#plt.semilogy(time, counts, &#39;ro&#39;, label=&quot;data&quot;)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">semilogy</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="s1">&#39;bo&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;theory&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;time (days)&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;counts per second&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper right&#39;</span><span class="p">)</span>
@@ -648,7 +657,7 @@ p(x)dx=\frac{1}{\pi \Delta x}\frac{dx}{\sqrt{1-\left (\frac{x(t)}{\Delta x}\righ
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_L2_2_plotting_46_0.png" class="no-scaled-link" src="../../_images/notebooks_L2_2_plotting_46_0.png" style="width: 583px; height: 485px;" />
+<img alt="../../_images/notebooks_L2_2_plotting_47_0.png" class="no-scaled-link" src="../../_images/notebooks_L2_2_plotting_47_0.png" style="width: 559px; height: 461px;" />
 </div>
 </div>
 </section>
@@ -656,7 +665,7 @@ p(x)dx=\frac{1}{\pi \Delta x}\frac{dx}{\sqrt{1-\left (\frac{x(t)}{\Delta x}\righ
 <h3>Log-log plots<a class="headerlink" href="#Log-log-plots" title="Permalink to this heading">#</a></h3>
 <p>MatPlotLib can also make log-log or double-logarithmic plots using the function loglog. It is useful when both the <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> data span many orders of magnitude. Data that are described by a power law <span class="math notranslate nohighlight">\(y=Ax^b\)</span>, where <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(b\)</span> are constants, appear as straight lines when plotted on a log-log plot. Again, the loglog function works just like the plot function but with logarithmic axes.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[142]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># create theoretical fitting curve</span>
@@ -664,10 +673,12 @@ p(x)dx=\frac{1}{\pi \Delta x}\frac{dx}{\sqrt{1-\left (\frac{x(t)}{\Delta x}\righ
 <span class="n">N0</span> <span class="o">=</span> <span class="mf">8200.</span> <span class="c1"># Initial count rate (per second)</span>
 <span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mi">180</span><span class="p">,</span> <span class="mi">128</span><span class="p">)</span>
 <span class="n">N</span> <span class="o">=</span> <span class="n">N0</span> <span class="o">*</span> <span class="n">t</span><span class="o">**</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">N1</span> <span class="o">=</span> <span class="n">N0</span> <span class="o">*</span> <span class="n">t</span><span class="o">**</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>
 
 <span class="c1"># create plot</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span> <span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span> <span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">loglog</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="s1">&#39;b-&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;theory&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">loglog</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">N1</span><span class="p">,</span> <span class="s1">&#39;r-&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;theory&quot;</span><span class="p">)</span>
 <span class="c1">#plt.plot(time, counts, &#39;ro&#39;, label=&quot;data&quot;)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;time (days)&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;counts per second&#39;</span><span class="p">)</span>
@@ -680,7 +691,7 @@ p(x)dx=\frac{1}{\pi \Delta x}\frac{dx}{\sqrt{1-\left (\frac{x(t)}{\Delta x}\righ
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_L2_2_plotting_48_0.png" class="no-scaled-link" src="../../_images/notebooks_L2_2_plotting_48_0.png" style="width: 876px; height: 388px;" />
+<img alt="../../_images/notebooks_L2_2_plotting_49_0.png" class="no-scaled-link" src="../../_images/notebooks_L2_2_plotting_49_0.png" style="width: 566px; height: 388px;" />
 </div>
 </div>
 </section>
@@ -688,8 +699,8 @@ p(x)dx=\frac{1}{\pi \Delta x}\frac{dx}{\sqrt{1-\left (\frac{x(t)}{\Delta x}\righ
 <section id="Arranging-multiple-plots">
 <h2>Arranging multiple plots<a class="headerlink" href="#Arranging-multiple-plots" title="Permalink to this heading">#</a></h2>
 <p>Often you want to create two or more graphs and place them next to one another, generally because they are related to each other in some way.</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[143]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">theta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">0.01</span><span class="p">,</span> <span class="mf">8.</span><span class="p">,</span> <span class="mf">0.04</span><span class="p">)</span>
@@ -699,7 +710,14 @@ p(x)dx=\frac{1}{\pi \Delta x}\frac{dx}{\sqrt{1-\left (\frac{x(t)}{\Delta x}\righ
 <span class="n">ycot</span> <span class="o">=</span> <span class="mf">1.</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">tan</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span>
 
 <span class="n">ycot</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">masked_where</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">ycot</span><span class="p">)</span><span class="o">&gt;</span><span class="mf">20.</span><span class="p">,</span> <span class="n">ycot</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[145]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">theta</span><span class="p">,</span> <span class="n">ytan</span><span class="p">)</span>
@@ -723,7 +741,7 @@ p(x)dx=\frac{1}{\pi \Delta x}\frac{dx}{\sqrt{1-\left (\frac{x(t)}{\Delta x}\righ
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_L2_2_plotting_50_0.png" class="no-scaled-link" src="../../_images/notebooks_L2_2_plotting_50_0.png" style="width: 782px; height: 786px;" />
+<img alt="../../_images/notebooks_L2_2_plotting_52_0.png" class="no-scaled-link" src="../../_images/notebooks_L2_2_plotting_52_0.png" style="width: 758px; height: 761px;" />
 </div>
 </div>
 </section>
@@ -742,7 +760,7 @@ U(r)=U_{0}\frac{e^{-i\,k r}}{r}
 \end{equation}</span></p>
 <p>where <span class="math notranslate nohighlight">\(U_{0}\)</span> is the amplitude, <span class="math notranslate nohighlight">\(k\)</span> the magnitude of the k-vector, i.e. <span class="math notranslate nohighlight">\(k=2\pi/\lambda\)</span> and <span class="math notranslate nohighlight">\(r=\sqrt{x^2+y^2}\)</span> the distance, here in 2 dimensions. Note that the total wavefunction also contains a temporal part such that</p>
 <p><span class="math">\begin{equation}
-U(r,t)=U_{0}\frac{e^{-i\,k r}}{r}*e^{i\omega t}
+U(r,t)=U_{0}\frac{e^{-i\,k r}}{r}e^{i\omega t}
 \end{equation}</span></p>
 <p>We will however ignore the temporal factor, as we are interested in the spatial interference pattern with a time-averaged intensity.</p>
 <p>To show interference, we just use two of those monochromatic waves located at <span class="math notranslate nohighlight">\(\vec{r}_{1}\)</span> and <span class="math notranslate nohighlight">\(\vec{r}_{2}\)</span>.</p>
@@ -757,7 +775,7 @@ I(r)\propto |U(r)|^2
 \end{equation}</span></p>
 <p>To keep it simple we will skip the <span class="math notranslate nohighlight">\(1/r\)</span> amplitude decay.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[150]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lmda</span> <span class="o">=</span> <span class="mi">2</span> <span class="c1"># defines the wavelength</span>
@@ -768,38 +786,19 @@ I(r)\propto |U(r)|^2
 
 
 <span class="n">X</span><span class="p">,</span> <span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
-<span class="n">Z</span><span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="n">X</span><span class="o">-</span><span class="n">x01</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="n">Y</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="n">lmda</span><span class="p">)</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="n">X</span><span class="o">-</span><span class="n">x02</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="n">Y</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="n">lmda</span><span class="p">))</span><span class="o">**</span><span class="mi">2</span>
+<span class="n">I</span><span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="n">X</span><span class="o">-</span><span class="n">x01</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="n">Y</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="n">lmda</span><span class="p">)</span>
+          <span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="n">X</span><span class="o">-</span><span class="n">x02</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="n">Y</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="n">lmda</span><span class="p">))</span><span class="o">**</span><span class="mi">2</span>
 </pre></div>
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[159]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
 
 <span class="c1">#contour plot</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">contour</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">Z</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="../../_images/notebooks_L2_2_plotting_57_0.png" class="no-scaled-link" src="../../_images/notebooks_L2_2_plotting_57_0.png" style="width: 511px; height: 503px;" />
-</div>
-</div>
-</section>
-<section id="Color-contour-plot">
-<h3>Color contour plot<a class="headerlink" href="#Color-contour-plot" title="Permalink to this heading">#</a></h3>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">Z</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">contour</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">I</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
@@ -809,18 +808,39 @@ I(r)\propto |U(r)|^2
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_L2_2_plotting_59_0.png" class="no-scaled-link" src="../../_images/notebooks_L2_2_plotting_59_0.png" style="width: 561px; height: 509px;" />
+<img alt="../../_images/notebooks_L2_2_plotting_59_0.png" class="no-scaled-link" src="../../_images/notebooks_L2_2_plotting_59_0.png" style="width: 495px; height: 504px;" />
+</div>
+</div>
+</section>
+<section id="Color-contour-plot">
+<h3>Color contour plot<a class="headerlink" href="#Color-contour-plot" title="Permalink to this heading">#</a></h3>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[162]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">I</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/notebooks_L2_2_plotting_61_0.png" class="no-scaled-link" src="../../_images/notebooks_L2_2_plotting_61_0.png" style="width: 561px; height: 509px;" />
 </div>
 </div>
 </section>
 <section id="Image-plot">
 <h3>Image plot<a class="headerlink" href="#Image-plot" title="Permalink to this heading">#</a></h3>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[165]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span> <span class="n">Z</span><span class="p">,</span><span class="n">extent</span><span class="o">=</span><span class="p">[</span><span class="mi">10</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">],</span><span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;jet&#39;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span> <span class="n">I</span><span class="p">,</span><span class="n">extent</span><span class="o">=</span><span class="p">[</span><span class="mi">10</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">],</span><span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">);</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
@@ -831,7 +851,7 @@ I(r)\propto |U(r)|^2
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_L2_2_plotting_61_0.png" class="no-scaled-link" src="../../_images/notebooks_L2_2_plotting_61_0.png" style="width: 561px; height: 489px;" />
+<img alt="../../_images/notebooks_L2_2_plotting_63_0.png" class="no-scaled-link" src="../../_images/notebooks_L2_2_plotting_63_0.png" style="width: 561px; height: 489px;" />
 </div>
 </div>
 </section>
@@ -845,7 +865,7 @@ I(r)\propto |U(r)|^2
 <h3>Plots with Multiple Spines<a class="headerlink" href="#Plots-with-Multiple-Spines" title="Permalink to this heading">#</a></h3>
 <p>Sometimes it is very useful to plot different quantities in the same plot with the same x-axis but with different y-axes. Here is some example, where each line plot has its own y-axis.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[77]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[170]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
@@ -878,7 +898,7 @@ I(r)\propto |U(r)|^2
 <span class="n">twin1</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">colors</span><span class="o">=</span><span class="n">p2</span><span class="o">.</span><span class="n">get_color</span><span class="p">())</span>
 <span class="n">twin2</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">colors</span><span class="o">=</span><span class="n">p3</span><span class="o">.</span><span class="n">get_color</span><span class="p">())</span>
 
-<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">handles</span><span class="o">=</span><span class="p">[</span><span class="n">p1</span><span class="p">,</span> <span class="n">p2</span><span class="p">,</span> <span class="n">p3</span><span class="p">])</span>
+<span class="c1">#ax.legend(handles=[p1, p2, p3])</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
@@ -888,7 +908,7 @@ I(r)\propto |U(r)|^2
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_L2_2_plotting_68_0.png" class="no-scaled-link" src="../../_images/notebooks_L2_2_plotting_68_0.png" style="width: 651px; height: 455px;" />
+<img alt="../../_images/notebooks_L2_2_plotting_70_0.png" class="no-scaled-link" src="../../_images/notebooks_L2_2_plotting_70_0.png" style="width: 651px; height: 455px;" />
 </div>
 </div>
 </section>
@@ -905,13 +925,13 @@ I(r)\propto |U(r)|^2
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[54]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[175]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
 
 <span class="n">axes1</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_axes</span><span class="p">([</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">])</span> <span class="c1"># main axes</span>
-<span class="n">axes2</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_axes</span><span class="p">([</span><span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">])</span> <span class="c1"># inset axes</span>
+<span class="n">axes2</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_axes</span><span class="p">([</span><span class="mf">0.35</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">])</span> <span class="c1"># inset axes</span>
 
 <span class="c1"># main figure</span>
 <span class="n">axes1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
@@ -932,7 +952,7 @@ I(r)\propto |U(r)|^2
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_L2_2_plotting_72_0.png" class="no-scaled-link" src="../../_images/notebooks_L2_2_plotting_72_0.png" style="width: 660px; height: 541px;" />
+<img alt="../../_images/notebooks_L2_2_plotting_74_0.png" class="no-scaled-link" src="../../_images/notebooks_L2_2_plotting_74_0.png" style="width: 660px; height: 541px;" />
 </div>
 </div>
 </section>
@@ -962,7 +982,7 @@ I(r)\propto |U(r)|^2
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_L2_2_plotting_74_0.png" class="no-scaled-link" src="../../_images/notebooks_L2_2_plotting_74_0.png" style="width: 519px; height: 389px;" />
+<img alt="../../_images/notebooks_L2_2_plotting_76_0.png" class="no-scaled-link" src="../../_images/notebooks_L2_2_plotting_76_0.png" style="width: 519px; height: 389px;" />
 </div>
 </div>
 </section>
@@ -984,7 +1004,7 @@ I(r)\propto |U(r)|^2
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_L2_2_plotting_76_0.png" class="no-scaled-link" src="../../_images/notebooks_L2_2_plotting_76_0.png" style="width: 366px; height: 353px;" />
+<img alt="../../_images/notebooks_L2_2_plotting_78_0.png" class="no-scaled-link" src="../../_images/notebooks_L2_2_plotting_78_0.png" style="width: 366px; height: 353px;" />
 </div>
 </div>
 </section>
@@ -1008,7 +1028,7 @@ I(r)\propto |U(r)|^2
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_L2_2_plotting_79_0.png" class="no-scaled-link" src="../../_images/notebooks_L2_2_plotting_79_0.png" style="width: 561px; height: 410px;" />
+<img alt="../../_images/notebooks_L2_2_plotting_81_0.png" class="no-scaled-link" src="../../_images/notebooks_L2_2_plotting_81_0.png" style="width: 561px; height: 410px;" />
 </div>
 </div>
 </section>
@@ -1016,7 +1036,7 @@ I(r)\propto |U(r)|^2
 <h3>3D Plotting<a class="headerlink" href="#3D-Plotting" title="Permalink to this heading">#</a></h3>
 <p>Matplotlib was initially designed with only two-dimensional plotting in mind. Around the time of the 1.0 release, some three-dimensional plotting utilities were built on top of Matplotlib’s two-dimensional display, and the result is a convenient (if somewhat limited) set of tools for three-dimensional data visualization. Three-dimensional plots are enabled by importing the mplot3d toolkit, included with the main Matplotlib installation:</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[176]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">mpl_toolkits</span> <span class="kn">import</span> <span class="n">mplot3d</span>
@@ -1027,14 +1047,14 @@ I(r)\propto |U(r)|^2
 <section id="Projection-Scence">
 <h4>Projection Scence<a class="headerlink" href="#Projection-Scence" title="Permalink to this heading">#</a></h4>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[67]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[181]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
 <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">axes</span><span class="p">(</span><span class="n">projection</span><span class="o">=</span><span class="s1">&#39;3d&#39;</span><span class="p">)</span>
-<span class="c1"># ax.set_proj_type(&#39;ortho&#39;)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_proj_type</span><span class="p">(</span><span class="s1">&#39;persp&#39;</span><span class="p">,</span> <span class="n">focal_length</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
-<span class="c1">#ax.view_init(elev=40., azim=50)</span>
+<span class="c1">#ax.set_proj_type(&#39;ortho&#39;)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_proj_type</span><span class="p">(</span><span class="s1">&#39;persp&#39;</span><span class="p">,</span> <span class="n">focal_length</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">view_init</span><span class="p">(</span><span class="n">elev</span><span class="o">=</span><span class="mf">40.</span><span class="p">,</span> <span class="n">azim</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_zlabel</span><span class="p">(</span><span class="s1">&#39;z&#39;</span><span class="p">)</span>
@@ -1046,7 +1066,7 @@ I(r)\propto |U(r)|^2
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_L2_2_plotting_84_0.png" class="no-scaled-link" src="../../_images/notebooks_L2_2_plotting_84_0.png" style="width: 500px; height: 503px;" />
+<img alt="../../_images/notebooks_L2_2_plotting_86_0.png" class="no-scaled-link" src="../../_images/notebooks_L2_2_plotting_86_0.png" style="width: 556px; height: 513px;" />
 </div>
 </div>
 <p>With this three-dimensional axes enabled, we can now plot a variety of three-dimensional plot types. Three-dimensional plotting is one of the functionalities that benefits immensely from viewing figures interactively rather than statically in the notebook; recall that to use interactive figures, you can use %matplotlib notebook rather than %matplotlib inline when running this code.</p>
@@ -1055,7 +1075,7 @@ I(r)\propto |U(r)|^2
 <h4>Line Plotting in 3D<a class="headerlink" href="#Line-Plotting-in-3D" title="Permalink to this heading">#</a></h4>
 <p>from sets of (x, y, z) triples. In analogy with the more common two-dimensional plots discussed earlier, these can be created using the <code class="docutils literal notranslate"><span class="pre">ax.plot3D</span></code> and <code class="docutils literal notranslate"><span class="pre">ax.scatter3D</span></code> functions. The call signature for these is nearly identical to that of their two-dimensional counterparts, so you can refer to Simple Line Plots and Simple Scatter Plots for more information on controlling the output. Here we’ll plot a trigonometric spiral, along with some points drawn randomly near the line:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[47]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[182]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
@@ -1073,7 +1093,8 @@ I(r)\propto |U(r)|^2
 <span class="n">zdata</span> <span class="o">=</span> <span class="mi">15</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
 <span class="n">xdata</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">zdata</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.1</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
 <span class="n">ydata</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">zdata</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.1</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">scatter3D</span><span class="p">(</span><span class="n">xdata</span><span class="p">,</span> <span class="n">ydata</span><span class="p">,</span> <span class="n">zdata</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">zdata</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;Greens&#39;</span><span class="p">);</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter3D</span><span class="p">(</span><span class="n">xdata</span><span class="p">,</span> <span class="n">ydata</span><span class="p">,</span> <span class="n">zdata</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">zdata</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;Greens&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -1081,7 +1102,7 @@ I(r)\propto |U(r)|^2
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_L2_2_plotting_87_0.png" class="no-scaled-link" src="../../_images/notebooks_L2_2_plotting_87_0.png" style="width: 496px; height: 482px;" />
+<img alt="../../_images/notebooks_L2_2_plotting_89_0.png" class="no-scaled-link" src="../../_images/notebooks_L2_2_plotting_89_0.png" style="width: 496px; height: 482px;" />
 </div>
 </div>
 <p>Notice that by default, the scatter points have their transparency adjusted to give a sense of depth on the page. While the three-dimensional effect is sometimes difficult to see within a static image, an interactive view can lead to some nice intuition about the layout of the points. Use the <code class="docutils literal notranslate"><span class="pre">scatter3D</span></code> or the <code class="docutils literal notranslate"><span class="pre">plot3D</span></code> method to plot a random walk in 3-dimensions in your exercise.</p>
@@ -1090,7 +1111,7 @@ I(r)\propto |U(r)|^2
 <h4>Surface Plotting<a class="headerlink" href="#Surface-Plotting" title="Permalink to this heading">#</a></h4>
 <p>A surface plot is like a wireframe plot, but each face of the wireframe is a filled polygon. Adding a colormap to the filled polygons can aid perception of the topology of the surface being visualized:</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[48]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[184]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
@@ -1102,7 +1123,7 @@ I(r)\propto |U(r)|^2
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[49]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[185]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">Z</span><span class="p">)</span>
@@ -1110,7 +1131,7 @@ I(r)\propto |U(r)|^2
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[49]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[185]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -1119,12 +1140,12 @@ I(r)\propto |U(r)|^2
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[68]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[187]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
 <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">axes</span><span class="p">(</span><span class="n">projection</span><span class="o">=</span><span class="s1">&#39;3d&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">view_init</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">view_init</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">plot_surface</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">Z</span><span class="p">,</span> <span class="n">rstride</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">cstride</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
                 <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;viridis&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;surface&#39;</span><span class="p">)</span>
@@ -1136,7 +1157,7 @@ I(r)\propto |U(r)|^2
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_L2_2_plotting_92_0.png" class="no-scaled-link" src="../../_images/notebooks_L2_2_plotting_92_0.png" style="width: 504px; height: 511px;" />
+<img alt="../../_images/notebooks_L2_2_plotting_94_0.png" class="no-scaled-link" src="../../_images/notebooks_L2_2_plotting_94_0.png" style="width: 504px; height: 517px;" />
 </div>
 </div>
 <div class="nbinput nblast docutils container">
@@ -1159,12 +1180,12 @@ I(r)\propto |U(r)|^2
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="3_randomnumbers.html">
+          <a class="next-page" href="../../lectures/L2/assignment_2.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Random numbers</div>
+                <div class="title">Exercise 2</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
