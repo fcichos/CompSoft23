@@ -1366,12 +1366,51 @@
    "cell_type": "markdown",
    "metadata": {
     "slideshow": {
+     "slide_type": "skip"
+    },
+    "toc-hr-collapsed": false
+   },
+   "source": [
+    "## Additional Plotting"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "skip"
+    }
+   },
+   "source": [
+    "While we have so far largely relied on the default setting and the automatic arrangement of plots, there is also a way to precisely design your plot. Python provides the tools of object oriented programming and thus modules provide classes which can be instanced into objects. This explicit interfaces allows you to control all details without the automatisms of `pyplot`."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "tags": []
+   },
+   "source": [
+    "The figure below, which is taken from the matplotlib documentation website shows the sets of commands and the objects in the figure, the commands refer to. It is a nice reference, when creating a figure."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "![anatomy of a figure](img/anatomy_oaf.png)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "slideshow": {
      "slide_type": "slide"
     },
     "toc-hr-collapsed": true
    },
    "source": [
-    "## 3D Plotting\n",
+    "### 3D Plotting\n",
     "\n",
     "Matplotlib was initially designed with only two-dimensional plotting in mind. Around the time of the 1.0 release, some three-dimensional plotting utilities were built on top of Matplotlib's two-dimensional display, and the result is a convenient (if somewhat limited) set of tools for three-dimensional data visualization. Three-dimensional plots are enabled by importing the mplot3d toolkit, included with the main Matplotlib installation:"
    ]
@@ -1412,7 +1451,7 @@
     }
    },
    "source": [
-    "### Projection Scence"
+    "#### Projection Scence"
    ]
   },
   {
@@ -1475,7 +1514,7 @@
     }
    },
    "source": [
-    "### Line Plotting in 3D\n",
+    "#### Line Plotting in 3D\n",
     "\n",
     "from sets of (x, y, z) triples. In analogy with the more common two-dimensional plots discussed earlier, these can be created using the `ax.plot3D` and `ax.scatter3D`\n",
     " functions. The call signature for these is nearly identical to that of their two-dimensional counterparts, so you can refer to Simple Line Plots and Simple Scatter Plots for more information on controlling the output. Here we'll plot a trigonometric spiral, along with some points drawn randomly near the line:"
@@ -1548,7 +1587,7 @@
     }
    },
    "source": [
-    "### Surface Plotting \n",
+    "#### Surface Plotting \n",
     "\n",
     "A surface plot is like a wireframe plot, but each face of the wireframe is a filled polygon. Adding a colormap to the filled polygons can aid perception of the topology of the surface being visualized:"
    ]
@@ -1645,38 +1684,17 @@
    "metadata": {
     "slideshow": {
      "slide_type": "skip"
-    },
-    "toc-hr-collapsed": false
-   },
-   "source": [
-    "## Additional Plotting"
-   ]
-  },
-  {
-   "cell_type": "markdown",
-   "metadata": {
-    "slideshow": {
-     "slide_type": "skip"
     }
    },
    "source": [
-    "While we have so far largely relied on the default setting and the automatic arrangement of plots, there is also a way to precisely design your plot. Python provides the tools of object oriented programming and thus modules provide classes which can be instanced into objects. This explicit interfaces allows you to control all details without the automatisms of `pyplot`."
-   ]
-  },
-  {
-   "cell_type": "markdown",
-   "metadata": {
-    "tags": []
-   },
-   "source": [
-    "The figure below, which is taken from the matplotlib documentation website shows the sets of commands and the objects in the figure, the commands refer to. It is a nice reference, when creating a figure."
+    "### Insets"
    ]
   },
   {
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "![anatomy of a figure](img/anatomy_oaf.png)"
+    "Insets are plots within plots using their own axes. We therefore need to create two axes systems, if we want to have a main plot and and inset."
    ]
   },
   {
@@ -1691,17 +1709,6 @@
    "source": [
     "x = np.linspace(0, 5, 10)\n",
     "y = x ** 2"
-   ]
-  },
-  {
-   "cell_type": "markdown",
-   "metadata": {
-    "slideshow": {
-     "slide_type": "skip"
-    }
-   },
-   "source": [
-    "### Insets"
    ]
   },
   {

@@ -607,7 +607,7 @@ p(x)dx=\frac{1}{\pi \Delta x}\frac{dx}{\sqrt{1-\left (\frac{x(t)}{\Delta x}\righ
 </div>
 </div>
 <p>If you look at the resulting array, you will find, that the entries have not been removed but replaced by <code class="docutils literal notranslate"><span class="pre">--</span></code>, so the values are not existent and thefore not plotted.</p>
-<p><img alt="97ad495d13154cac8ee0dc9cbea375ab" class="no-scaled-link" src="../../_images/masked.png" style="width: 400px;" /></p>
+<p><img alt="d4c24c6963164347992f0e95bdea9237" class="no-scaled-link" src="../../_images/masked.png" style="width: 400px;" /></p>
 </section>
 </section>
 </section>
@@ -834,8 +834,13 @@ I(r)\propto |U(r)|^2
 </div>
 </section>
 </section>
+<section id="Additional-Plotting">
+<h2>Additional Plotting<a class="headerlink" href="#Additional-Plotting" title="Permalink to this heading">#</a></h2>
+<p>While we have so far largely relied on the default setting and the automatic arrangement of plots, there is also a way to precisely design your plot. Python provides the tools of object oriented programming and thus modules provide classes which can be instanced into objects. This explicit interfaces allows you to control all details without the automatisms of <code class="docutils literal notranslate"><span class="pre">pyplot</span></code>.</p>
+<p>The figure below, which is taken from the matplotlib documentation website shows the sets of commands and the objects in the figure, the commands refer to. It is a nice reference, when creating a figure.</p>
+<img alt="anatomy of a figure" src="../../_images/anatomy_oaf.png" />
 <section id="3D-Plotting">
-<h2>3D Plotting<a class="headerlink" href="#3D-Plotting" title="Permalink to this heading">#</a></h2>
+<h3>3D Plotting<a class="headerlink" href="#3D-Plotting" title="Permalink to this heading">#</a></h3>
 <p>Matplotlib was initially designed with only two-dimensional plotting in mind. Around the time of the 1.0 release, some three-dimensional plotting utilities were built on top of Matplotlib’s two-dimensional display, and the result is a convenient (if somewhat limited) set of tools for three-dimensional data visualization. Three-dimensional plots are enabled by importing the mplot3d toolkit, included with the main Matplotlib installation:</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
@@ -847,7 +852,7 @@ I(r)\propto |U(r)|^2
 </div>
 <p>Once this submodule is imported, a three-dimensional axes can be created by passing the keyword projection=’3d’ to any of the normal axes creation routines:</p>
 <section id="Projection-Scence">
-<h3>Projection Scence<a class="headerlink" href="#Projection-Scence" title="Permalink to this heading">#</a></h3>
+<h4>Projection Scence<a class="headerlink" href="#Projection-Scence" title="Permalink to this heading">#</a></h4>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[46]:
 </pre></div>
@@ -868,13 +873,13 @@ I(r)\propto |U(r)|^2
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_L2_2_plotting_66_0.png" class="no-scaled-link" src="../../_images/notebooks_L2_2_plotting_66_0.png" style="width: 500px; height: 503px;" />
+<img alt="../../_images/notebooks_L2_2_plotting_70_0.png" class="no-scaled-link" src="../../_images/notebooks_L2_2_plotting_70_0.png" style="width: 500px; height: 503px;" />
 </div>
 </div>
 <p>With this three-dimensional axes enabled, we can now plot a variety of three-dimensional plot types. Three-dimensional plotting is one of the functionalities that benefits immensely from viewing figures interactively rather than statically in the notebook; recall that to use interactive figures, you can use %matplotlib notebook rather than %matplotlib inline when running this code.</p>
 </section>
 <section id="Line-Plotting-in-3D">
-<h3>Line Plotting in 3D<a class="headerlink" href="#Line-Plotting-in-3D" title="Permalink to this heading">#</a></h3>
+<h4>Line Plotting in 3D<a class="headerlink" href="#Line-Plotting-in-3D" title="Permalink to this heading">#</a></h4>
 <p>from sets of (x, y, z) triples. In analogy with the more common two-dimensional plots discussed earlier, these can be created using the <code class="docutils literal notranslate"><span class="pre">ax.plot3D</span></code> and <code class="docutils literal notranslate"><span class="pre">ax.scatter3D</span></code> functions. The call signature for these is nearly identical to that of their two-dimensional counterparts, so you can refer to Simple Line Plots and Simple Scatter Plots for more information on controlling the output. Here we’ll plot a trigonometric spiral, along with some points drawn randomly near the line:</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[47]:
@@ -903,13 +908,13 @@ I(r)\propto |U(r)|^2
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_L2_2_plotting_69_0.png" class="no-scaled-link" src="../../_images/notebooks_L2_2_plotting_69_0.png" style="width: 496px; height: 482px;" />
+<img alt="../../_images/notebooks_L2_2_plotting_73_0.png" class="no-scaled-link" src="../../_images/notebooks_L2_2_plotting_73_0.png" style="width: 496px; height: 482px;" />
 </div>
 </div>
 <p>Notice that by default, the scatter points have their transparency adjusted to give a sense of depth on the page. While the three-dimensional effect is sometimes difficult to see within a static image, an interactive view can lead to some nice intuition about the layout of the points. Use the <code class="docutils literal notranslate"><span class="pre">scatter3D</span></code> or the <code class="docutils literal notranslate"><span class="pre">plot3D</span></code> method to plot a random walk in 3-dimensions in your exercise.</p>
 </section>
 <section id="Surface-Plotting">
-<h3>Surface Plotting<a class="headerlink" href="#Surface-Plotting" title="Permalink to this heading">#</a></h3>
+<h4>Surface Plotting<a class="headerlink" href="#Surface-Plotting" title="Permalink to this heading">#</a></h4>
 <p>A surface plot is like a wireframe plot, but each face of the wireframe is a filled polygon. Adding a colormap to the filled polygons can aid perception of the topology of the surface being visualized:</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[48]:
@@ -957,16 +962,14 @@ I(r)\propto |U(r)|^2
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_L2_2_plotting_74_0.png" class="no-scaled-link" src="../../_images/notebooks_L2_2_plotting_74_0.png" style="width: 504px; height: 511px;" />
+<img alt="../../_images/notebooks_L2_2_plotting_78_0.png" class="no-scaled-link" src="../../_images/notebooks_L2_2_plotting_78_0.png" style="width: 504px; height: 511px;" />
 </div>
 </div>
 </section>
 </section>
-<section id="Additional-Plotting">
-<h2>Additional Plotting<a class="headerlink" href="#Additional-Plotting" title="Permalink to this heading">#</a></h2>
-<p>While we have so far largely relied on the default setting and the automatic arrangement of plots, there is also a way to precisely design your plot. Python provides the tools of object oriented programming and thus modules provide classes which can be instanced into objects. This explicit interfaces allows you to control all details without the automatisms of <code class="docutils literal notranslate"><span class="pre">pyplot</span></code>.</p>
-<p>The figure below, which is taken from the matplotlib documentation website shows the sets of commands and the objects in the figure, the commands refer to. It is a nice reference, when creating a figure.</p>
-<img alt="anatomy of a figure" src="../../_images/anatomy_oaf.png" />
+<section id="Insets">
+<h3>Insets<a class="headerlink" href="#Insets" title="Permalink to this heading">#</a></h3>
+<p>Insets are plots within plots using their own axes. We therefore need to create two axes systems, if we want to have a main plot and and inset.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[53]:
 </pre></div>
@@ -976,8 +979,6 @@ I(r)\propto |U(r)|^2
 </pre></div>
 </div>
 </div>
-<section id="Insets">
-<h3>Insets<a class="headerlink" href="#Insets" title="Permalink to this heading">#</a></h3>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[54]:
 </pre></div>
@@ -1006,7 +1007,7 @@ I(r)\propto |U(r)|^2
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_L2_2_plotting_81_0.png" class="no-scaled-link" src="../../_images/notebooks_L2_2_plotting_81_0.png" style="width: 660px; height: 541px;" />
+<img alt="../../_images/notebooks_L2_2_plotting_82_0.png" class="no-scaled-link" src="../../_images/notebooks_L2_2_plotting_82_0.png" style="width: 660px; height: 541px;" />
 </div>
 </div>
 </section>
@@ -1036,7 +1037,7 @@ I(r)\propto |U(r)|^2
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_L2_2_plotting_83_0.png" class="no-scaled-link" src="../../_images/notebooks_L2_2_plotting_83_0.png" style="width: 519px; height: 389px;" />
+<img alt="../../_images/notebooks_L2_2_plotting_84_0.png" class="no-scaled-link" src="../../_images/notebooks_L2_2_plotting_84_0.png" style="width: 519px; height: 389px;" />
 </div>
 </div>
 </section>
@@ -1058,7 +1059,7 @@ I(r)\propto |U(r)|^2
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_L2_2_plotting_85_0.png" class="no-scaled-link" src="../../_images/notebooks_L2_2_plotting_85_0.png" style="width: 366px; height: 353px;" />
+<img alt="../../_images/notebooks_L2_2_plotting_86_0.png" class="no-scaled-link" src="../../_images/notebooks_L2_2_plotting_86_0.png" style="width: 366px; height: 353px;" />
 </div>
 </div>
 </section>
@@ -1083,7 +1084,7 @@ I(r)\propto |U(r)|^2
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_L2_2_plotting_88_0.png" class="no-scaled-link" src="../../_images/notebooks_L2_2_plotting_88_0.png" style="width: 561px; height: 410px;" />
+<img alt="../../_images/notebooks_L2_2_plotting_89_0.png" class="no-scaled-link" src="../../_images/notebooks_L2_2_plotting_89_0.png" style="width: 561px; height: 410px;" />
 </div>
 </div>
 <script type="application/vnd.jupyter.widget-state+json">
@@ -1126,7 +1127,7 @@ I(r)\propto |U(r)|^2
             
             <a href="https://github.com/pradyunsg/furo">Furo</a>
             <div class="last-updated">
-              Last updated on Apr 17, 2023</div>
+              Last updated on Apr 18, 2023</div>
           </div>
           <div class="right-details">
             
@@ -1179,13 +1180,13 @@ I(r)\propto |U(r)|^2
 <li><a class="reference internal" href="#Image-plot">Image plot</a></li>
 </ul>
 </li>
+<li><a class="reference internal" href="#Additional-Plotting">Additional Plotting</a><ul>
 <li><a class="reference internal" href="#3D-Plotting">3D Plotting</a><ul>
 <li><a class="reference internal" href="#Projection-Scence">Projection Scence</a></li>
 <li><a class="reference internal" href="#Line-Plotting-in-3D">Line Plotting in 3D</a></li>
 <li><a class="reference internal" href="#Surface-Plotting">Surface Plotting</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#Additional-Plotting">Additional Plotting</a><ul>
 <li><a class="reference internal" href="#Insets">Insets</a></li>
 <li><a class="reference internal" href="#Spine-axis">Spine axis</a></li>
 <li><a class="reference internal" href="#Polar-plot">Polar plot</a></li>
