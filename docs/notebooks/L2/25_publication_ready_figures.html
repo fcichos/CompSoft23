@@ -265,17 +265,23 @@ used without scaling, i.e. by `</span>includegraphics{Figure 1.pdf}``to show up 
 If you want to be completely independent</p></li>
 <li><p>The <code class="docutils literal notranslate"><span class="pre">plt.savefig</span></code>command uses and additional <code class="docutils literal notranslate"><span class="pre">bbox_inches</span> <span class="pre">=</span> <span class="pre">'tight'</span></code>parameter, which ensures that the bounding box is really enclosing all plot components accurately.</p></li>
 </ul>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[61]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#| label: fig-1</span>
-<span class="c1">#| fig-cap: Real part of the electric field of a plane wave propagating along the z-axis.</span>
-<span class="c1">#| echo: false</span>
-
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib</span> <span class="k">as</span> <span class="nn">mpl</span>
+<span class="kn">import</span> <span class="nn">matplotlib.font_manager</span> <span class="k">as</span> <span class="nn">font_manager</span>
+<span class="kn">from</span> <span class="nn">IPython.core.display</span> <span class="kn">import</span> <span class="n">HTML</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s1">&#39;font.size&#39;</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[63]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s1">&#39;font.size&#39;</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span>
                      <span class="s1">&#39;lines.linewidth&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
                      <span class="s1">&#39;lines.markersize&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
                      <span class="s1">&#39;axes.labelsize&#39;</span><span class="p">:</span> <span class="mi">11</span><span class="p">,</span>
@@ -287,22 +293,28 @@ If you want to be completely independent</p></li>
                      <span class="s1">&#39;ytick.direction&#39;</span> <span class="p">:</span> <span class="s1">&#39;in&#39;</span><span class="p">,})</span>
 
 <span class="o">%</span><span class="k">config</span> InlineBackend.figure_format = &#39;retina&#39;
-
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">150</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[65]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">150</span><span class="p">)</span>
 <span class="n">x</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="mi">4</span><span class="p">,</span><span class="mi">200</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">),</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;angle $\theta$ in [rad]&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$\sin(\theta)$&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;figure_example1.pdf&quot;</span><span class="p">,</span><span class="n">bbox_inches</span> <span class="o">=</span> <span class="s1">&#39;tight&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-<br/></pre></div>
+</pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_L2_25_publication_ready_figures_4_0.png" class="no-scaled-link" src="../../_images/notebooks_L2_25_publication_ready_figures_4_0.png" style="width: 487px; height: 337px;" />
+<img alt="../../_images/notebooks_L2_25_publication_ready_figures_6_0.png" class="no-scaled-link" src="../../_images/notebooks_L2_25_publication_ready_figures_6_0.png" style="width: 476px; height: 334px;" />
 </div>
 </div>
 <p>Loading this figure into any software will result in a Figure with a size corresponding to the adjusted width.</p>
@@ -326,13 +338,10 @@ your code that sets this size of the axis frame. This function could be</p>
 </div>
 <p>where you have to specify the desired width and height (in inches) of the current axis <em>ax</em>. The function does not return anything but sets directly the size.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[66]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#| label: fig-2</span>
-<span class="c1">#| fig-cap: Real part of the electric field of a plane wave propagating along the z-axis.</span>
-<span class="c1">#| echo: false</span>
-<span class="k">def</span> <span class="nf">set_size</span><span class="p">(</span><span class="n">w</span><span class="p">,</span><span class="n">h</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">set_size</span><span class="p">(</span><span class="n">w</span><span class="p">,</span><span class="n">h</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot; w, h: width, height in inches &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">ax</span><span class="p">:</span> <span class="n">ax</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span>
     <span class="n">l</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">figure</span><span class="o">.</span><span class="n">subplotpars</span><span class="o">.</span><span class="n">left</span>
@@ -358,7 +367,7 @@ your code that sets this size of the axis frame. This function could be</p>
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_L2_25_publication_ready_figures_9_0.png" class="no-scaled-link" src="../../_images/notebooks_L2_25_publication_ready_figures_9_0.png" style="width: 588px; height: 406px;" />
+<img alt="../../_images/notebooks_L2_25_publication_ready_figures_11_0.png" class="no-scaled-link" src="../../_images/notebooks_L2_25_publication_ready_figures_11_0.png" style="width: 577px; height: 403px;" />
 </div>
 </div>
 <p>If you load this Figure into a graphics software or text processing software, the Figure box, should have a dimension of 7.62 cm times 5.08 cm, without any rescaling:</p>
@@ -371,11 +380,7 @@ your code that sets this size of the axis frame. This function could be</p>
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[60]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib</span> <span class="k">as</span> <span class="nn">mpl</span>
-<span class="kn">import</span> <span class="nn">matplotlib.font_manager</span> <span class="k">as</span> <span class="nn">font_manager</span>
-<span class="kn">from</span> <span class="nn">IPython.core.display</span> <span class="kn">import</span> <span class="n">HTML</span>
-
-<span class="k">def</span> <span class="nf">make_html</span><span class="p">(</span><span class="n">fontname</span><span class="p">):</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><br/><br/><span></span><span class="k">def</span> <span class="nf">make_html</span><span class="p">(</span><span class="n">fontname</span><span class="p">):</span>
     <span class="k">return</span> <span class="s2">&quot;&lt;p&gt;</span><span class="si">{font}</span><span class="s2">: &lt;span style=&#39;font-family:</span><span class="si">{font}</span><span class="s2">; font-size: 24px;&#39;&gt;</span><span class="si">{font}</span><span class="s2">&lt;/p&gt;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">font</span><span class="o">=</span><span class="n">fontname</span><span class="p">)</span>
 
 <span class="n">code</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">make_html</span><span class="p">(</span><span class="n">font</span><span class="p">)</span> <span class="k">for</span> <span class="n">font</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="nb">set</span><span class="p">([</span><span class="n">f</span><span class="o">.</span><span class="n">name</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">font_manager</span><span class="o">.</span><span class="n">fontManager</span><span class="o">.</span><span class="n">ttflist</span><span class="p">]))])</span>
@@ -875,7 +880,7 @@ your code that sets this size of the axis frame. This function could be</p>
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_L2_25_publication_ready_figures_18_0.png" class="no-scaled-link" src="../../_images/notebooks_L2_25_publication_ready_figures_18_0.png" style="width: 470px; height: 333px;" />
+<img alt="../../_images/notebooks_L2_25_publication_ready_figures_20_0.png" class="no-scaled-link" src="../../_images/notebooks_L2_25_publication_ready_figures_20_0.png" style="width: 470px; height: 333px;" />
 </div>
 </div>
 <script type="application/vnd.jupyter.widget-state+json">
