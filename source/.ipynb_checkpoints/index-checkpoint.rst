@@ -71,6 +71,8 @@ We will not present a comprehensive list of numerical simulation schemes, but us
    notebooks/L2/1_numpy.ipynb   
    notebooks/L2/2_plotting.ipynb
    notebooks/L2/3_randomnumbers.ipynb
+   lectures/L2/assignment_2.rst
+   notebooks/L2/25_publication_ready_figures.ipynb
    
 
 Indices and tables

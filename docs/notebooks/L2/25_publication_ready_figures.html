@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
-<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" />
+<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="prev" title="Exercise 2" href="../../lectures/L2/assignment_2.html" />
 
     <!-- Generated with Sphinx 6.1.3 and Furo 2023.03.27 -->
-        <title>Making publication ready figures - Introduction to Computer-based Physical Modeling 23 documentation</title>
+        <title>Add On: Making publication ready figures - Introduction to Computer-based Physical Modeling 23 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=fad236701ea90a88636c2a8c73b44ae642ed2a53" />
     <link rel="stylesheet" type="text/css" href="../../_static/nbsphinx-code-cells.css" />
@@ -185,11 +185,13 @@
 <li class="toctree-l1"><a class="reference internal" href="../../lectures/L1/assignment_1.html">Exercise 1</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Lecture 2:</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../lectures/L2/overview_2.html">Lecture Contents</a></li>
 <li class="toctree-l1"><a class="reference internal" href="1_numpy.html">NumPy arrays</a></li>
 <li class="toctree-l1"><a class="reference internal" href="2_plotting.html">Plotting data</a></li>
 <li class="toctree-l1"><a class="reference internal" href="3_randomnumbers.html">Random numbers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lectures/L2/assignment_2.html">Exercise 2</a></li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Add On: Making publication ready figures</a></li>
 </ul>
 
 </div>
@@ -229,8 +231,8 @@
 <span class="raw-html"><br/><a href="https://colab.research.google.com/github/fcichos/CompSoft23/blob/master/source/notebooks/L2/25_publication_ready_figures.ipynb"><img alt="Binder badge" src="https://img.shields.io/badge/launch-%20colab-green.svg" style="vertical-align:text-bottom"></a></span>
 <span class="raw-html"><br/><a href="https://mybinder.org/v2/gh/fcichos/CompSoft23.git/master?labpath=source/notebooks/L2/25_publication_ready_figures.ipynb"><img alt="Binder badge" src="https://img.shields.io/badge/launch-%20myBinder-red.svg" style="vertical-align:text-bottom"></a></span></p>
 </div>
-<section id="Making-publication-ready-figures">
-<h1>Making publication ready figures<a class="headerlink" href="#Making-publication-ready-figures" title="Permalink to this heading">#</a></h1>
+<section id="Add-On:-Making-publication-ready-figures">
+<h1>Add On: Making publication ready figures<a class="headerlink" href="#Add-On:-Making-publication-ready-figures" title="Permalink to this heading">#</a></h1>
 <p>In this short text I will try to put some guidelines of how to generate plots with an appropriate size, such that you can use the examples right away in your Jupyter notebook.</p>
 <p>You would like to assemble your Figures in a manuscript from plots that you generate as PDF files, i.e.they contain vector graphics. This has the advantage that you can scale them to the appropriate size afterwards such to squeeze them in on-column or two-column Figures. While this is tempting, it is carrying the danger that you scale each plot differently and then all plots have different axis label sizes and tick sizes, which finally creates a mess.</p>
 <p>To prevent that, one could readily start creating the plots in the appropriate size of on-column or two column use with all the same axis and tick label sizes. Here are some hacks, that allow you to create and save production ready plots directly from your Jupyter notebooks.</p>
@@ -264,7 +266,7 @@ If you want to be completely independent</p></li>
 <li><p>The <code class="docutils literal notranslate"><span class="pre">plt.savefig</span></code>command uses and additional <code class="docutils literal notranslate"><span class="pre">bbox_inches</span> <span class="pre">=</span> <span class="pre">'tight'</span></code>parameter, which ensures that the bounding box is really enclosing all plot components accurately.</p></li>
 </ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#| label: fig-1</span>
@@ -284,6 +286,8 @@ If you want to be completely independent</p></li>
                      <span class="s1">&#39;ytick.right&#39;</span> <span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
                      <span class="s1">&#39;ytick.direction&#39;</span> <span class="p">:</span> <span class="s1">&#39;in&#39;</span><span class="p">,})</span>
 
+<span class="o">%</span><span class="k">config</span> InlineBackend.figure_format = &#39;retina&#39;
+
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">150</span><span class="p">)</span>
 <span class="n">x</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="mi">4</span><span class="p">,</span><span class="mi">200</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">),</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
@@ -298,7 +302,7 @@ If you want to be completely independent</p></li>
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_L2_25_publication_ready_figures_4_0.png" src="../../_images/notebooks_L2_25_publication_ready_figures_4_0.png" />
+<img alt="../../_images/notebooks_L2_25_publication_ready_figures_4_0.png" class="no-scaled-link" src="../../_images/notebooks_L2_25_publication_ready_figures_4_0.png" style="width: 487px; height: 337px;" />
 </div>
 </div>
 <p>Loading this figure into any software will result in a Figure with a size corresponding to the adjusted width.</p>
@@ -322,7 +326,7 @@ your code that sets this size of the axis frame. This function could be</p>
 </div>
 <p>where you have to specify the desired width and height (in inches) of the current axis <em>ax</em>. The function does not return anything but sets directly the size.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#| label: fig-2</span>
@@ -341,12 +345,11 @@ your code that sets this size of the axis frame. This function could be</p>
 
 <span class="n">fig</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">dpi</span><span class="o">=</span><span class="mi">150</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">axes</span><span class="p">()</span>
-<span class="mi">3</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">),</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;angle $\theta$ in [rad]&quot;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$\sin(\theta)$&quot;</span><span class="p">)</span>
 <span class="n">set_size</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;figure_example2.pdf&quot;</span><span class="p">,</span><span class="n">bbox_inches</span> <span class="o">=</span> <span class="s1">&#39;tight&#39;</span><span class="p">)</span>
+<span class="c1">#plt.savefig(&quot;figure_example2.pdf&quot;,bbox_inches = &#39;tight&#39;)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -355,11 +358,526 @@ your code that sets this size of the axis frame. This function could be</p>
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_L2_25_publication_ready_figures_9_0.png" src="../../_images/notebooks_L2_25_publication_ready_figures_9_0.png" />
+<img alt="../../_images/notebooks_L2_25_publication_ready_figures_9_0.png" class="no-scaled-link" src="../../_images/notebooks_L2_25_publication_ready_figures_9_0.png" style="width: 588px; height: 406px;" />
 </div>
 </div>
 <p>If you load this Figure into a graphics software or text processing software, the Figure box, should have a dimension of 7.62 cm times 5.08 cm, without any rescaling:</p>
 <img alt="../../_images/box_size.png" src="../../_images/box_size.png" />
+</section>
+<section id="Choosing-fonts">
+<h2>Choosing fonts<a class="headerlink" href="#Choosing-fonts" title="Permalink to this heading">#</a></h2>
+<p>Matplotlib can access a number of different fonts. Finding the appropriate one to match formula style of your document or publication can be difficult. A list of fonts available to matplotlib can be obtained with the following code snippet, which I found <a class="reference external" href="https://jonathansoma.com/lede/data-studio/matplotlib/list-all-fonts-available-in-matplotlib-plus-samples/">here</a>.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib</span> <span class="k">as</span> <span class="nn">mpl</span>
+<span class="kn">import</span> <span class="nn">matplotlib.font_manager</span> <span class="k">as</span> <span class="nn">font_manager</span>
+<span class="kn">from</span> <span class="nn">IPython.core.display</span> <span class="kn">import</span> <span class="n">HTML</span>
+
+<span class="k">def</span> <span class="nf">make_html</span><span class="p">(</span><span class="n">fontname</span><span class="p">):</span>
+    <span class="k">return</span> <span class="s2">&quot;&lt;p&gt;</span><span class="si">{font}</span><span class="s2">: &lt;span style=&#39;font-family:</span><span class="si">{font}</span><span class="s2">; font-size: 24px;&#39;&gt;</span><span class="si">{font}</span><span class="s2">&lt;/p&gt;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">font</span><span class="o">=</span><span class="n">fontname</span><span class="p">)</span>
+
+<span class="n">code</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">make_html</span><span class="p">(</span><span class="n">font</span><span class="p">)</span> <span class="k">for</span> <span class="n">font</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="nb">set</span><span class="p">([</span><span class="n">f</span><span class="o">.</span><span class="n">name</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">matplotlib</span><span class="o">.</span><span class="n">font_manager</span><span class="o">.</span><span class="n">fontManager</span><span class="o">.</span><span class="n">ttflist</span><span class="p">]))])</span>
+
+<span class="n">HTML</span><span class="p">(</span><span class="s2">&quot;&lt;div style=&#39;column-count: 2;&#39;&gt;</span><span class="si">{}</span><span class="s2">&lt;/div&gt;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">code</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div style='column-count: 2;'><p>AR PL KaitiM Big5: <span style='font-family:AR PL KaitiM Big5; font-size: 24px;'>AR PL KaitiM Big5</p>
+<p>AR PL KaitiM GB: <span style='font-family:AR PL KaitiM GB; font-size: 24px;'>AR PL KaitiM GB</p>
+<p>AR PL Mingti2L Big5: <span style='font-family:AR PL Mingti2L Big5; font-size: 24px;'>AR PL Mingti2L Big5</p>
+<p>AR PL SungtiL GB: <span style='font-family:AR PL SungtiL GB; font-size: 24px;'>AR PL SungtiL GB</p>
+<p>Abyssinica SIL: <span style='font-family:Abyssinica SIL; font-size: 24px;'>Abyssinica SIL</p>
+<p>Accanthis ADF Std: <span style='font-family:Accanthis ADF Std; font-size: 24px;'>Accanthis ADF Std</p>
+<p>Accanthis ADF Std No2: <span style='font-family:Accanthis ADF Std No2; font-size: 24px;'>Accanthis ADF Std No2</p>
+<p>Accanthis ADF Std No3: <span style='font-family:Accanthis ADF Std No3; font-size: 24px;'>Accanthis ADF Std No3</p>
+<p>Amiri: <span style='font-family:Amiri; font-size: 24px;'>Amiri</p>
+<p>Amiri Quran: <span style='font-family:Amiri Quran; font-size: 24px;'>Amiri Quran</p>
+<p>Amiri Quran Colored: <span style='font-family:Amiri Quran Colored; font-size: 24px;'>Amiri Quran Colored</p>
+<p>Ani: <span style='font-family:Ani; font-size: 24px;'>Ani</p>
+<p>AnjaliOldLipi: <span style='font-family:AnjaliOldLipi; font-size: 24px;'>AnjaliOldLipi</p>
+<p>Arimo: <span style='font-family:Arimo; font-size: 24px;'>Arimo</p>
+<p>Asana Math: <span style='font-family:Asana Math; font-size: 24px;'>Asana Math</p>
+<p>Baekmuk Batang: <span style='font-family:Baekmuk Batang; font-size: 24px;'>Baekmuk Batang</p>
+<p>Baekmuk Dotum: <span style='font-family:Baekmuk Dotum; font-size: 24px;'>Baekmuk Dotum</p>
+<p>Baekmuk Gulim: <span style='font-family:Baekmuk Gulim; font-size: 24px;'>Baekmuk Gulim</p>
+<p>Baekmuk Headline: <span style='font-family:Baekmuk Headline; font-size: 24px;'>Baekmuk Headline</p>
+<p>Berenis ADF Pro: <span style='font-family:Berenis ADF Pro; font-size: 24px;'>Berenis ADF Pro</p>
+<p>Berenis ADF Pro Math: <span style='font-family:Berenis ADF Pro Math; font-size: 24px;'>Berenis ADF Pro Math</p>
+<p>C059: <span style='font-family:C059; font-size: 24px;'>C059</p>
+<p>Cabin: <span style='font-family:Cabin; font-size: 24px;'>Cabin</p>
+<p>Caladea: <span style='font-family:Caladea; font-size: 24px;'>Caladea</p>
+<p>Cantarell: <span style='font-family:Cantarell; font-size: 24px;'>Cantarell</p>
+<p>Carlito: <span style='font-family:Carlito; font-size: 24px;'>Carlito</p>
+<p>Chandas: <span style='font-family:Chandas; font-size: 24px;'>Chandas</p>
+<p>Chilanka: <span style='font-family:Chilanka; font-size: 24px;'>Chilanka</p>
+<p>Comfortaa: <span style='font-family:Comfortaa; font-size: 24px;'>Comfortaa</p>
+<p>Cousine: <span style='font-family:Cousine; font-size: 24px;'>Cousine</p>
+<p>D050000L: <span style='font-family:D050000L; font-size: 24px;'>D050000L</p>
+<p>DejaVu Math TeX Gyre: <span style='font-family:DejaVu Math TeX Gyre; font-size: 24px;'>DejaVu Math TeX Gyre</p>
+<p>DejaVu Sans: <span style='font-family:DejaVu Sans; font-size: 24px;'>DejaVu Sans</p>
+<p>DejaVu Sans Display: <span style='font-family:DejaVu Sans Display; font-size: 24px;'>DejaVu Sans Display</p>
+<p>DejaVu Sans Mono: <span style='font-family:DejaVu Sans Mono; font-size: 24px;'>DejaVu Sans Mono</p>
+<p>DejaVu Serif: <span style='font-family:DejaVu Serif; font-size: 24px;'>DejaVu Serif</p>
+<p>DejaVu Serif Display: <span style='font-family:DejaVu Serif Display; font-size: 24px;'>DejaVu Serif Display</p>
+<p>Droid Sans Fallback: <span style='font-family:Droid Sans Fallback; font-size: 24px;'>Droid Sans Fallback</p>
+<p>Dyuthi: <span style='font-family:Dyuthi; font-size: 24px;'>Dyuthi</p>
+<p>EB Garamond: <span style='font-family:EB Garamond; font-size: 24px;'>EB Garamond</p>
+<p>EB Garamond 12 All SC: <span style='font-family:EB Garamond 12 All SC; font-size: 24px;'>EB Garamond 12 All SC</p>
+<p>EB Garamond Initials: <span style='font-family:EB Garamond Initials; font-size: 24px;'>EB Garamond Initials</p>
+<p>EB Garamond Initials Fill1: <span style='font-family:EB Garamond Initials Fill1; font-size: 24px;'>EB Garamond Initials Fill1</p>
+<p>EB Garamond Initials Fill2: <span style='font-family:EB Garamond Initials Fill2; font-size: 24px;'>EB Garamond Initials Fill2</p>
+<p>EB Garamond SC: <span style='font-family:EB Garamond SC; font-size: 24px;'>EB Garamond SC</p>
+<p>FontAwesome: <span style='font-family:FontAwesome; font-size: 24px;'>FontAwesome</p>
+<p>FoulisGreek: <span style='font-family:FoulisGreek; font-size: 24px;'>FoulisGreek</p>
+<p>FreeMono: <span style='font-family:FreeMono; font-size: 24px;'>FreeMono</p>
+<p>FreeSans: <span style='font-family:FreeSans; font-size: 24px;'>FreeSans</p>
+<p>FreeSerif: <span style='font-family:FreeSerif; font-size: 24px;'>FreeSerif</p>
+<p>GFS Artemisia: <span style='font-family:GFS Artemisia; font-size: 24px;'>GFS Artemisia</p>
+<p>GFS Baskerville: <span style='font-family:GFS Baskerville; font-size: 24px;'>GFS Baskerville</p>
+<p>GFS BodoniClassic: <span style='font-family:GFS BodoniClassic; font-size: 24px;'>GFS BodoniClassic</p>
+<p>GFS Complutum: <span style='font-family:GFS Complutum; font-size: 24px;'>GFS Complutum</p>
+<p>GFS Didot: <span style='font-family:GFS Didot; font-size: 24px;'>GFS Didot</p>
+<p>GFS Didot Classic: <span style='font-family:GFS Didot Classic; font-size: 24px;'>GFS Didot Classic</p>
+<p>GFS Gazis: <span style='font-family:GFS Gazis; font-size: 24px;'>GFS Gazis</p>
+<p>GFS Neohellenic: <span style='font-family:GFS Neohellenic; font-size: 24px;'>GFS Neohellenic</p>
+<p>GFS Olga: <span style='font-family:GFS Olga; font-size: 24px;'>GFS Olga</p>
+<p>GFS Porson: <span style='font-family:GFS Porson; font-size: 24px;'>GFS Porson</p>
+<p>GFS Solomos: <span style='font-family:GFS Solomos; font-size: 24px;'>GFS Solomos</p>
+<p>GFS Theokritos: <span style='font-family:GFS Theokritos; font-size: 24px;'>GFS Theokritos</p>
+<p>Gargi: <span style='font-family:Gargi; font-size: 24px;'>Gargi</p>
+<p>Garuda: <span style='font-family:Garuda; font-size: 24px;'>Garuda</p>
+<p>Gayathri: <span style='font-family:Gayathri; font-size: 24px;'>Gayathri</p>
+<p>Gentium: <span style='font-family:Gentium; font-size: 24px;'>Gentium</p>
+<p>Gentium Basic: <span style='font-family:Gentium Basic; font-size: 24px;'>Gentium Basic</p>
+<p>Gentium Book Basic: <span style='font-family:Gentium Book Basic; font-size: 24px;'>Gentium Book Basic</p>
+<p>Gentium Plus: <span style='font-family:Gentium Plus; font-size: 24px;'>Gentium Plus</p>
+<p>Gentium Plus Compact: <span style='font-family:Gentium Plus Compact; font-size: 24px;'>Gentium Plus Compact</p>
+<p>GentiumAlt: <span style='font-family:GentiumAlt; font-size: 24px;'>GentiumAlt</p>
+<p>Gillius ADF: <span style='font-family:Gillius ADF; font-size: 24px;'>Gillius ADF</p>
+<p>Gillius ADF No2: <span style='font-family:Gillius ADF No2; font-size: 24px;'>Gillius ADF No2</p>
+<p>Go: <span style='font-family:Go; font-size: 24px;'>Go</p>
+<p>Go Medium: <span style='font-family:Go Medium; font-size: 24px;'>Go Medium</p>
+<p>Go Mono: <span style='font-family:Go Mono; font-size: 24px;'>Go Mono</p>
+<p>Go Smallcaps: <span style='font-family:Go Smallcaps; font-size: 24px;'>Go Smallcaps</p>
+<p>Gubbi: <span style='font-family:Gubbi; font-size: 24px;'>Gubbi</p>
+<p>IPAGothic: <span style='font-family:IPAGothic; font-size: 24px;'>IPAGothic</p>
+<p>IPAMincho: <span style='font-family:IPAMincho; font-size: 24px;'>IPAMincho</p>
+<p>IPAPGothic: <span style='font-family:IPAPGothic; font-size: 24px;'>IPAPGothic</p>
+<p>IPAPMincho: <span style='font-family:IPAPMincho; font-size: 24px;'>IPAPMincho</p>
+<p>IPAexGothic: <span style='font-family:IPAexGothic; font-size: 24px;'>IPAexGothic</p>
+<p>IPAexMincho: <span style='font-family:IPAexMincho; font-size: 24px;'>IPAexMincho</p>
+<p>Jamrul: <span style='font-family:Jamrul; font-size: 24px;'>Jamrul</p>
+<p>Junicode: <span style='font-family:Junicode; font-size: 24px;'>Junicode</p>
+<p>KacstArt: <span style='font-family:KacstArt; font-size: 24px;'>KacstArt</p>
+<p>KacstBook: <span style='font-family:KacstBook; font-size: 24px;'>KacstBook</p>
+<p>KacstDecorative: <span style='font-family:KacstDecorative; font-size: 24px;'>KacstDecorative</p>
+<p>KacstDigital: <span style='font-family:KacstDigital; font-size: 24px;'>KacstDigital</p>
+<p>KacstFarsi: <span style='font-family:KacstFarsi; font-size: 24px;'>KacstFarsi</p>
+<p>KacstLetter: <span style='font-family:KacstLetter; font-size: 24px;'>KacstLetter</p>
+<p>KacstNaskh: <span style='font-family:KacstNaskh; font-size: 24px;'>KacstNaskh</p>
+<p>KacstOffice: <span style='font-family:KacstOffice; font-size: 24px;'>KacstOffice</p>
+<p>KacstOne: <span style='font-family:KacstOne; font-size: 24px;'>KacstOne</p>
+<p>KacstPen: <span style='font-family:KacstPen; font-size: 24px;'>KacstPen</p>
+<p>KacstPoster: <span style='font-family:KacstPoster; font-size: 24px;'>KacstPoster</p>
+<p>KacstQurn: <span style='font-family:KacstQurn; font-size: 24px;'>KacstQurn</p>
+<p>KacstScreen: <span style='font-family:KacstScreen; font-size: 24px;'>KacstScreen</p>
+<p>KacstTitle: <span style='font-family:KacstTitle; font-size: 24px;'>KacstTitle</p>
+<p>KacstTitleL: <span style='font-family:KacstTitleL; font-size: 24px;'>KacstTitleL</p>
+<p>Kalapi: <span style='font-family:Kalapi; font-size: 24px;'>Kalapi</p>
+<p>Kalimati: <span style='font-family:Kalimati; font-size: 24px;'>Kalimati</p>
+<p>Karumbi: <span style='font-family:Karumbi; font-size: 24px;'>Karumbi</p>
+<p>Keraleeyam: <span style='font-family:Keraleeyam; font-size: 24px;'>Keraleeyam</p>
+<p>Khmer OS: <span style='font-family:Khmer OS; font-size: 24px;'>Khmer OS</p>
+<p>Khmer OS System: <span style='font-family:Khmer OS System; font-size: 24px;'>Khmer OS System</p>
+<p>Kinnari: <span style='font-family:Kinnari; font-size: 24px;'>Kinnari</p>
+<p>LKLUG: <span style='font-family:LKLUG; font-size: 24px;'>LKLUG</p>
+<p>Laksaman: <span style='font-family:Laksaman; font-size: 24px;'>Laksaman</p>
+<p>Latin Modern Math: <span style='font-family:Latin Modern Math; font-size: 24px;'>Latin Modern Math</p>
+<p>Latin Modern Mono: <span style='font-family:Latin Modern Mono; font-size: 24px;'>Latin Modern Mono</p>
+<p>Latin Modern Mono Caps: <span style='font-family:Latin Modern Mono Caps; font-size: 24px;'>Latin Modern Mono Caps</p>
+<p>Latin Modern Mono Light: <span style='font-family:Latin Modern Mono Light; font-size: 24px;'>Latin Modern Mono Light</p>
+<p>Latin Modern Mono Light Cond: <span style='font-family:Latin Modern Mono Light Cond; font-size: 24px;'>Latin Modern Mono Light Cond</p>
+<p>Latin Modern Mono Prop: <span style='font-family:Latin Modern Mono Prop; font-size: 24px;'>Latin Modern Mono Prop</p>
+<p>Latin Modern Mono Prop Light: <span style='font-family:Latin Modern Mono Prop Light; font-size: 24px;'>Latin Modern Mono Prop Light</p>
+<p>Latin Modern Mono Slanted: <span style='font-family:Latin Modern Mono Slanted; font-size: 24px;'>Latin Modern Mono Slanted</p>
+<p>Latin Modern Roman: <span style='font-family:Latin Modern Roman; font-size: 24px;'>Latin Modern Roman</p>
+<p>Latin Modern Roman Caps: <span style='font-family:Latin Modern Roman Caps; font-size: 24px;'>Latin Modern Roman Caps</p>
+<p>Latin Modern Roman Demi: <span style='font-family:Latin Modern Roman Demi; font-size: 24px;'>Latin Modern Roman Demi</p>
+<p>Latin Modern Roman Dunhill: <span style='font-family:Latin Modern Roman Dunhill; font-size: 24px;'>Latin Modern Roman Dunhill</p>
+<p>Latin Modern Roman Slanted: <span style='font-family:Latin Modern Roman Slanted; font-size: 24px;'>Latin Modern Roman Slanted</p>
+<p>Latin Modern Roman Unslanted: <span style='font-family:Latin Modern Roman Unslanted; font-size: 24px;'>Latin Modern Roman Unslanted</p>
+<p>Latin Modern Sans: <span style='font-family:Latin Modern Sans; font-size: 24px;'>Latin Modern Sans</p>
+<p>Latin Modern Sans Demi Cond: <span style='font-family:Latin Modern Sans Demi Cond; font-size: 24px;'>Latin Modern Sans Demi Cond</p>
+<p>Latin Modern Sans Quotation: <span style='font-family:Latin Modern Sans Quotation; font-size: 24px;'>Latin Modern Sans Quotation</p>
+<p>Lato: <span style='font-family:Lato; font-size: 24px;'>Lato</p>
+<p>Liberation Mono: <span style='font-family:Liberation Mono; font-size: 24px;'>Liberation Mono</p>
+<p>Liberation Sans: <span style='font-family:Liberation Sans; font-size: 24px;'>Liberation Sans</p>
+<p>Liberation Sans Narrow: <span style='font-family:Liberation Sans Narrow; font-size: 24px;'>Liberation Sans Narrow</p>
+<p>Liberation Serif: <span style='font-family:Liberation Serif; font-size: 24px;'>Liberation Serif</p>
+<p>Likhan: <span style='font-family:Likhan; font-size: 24px;'>Likhan</p>
+<p>Linux Biolinum Keyboard O: <span style='font-family:Linux Biolinum Keyboard O; font-size: 24px;'>Linux Biolinum Keyboard O</p>
+<p>Linux Biolinum O: <span style='font-family:Linux Biolinum O; font-size: 24px;'>Linux Biolinum O</p>
+<p>Linux Libertine Display O: <span style='font-family:Linux Libertine Display O; font-size: 24px;'>Linux Libertine Display O</p>
+<p>Linux Libertine Initials O: <span style='font-family:Linux Libertine Initials O; font-size: 24px;'>Linux Libertine Initials O</p>
+<p>Linux Libertine Mono O: <span style='font-family:Linux Libertine Mono O; font-size: 24px;'>Linux Libertine Mono O</p>
+<p>Linux Libertine O: <span style='font-family:Linux Libertine O; font-size: 24px;'>Linux Libertine O</p>
+<p>Lobster Two: <span style='font-family:Lobster Two; font-size: 24px;'>Lobster Two</p>
+<p>Lohit Assamese: <span style='font-family:Lohit Assamese; font-size: 24px;'>Lohit Assamese</p>
+<p>Lohit Bengali: <span style='font-family:Lohit Bengali; font-size: 24px;'>Lohit Bengali</p>
+<p>Lohit Devanagari: <span style='font-family:Lohit Devanagari; font-size: 24px;'>Lohit Devanagari</p>
+<p>Lohit Gujarati: <span style='font-family:Lohit Gujarati; font-size: 24px;'>Lohit Gujarati</p>
+<p>Lohit Gurmukhi: <span style='font-family:Lohit Gurmukhi; font-size: 24px;'>Lohit Gurmukhi</p>
+<p>Lohit Kannada: <span style='font-family:Lohit Kannada; font-size: 24px;'>Lohit Kannada</p>
+<p>Lohit Malayalam: <span style='font-family:Lohit Malayalam; font-size: 24px;'>Lohit Malayalam</p>
+<p>Lohit Odia: <span style='font-family:Lohit Odia; font-size: 24px;'>Lohit Odia</p>
+<p>Lohit Tamil: <span style='font-family:Lohit Tamil; font-size: 24px;'>Lohit Tamil</p>
+<p>Lohit Tamil Classical: <span style='font-family:Lohit Tamil Classical; font-size: 24px;'>Lohit Tamil Classical</p>
+<p>Lohit Telugu: <span style='font-family:Lohit Telugu; font-size: 24px;'>Lohit Telugu</p>
+<p>Loma: <span style='font-family:Loma; font-size: 24px;'>Loma</p>
+<p>Manjari: <span style='font-family:Manjari; font-size: 24px;'>Manjari</p>
+<p>Meera: <span style='font-family:Meera; font-size: 24px;'>Meera</p>
+<p>Mitra Mono: <span style='font-family:Mitra Mono; font-size: 24px;'>Mitra Mono</p>
+<p>Mukti Narrow: <span style='font-family:Mukti Narrow; font-size: 24px;'>Mukti Narrow</p>
+<p>Nakula: <span style='font-family:Nakula; font-size: 24px;'>Nakula</p>
+<p>Navilu: <span style='font-family:Navilu; font-size: 24px;'>Navilu</p>
+<p>Nimbus Mono PS: <span style='font-family:Nimbus Mono PS; font-size: 24px;'>Nimbus Mono PS</p>
+<p>Nimbus Roman: <span style='font-family:Nimbus Roman; font-size: 24px;'>Nimbus Roman</p>
+<p>Nimbus Sans: <span style='font-family:Nimbus Sans; font-size: 24px;'>Nimbus Sans</p>
+<p>Nimbus Sans Narrow: <span style='font-family:Nimbus Sans Narrow; font-size: 24px;'>Nimbus Sans Narrow</p>
+<p>Norasi: <span style='font-family:Norasi; font-size: 24px;'>Norasi</p>
+<p>Noto Kufi Arabic: <span style='font-family:Noto Kufi Arabic; font-size: 24px;'>Noto Kufi Arabic</p>
+<p>Noto Mono: <span style='font-family:Noto Mono; font-size: 24px;'>Noto Mono</p>
+<p>Noto Music: <span style='font-family:Noto Music; font-size: 24px;'>Noto Music</p>
+<p>Noto Naskh Arabic: <span style='font-family:Noto Naskh Arabic; font-size: 24px;'>Noto Naskh Arabic</p>
+<p>Noto Nastaliq Urdu: <span style='font-family:Noto Nastaliq Urdu; font-size: 24px;'>Noto Nastaliq Urdu</p>
+<p>Noto Sans: <span style='font-family:Noto Sans; font-size: 24px;'>Noto Sans</p>
+<p>Noto Sans Adlam: <span style='font-family:Noto Sans Adlam; font-size: 24px;'>Noto Sans Adlam</p>
+<p>Noto Sans Adlam Unjoined: <span style='font-family:Noto Sans Adlam Unjoined; font-size: 24px;'>Noto Sans Adlam Unjoined</p>
+<p>Noto Sans Anatolian Hieroglyphs: <span style='font-family:Noto Sans Anatolian Hieroglyphs; font-size: 24px;'>Noto Sans Anatolian Hieroglyphs</p>
+<p>Noto Sans Arabic: <span style='font-family:Noto Sans Arabic; font-size: 24px;'>Noto Sans Arabic</p>
+<p>Noto Sans Armenian: <span style='font-family:Noto Sans Armenian; font-size: 24px;'>Noto Sans Armenian</p>
+<p>Noto Sans Avestan: <span style='font-family:Noto Sans Avestan; font-size: 24px;'>Noto Sans Avestan</p>
+<p>Noto Sans Bamum: <span style='font-family:Noto Sans Bamum; font-size: 24px;'>Noto Sans Bamum</p>
+<p>Noto Sans Bassa Vah: <span style='font-family:Noto Sans Bassa Vah; font-size: 24px;'>Noto Sans Bassa Vah</p>
+<p>Noto Sans Batak: <span style='font-family:Noto Sans Batak; font-size: 24px;'>Noto Sans Batak</p>
+<p>Noto Sans Bengali: <span style='font-family:Noto Sans Bengali; font-size: 24px;'>Noto Sans Bengali</p>
+<p>Noto Sans Bhaiksuki: <span style='font-family:Noto Sans Bhaiksuki; font-size: 24px;'>Noto Sans Bhaiksuki</p>
+<p>Noto Sans Brahmi: <span style='font-family:Noto Sans Brahmi; font-size: 24px;'>Noto Sans Brahmi</p>
+<p>Noto Sans Buginese: <span style='font-family:Noto Sans Buginese; font-size: 24px;'>Noto Sans Buginese</p>
+<p>Noto Sans Buhid: <span style='font-family:Noto Sans Buhid; font-size: 24px;'>Noto Sans Buhid</p>
+<p>Noto Sans CJK JP: <span style='font-family:Noto Sans CJK JP; font-size: 24px;'>Noto Sans CJK JP</p>
+<p>Noto Sans Canadian Aboriginal: <span style='font-family:Noto Sans Canadian Aboriginal; font-size: 24px;'>Noto Sans Canadian Aboriginal</p>
+<p>Noto Sans Carian: <span style='font-family:Noto Sans Carian; font-size: 24px;'>Noto Sans Carian</p>
+<p>Noto Sans Caucasian Albanian: <span style='font-family:Noto Sans Caucasian Albanian; font-size: 24px;'>Noto Sans Caucasian Albanian</p>
+<p>Noto Sans Chakma: <span style='font-family:Noto Sans Chakma; font-size: 24px;'>Noto Sans Chakma</p>
+<p>Noto Sans Cham: <span style='font-family:Noto Sans Cham; font-size: 24px;'>Noto Sans Cham</p>
+<p>Noto Sans Cherokee: <span style='font-family:Noto Sans Cherokee; font-size: 24px;'>Noto Sans Cherokee</p>
+<p>Noto Sans Coptic: <span style='font-family:Noto Sans Coptic; font-size: 24px;'>Noto Sans Coptic</p>
+<p>Noto Sans Cuneiform: <span style='font-family:Noto Sans Cuneiform; font-size: 24px;'>Noto Sans Cuneiform</p>
+<p>Noto Sans Cypriot: <span style='font-family:Noto Sans Cypriot; font-size: 24px;'>Noto Sans Cypriot</p>
+<p>Noto Sans Deseret: <span style='font-family:Noto Sans Deseret; font-size: 24px;'>Noto Sans Deseret</p>
+<p>Noto Sans Devanagari: <span style='font-family:Noto Sans Devanagari; font-size: 24px;'>Noto Sans Devanagari</p>
+<p>Noto Sans Display: <span style='font-family:Noto Sans Display; font-size: 24px;'>Noto Sans Display</p>
+<p>Noto Sans Duployan: <span style='font-family:Noto Sans Duployan; font-size: 24px;'>Noto Sans Duployan</p>
+<p>Noto Sans Egyptian Hieroglyphs: <span style='font-family:Noto Sans Egyptian Hieroglyphs; font-size: 24px;'>Noto Sans Egyptian Hieroglyphs</p>
+<p>Noto Sans Elbasan: <span style='font-family:Noto Sans Elbasan; font-size: 24px;'>Noto Sans Elbasan</p>
+<p>Noto Sans Ethiopic: <span style='font-family:Noto Sans Ethiopic; font-size: 24px;'>Noto Sans Ethiopic</p>
+<p>Noto Sans Georgian: <span style='font-family:Noto Sans Georgian; font-size: 24px;'>Noto Sans Georgian</p>
+<p>Noto Sans Glagolitic: <span style='font-family:Noto Sans Glagolitic; font-size: 24px;'>Noto Sans Glagolitic</p>
+<p>Noto Sans Gothic: <span style='font-family:Noto Sans Gothic; font-size: 24px;'>Noto Sans Gothic</p>
+<p>Noto Sans Grantha: <span style='font-family:Noto Sans Grantha; font-size: 24px;'>Noto Sans Grantha</p>
+<p>Noto Sans Gujarati: <span style='font-family:Noto Sans Gujarati; font-size: 24px;'>Noto Sans Gujarati</p>
+<p>Noto Sans Gurmukhi: <span style='font-family:Noto Sans Gurmukhi; font-size: 24px;'>Noto Sans Gurmukhi</p>
+<p>Noto Sans Hanifi Rohingya: <span style='font-family:Noto Sans Hanifi Rohingya; font-size: 24px;'>Noto Sans Hanifi Rohingya</p>
+<p>Noto Sans Hanunoo: <span style='font-family:Noto Sans Hanunoo; font-size: 24px;'>Noto Sans Hanunoo</p>
+<p>Noto Sans Hatran: <span style='font-family:Noto Sans Hatran; font-size: 24px;'>Noto Sans Hatran</p>
+<p>Noto Sans Hebrew: <span style='font-family:Noto Sans Hebrew; font-size: 24px;'>Noto Sans Hebrew</p>
+<p>Noto Sans Imperial Aramaic: <span style='font-family:Noto Sans Imperial Aramaic; font-size: 24px;'>Noto Sans Imperial Aramaic</p>
+<p>Noto Sans Indic Siyaq Numbers: <span style='font-family:Noto Sans Indic Siyaq Numbers; font-size: 24px;'>Noto Sans Indic Siyaq Numbers</p>
+<p>Noto Sans Inscriptional Pahlavi: <span style='font-family:Noto Sans Inscriptional Pahlavi; font-size: 24px;'>Noto Sans Inscriptional Pahlavi</p>
+<p>Noto Sans Inscriptional Parthian: <span style='font-family:Noto Sans Inscriptional Parthian; font-size: 24px;'>Noto Sans Inscriptional Parthian</p>
+<p>Noto Sans Javanese: <span style='font-family:Noto Sans Javanese; font-size: 24px;'>Noto Sans Javanese</p>
+<p>Noto Sans Kaithi: <span style='font-family:Noto Sans Kaithi; font-size: 24px;'>Noto Sans Kaithi</p>
+<p>Noto Sans Kannada: <span style='font-family:Noto Sans Kannada; font-size: 24px;'>Noto Sans Kannada</p>
+<p>Noto Sans Kayah Li: <span style='font-family:Noto Sans Kayah Li; font-size: 24px;'>Noto Sans Kayah Li</p>
+<p>Noto Sans Kharoshthi: <span style='font-family:Noto Sans Kharoshthi; font-size: 24px;'>Noto Sans Kharoshthi</p>
+<p>Noto Sans Khmer: <span style='font-family:Noto Sans Khmer; font-size: 24px;'>Noto Sans Khmer</p>
+<p>Noto Sans Khojki: <span style='font-family:Noto Sans Khojki; font-size: 24px;'>Noto Sans Khojki</p>
+<p>Noto Sans Khudawadi: <span style='font-family:Noto Sans Khudawadi; font-size: 24px;'>Noto Sans Khudawadi</p>
+<p>Noto Sans Lao: <span style='font-family:Noto Sans Lao; font-size: 24px;'>Noto Sans Lao</p>
+<p>Noto Sans Lepcha: <span style='font-family:Noto Sans Lepcha; font-size: 24px;'>Noto Sans Lepcha</p>
+<p>Noto Sans Limbu: <span style='font-family:Noto Sans Limbu; font-size: 24px;'>Noto Sans Limbu</p>
+<p>Noto Sans Linear A: <span style='font-family:Noto Sans Linear A; font-size: 24px;'>Noto Sans Linear A</p>
+<p>Noto Sans Linear B: <span style='font-family:Noto Sans Linear B; font-size: 24px;'>Noto Sans Linear B</p>
+<p>Noto Sans Lisu: <span style='font-family:Noto Sans Lisu; font-size: 24px;'>Noto Sans Lisu</p>
+<p>Noto Sans Lycian: <span style='font-family:Noto Sans Lycian; font-size: 24px;'>Noto Sans Lycian</p>
+<p>Noto Sans Lydian: <span style='font-family:Noto Sans Lydian; font-size: 24px;'>Noto Sans Lydian</p>
+<p>Noto Sans Mahajani: <span style='font-family:Noto Sans Mahajani; font-size: 24px;'>Noto Sans Mahajani</p>
+<p>Noto Sans Malayalam: <span style='font-family:Noto Sans Malayalam; font-size: 24px;'>Noto Sans Malayalam</p>
+<p>Noto Sans Mandaic: <span style='font-family:Noto Sans Mandaic; font-size: 24px;'>Noto Sans Mandaic</p>
+<p>Noto Sans Manichaean: <span style='font-family:Noto Sans Manichaean; font-size: 24px;'>Noto Sans Manichaean</p>
+<p>Noto Sans Marchen: <span style='font-family:Noto Sans Marchen; font-size: 24px;'>Noto Sans Marchen</p>
+<p>Noto Sans Math: <span style='font-family:Noto Sans Math; font-size: 24px;'>Noto Sans Math</p>
+<p>Noto Sans Mayan Numerals: <span style='font-family:Noto Sans Mayan Numerals; font-size: 24px;'>Noto Sans Mayan Numerals</p>
+<p>Noto Sans Meetei Mayek: <span style='font-family:Noto Sans Meetei Mayek; font-size: 24px;'>Noto Sans Meetei Mayek</p>
+<p>Noto Sans Mende Kikakui: <span style='font-family:Noto Sans Mende Kikakui; font-size: 24px;'>Noto Sans Mende Kikakui</p>
+<p>Noto Sans Meroitic: <span style='font-family:Noto Sans Meroitic; font-size: 24px;'>Noto Sans Meroitic</p>
+<p>Noto Sans Miao: <span style='font-family:Noto Sans Miao; font-size: 24px;'>Noto Sans Miao</p>
+<p>Noto Sans Modi: <span style='font-family:Noto Sans Modi; font-size: 24px;'>Noto Sans Modi</p>
+<p>Noto Sans Mongolian: <span style='font-family:Noto Sans Mongolian; font-size: 24px;'>Noto Sans Mongolian</p>
+<p>Noto Sans Mono: <span style='font-family:Noto Sans Mono; font-size: 24px;'>Noto Sans Mono</p>
+<p>Noto Sans Mro: <span style='font-family:Noto Sans Mro; font-size: 24px;'>Noto Sans Mro</p>
+<p>Noto Sans Multani: <span style='font-family:Noto Sans Multani; font-size: 24px;'>Noto Sans Multani</p>
+<p>Noto Sans Myanmar: <span style='font-family:Noto Sans Myanmar; font-size: 24px;'>Noto Sans Myanmar</p>
+<p>Noto Sans NKo: <span style='font-family:Noto Sans NKo; font-size: 24px;'>Noto Sans NKo</p>
+<p>Noto Sans Nabataean: <span style='font-family:Noto Sans Nabataean; font-size: 24px;'>Noto Sans Nabataean</p>
+<p>Noto Sans New Tai Lue: <span style='font-family:Noto Sans New Tai Lue; font-size: 24px;'>Noto Sans New Tai Lue</p>
+<p>Noto Sans Newa: <span style='font-family:Noto Sans Newa; font-size: 24px;'>Noto Sans Newa</p>
+<p>Noto Sans Ogham: <span style='font-family:Noto Sans Ogham; font-size: 24px;'>Noto Sans Ogham</p>
+<p>Noto Sans Ol Chiki: <span style='font-family:Noto Sans Ol Chiki; font-size: 24px;'>Noto Sans Ol Chiki</p>
+<p>Noto Sans Old Hungarian: <span style='font-family:Noto Sans Old Hungarian; font-size: 24px;'>Noto Sans Old Hungarian</p>
+<p>Noto Sans Old Italic: <span style='font-family:Noto Sans Old Italic; font-size: 24px;'>Noto Sans Old Italic</p>
+<p>Noto Sans Old North Arabian: <span style='font-family:Noto Sans Old North Arabian; font-size: 24px;'>Noto Sans Old North Arabian</p>
+<p>Noto Sans Old Permic: <span style='font-family:Noto Sans Old Permic; font-size: 24px;'>Noto Sans Old Permic</p>
+<p>Noto Sans Old Persian: <span style='font-family:Noto Sans Old Persian; font-size: 24px;'>Noto Sans Old Persian</p>
+<p>Noto Sans Old Sogdian: <span style='font-family:Noto Sans Old Sogdian; font-size: 24px;'>Noto Sans Old Sogdian</p>
+<p>Noto Sans Old South Arabian: <span style='font-family:Noto Sans Old South Arabian; font-size: 24px;'>Noto Sans Old South Arabian</p>
+<p>Noto Sans Old Turkic: <span style='font-family:Noto Sans Old Turkic; font-size: 24px;'>Noto Sans Old Turkic</p>
+<p>Noto Sans Oriya: <span style='font-family:Noto Sans Oriya; font-size: 24px;'>Noto Sans Oriya</p>
+<p>Noto Sans Osage: <span style='font-family:Noto Sans Osage; font-size: 24px;'>Noto Sans Osage</p>
+<p>Noto Sans Osmanya: <span style='font-family:Noto Sans Osmanya; font-size: 24px;'>Noto Sans Osmanya</p>
+<p>Noto Sans Pahawh Hmong: <span style='font-family:Noto Sans Pahawh Hmong; font-size: 24px;'>Noto Sans Pahawh Hmong</p>
+<p>Noto Sans Palmyrene: <span style='font-family:Noto Sans Palmyrene; font-size: 24px;'>Noto Sans Palmyrene</p>
+<p>Noto Sans Pau Cin Hau: <span style='font-family:Noto Sans Pau Cin Hau; font-size: 24px;'>Noto Sans Pau Cin Hau</p>
+<p>Noto Sans PhagsPa: <span style='font-family:Noto Sans PhagsPa; font-size: 24px;'>Noto Sans PhagsPa</p>
+<p>Noto Sans Phoenician: <span style='font-family:Noto Sans Phoenician; font-size: 24px;'>Noto Sans Phoenician</p>
+<p>Noto Sans Psalter Pahlavi: <span style='font-family:Noto Sans Psalter Pahlavi; font-size: 24px;'>Noto Sans Psalter Pahlavi</p>
+<p>Noto Sans Rejang: <span style='font-family:Noto Sans Rejang; font-size: 24px;'>Noto Sans Rejang</p>
+<p>Noto Sans Runic: <span style='font-family:Noto Sans Runic; font-size: 24px;'>Noto Sans Runic</p>
+<p>Noto Sans Samaritan: <span style='font-family:Noto Sans Samaritan; font-size: 24px;'>Noto Sans Samaritan</p>
+<p>Noto Sans Saurashtra: <span style='font-family:Noto Sans Saurashtra; font-size: 24px;'>Noto Sans Saurashtra</p>
+<p>Noto Sans Sharada: <span style='font-family:Noto Sans Sharada; font-size: 24px;'>Noto Sans Sharada</p>
+<p>Noto Sans Shavian: <span style='font-family:Noto Sans Shavian; font-size: 24px;'>Noto Sans Shavian</p>
+<p>Noto Sans Siddham: <span style='font-family:Noto Sans Siddham; font-size: 24px;'>Noto Sans Siddham</p>
+<p>Noto Sans Sinhala: <span style='font-family:Noto Sans Sinhala; font-size: 24px;'>Noto Sans Sinhala</p>
+<p>Noto Sans Sora Sompeng: <span style='font-family:Noto Sans Sora Sompeng; font-size: 24px;'>Noto Sans Sora Sompeng</p>
+<p>Noto Sans Sundanese: <span style='font-family:Noto Sans Sundanese; font-size: 24px;'>Noto Sans Sundanese</p>
+<p>Noto Sans Syloti Nagri: <span style='font-family:Noto Sans Syloti Nagri; font-size: 24px;'>Noto Sans Syloti Nagri</p>
+<p>Noto Sans Symbols: <span style='font-family:Noto Sans Symbols; font-size: 24px;'>Noto Sans Symbols</p>
+<p>Noto Sans Symbols2: <span style='font-family:Noto Sans Symbols2; font-size: 24px;'>Noto Sans Symbols2</p>
+<p>Noto Sans Syriac: <span style='font-family:Noto Sans Syriac; font-size: 24px;'>Noto Sans Syriac</p>
+<p>Noto Sans Tagalog: <span style='font-family:Noto Sans Tagalog; font-size: 24px;'>Noto Sans Tagalog</p>
+<p>Noto Sans Tagbanwa: <span style='font-family:Noto Sans Tagbanwa; font-size: 24px;'>Noto Sans Tagbanwa</p>
+<p>Noto Sans Tai Le: <span style='font-family:Noto Sans Tai Le; font-size: 24px;'>Noto Sans Tai Le</p>
+<p>Noto Sans Tai Tham: <span style='font-family:Noto Sans Tai Tham; font-size: 24px;'>Noto Sans Tai Tham</p>
+<p>Noto Sans Tai Viet: <span style='font-family:Noto Sans Tai Viet; font-size: 24px;'>Noto Sans Tai Viet</p>
+<p>Noto Sans Takri: <span style='font-family:Noto Sans Takri; font-size: 24px;'>Noto Sans Takri</p>
+<p>Noto Sans Tamil: <span style='font-family:Noto Sans Tamil; font-size: 24px;'>Noto Sans Tamil</p>
+<p>Noto Sans Tamil Supplement: <span style='font-family:Noto Sans Tamil Supplement; font-size: 24px;'>Noto Sans Tamil Supplement</p>
+<p>Noto Sans Telugu: <span style='font-family:Noto Sans Telugu; font-size: 24px;'>Noto Sans Telugu</p>
+<p>Noto Sans Thaana: <span style='font-family:Noto Sans Thaana; font-size: 24px;'>Noto Sans Thaana</p>
+<p>Noto Sans Thai: <span style='font-family:Noto Sans Thai; font-size: 24px;'>Noto Sans Thai</p>
+<p>Noto Sans Tibetan: <span style='font-family:Noto Sans Tibetan; font-size: 24px;'>Noto Sans Tibetan</p>
+<p>Noto Sans Tifinagh: <span style='font-family:Noto Sans Tifinagh; font-size: 24px;'>Noto Sans Tifinagh</p>
+<p>Noto Sans Tirhuta: <span style='font-family:Noto Sans Tirhuta; font-size: 24px;'>Noto Sans Tirhuta</p>
+<p>Noto Sans Ugaritic: <span style='font-family:Noto Sans Ugaritic; font-size: 24px;'>Noto Sans Ugaritic</p>
+<p>Noto Sans Vai: <span style='font-family:Noto Sans Vai; font-size: 24px;'>Noto Sans Vai</p>
+<p>Noto Sans Warang Citi: <span style='font-family:Noto Sans Warang Citi; font-size: 24px;'>Noto Sans Warang Citi</p>
+<p>Noto Sans Yi: <span style='font-family:Noto Sans Yi; font-size: 24px;'>Noto Sans Yi</p>
+<p>Noto Serif: <span style='font-family:Noto Serif; font-size: 24px;'>Noto Serif</p>
+<p>Noto Serif Ahom: <span style='font-family:Noto Serif Ahom; font-size: 24px;'>Noto Serif Ahom</p>
+<p>Noto Serif Armenian: <span style='font-family:Noto Serif Armenian; font-size: 24px;'>Noto Serif Armenian</p>
+<p>Noto Serif Balinese: <span style='font-family:Noto Serif Balinese; font-size: 24px;'>Noto Serif Balinese</p>
+<p>Noto Serif Bengali: <span style='font-family:Noto Serif Bengali; font-size: 24px;'>Noto Serif Bengali</p>
+<p>Noto Serif CJK JP: <span style='font-family:Noto Serif CJK JP; font-size: 24px;'>Noto Serif CJK JP</p>
+<p>Noto Serif Devanagari: <span style='font-family:Noto Serif Devanagari; font-size: 24px;'>Noto Serif Devanagari</p>
+<p>Noto Serif Display: <span style='font-family:Noto Serif Display; font-size: 24px;'>Noto Serif Display</p>
+<p>Noto Serif Dogra: <span style='font-family:Noto Serif Dogra; font-size: 24px;'>Noto Serif Dogra</p>
+<p>Noto Serif Ethiopic: <span style='font-family:Noto Serif Ethiopic; font-size: 24px;'>Noto Serif Ethiopic</p>
+<p>Noto Serif Georgian: <span style='font-family:Noto Serif Georgian; font-size: 24px;'>Noto Serif Georgian</p>
+<p>Noto Serif Gujarati: <span style='font-family:Noto Serif Gujarati; font-size: 24px;'>Noto Serif Gujarati</p>
+<p>Noto Serif Gurmukhi: <span style='font-family:Noto Serif Gurmukhi; font-size: 24px;'>Noto Serif Gurmukhi</p>
+<p>Noto Serif Hebrew: <span style='font-family:Noto Serif Hebrew; font-size: 24px;'>Noto Serif Hebrew</p>
+<p>Noto Serif Kannada: <span style='font-family:Noto Serif Kannada; font-size: 24px;'>Noto Serif Kannada</p>
+<p>Noto Serif Khmer: <span style='font-family:Noto Serif Khmer; font-size: 24px;'>Noto Serif Khmer</p>
+<p>Noto Serif Lao: <span style='font-family:Noto Serif Lao; font-size: 24px;'>Noto Serif Lao</p>
+<p>Noto Serif Malayalam: <span style='font-family:Noto Serif Malayalam; font-size: 24px;'>Noto Serif Malayalam</p>
+<p>Noto Serif Myanmar: <span style='font-family:Noto Serif Myanmar; font-size: 24px;'>Noto Serif Myanmar</p>
+<p>Noto Serif Sinhala: <span style='font-family:Noto Serif Sinhala; font-size: 24px;'>Noto Serif Sinhala</p>
+<p>Noto Serif Tamil: <span style='font-family:Noto Serif Tamil; font-size: 24px;'>Noto Serif Tamil</p>
+<p>Noto Serif Tamil Slanted: <span style='font-family:Noto Serif Tamil Slanted; font-size: 24px;'>Noto Serif Tamil Slanted</p>
+<p>Noto Serif Tangut: <span style='font-family:Noto Serif Tangut; font-size: 24px;'>Noto Serif Tangut</p>
+<p>Noto Serif Telugu: <span style='font-family:Noto Serif Telugu; font-size: 24px;'>Noto Serif Telugu</p>
+<p>Noto Serif Thai: <span style='font-family:Noto Serif Thai; font-size: 24px;'>Noto Serif Thai</p>
+<p>Noto Serif Tibetan: <span style='font-family:Noto Serif Tibetan; font-size: 24px;'>Noto Serif Tibetan</p>
+<p>Open Sans: <span style='font-family:Open Sans; font-size: 24px;'>Open Sans</p>
+<p>Open Sans Condensed: <span style='font-family:Open Sans Condensed; font-size: 24px;'>Open Sans Condensed</p>
+<p>OpenSymbol: <span style='font-family:OpenSymbol; font-size: 24px;'>OpenSymbol</p>
+<p>P052: <span style='font-family:P052; font-size: 24px;'>P052</p>
+<p>Padauk: <span style='font-family:Padauk; font-size: 24px;'>Padauk</p>
+<p>Padauk Book: <span style='font-family:Padauk Book; font-size: 24px;'>Padauk Book</p>
+<p>Pagul: <span style='font-family:Pagul; font-size: 24px;'>Pagul</p>
+<p>Phetsarath OT: <span style='font-family:Phetsarath OT; font-size: 24px;'>Phetsarath OT</p>
+<p>Pothana2000: <span style='font-family:Pothana2000; font-size: 24px;'>Pothana2000</p>
+<p>Purisa: <span style='font-family:Purisa; font-size: 24px;'>Purisa</p>
+<p>Quicksand: <span style='font-family:Quicksand; font-size: 24px;'>Quicksand</p>
+<p>Quicksand Light: <span style='font-family:Quicksand Light; font-size: 24px;'>Quicksand Light</p>
+<p>Quicksand Medium: <span style='font-family:Quicksand Medium; font-size: 24px;'>Quicksand Medium</p>
+<p>Rachana: <span style='font-family:Rachana; font-size: 24px;'>Rachana</p>
+<p>RaghuMalayalamSans: <span style='font-family:RaghuMalayalamSans; font-size: 24px;'>RaghuMalayalamSans</p>
+<p>Rasa: <span style='font-family:Rasa; font-size: 24px;'>Rasa</p>
+<p>Rekha: <span style='font-family:Rekha; font-size: 24px;'>Rekha</p>
+<p>Roboto: <span style='font-family:Roboto; font-size: 24px;'>Roboto</p>
+<p>Roboto Condensed: <span style='font-family:Roboto Condensed; font-size: 24px;'>Roboto Condensed</p>
+<p>STIX: <span style='font-family:STIX; font-size: 24px;'>STIX</p>
+<p>STIX Math: <span style='font-family:STIX Math; font-size: 24px;'>STIX Math</p>
+<p>STIXGeneral: <span style='font-family:STIXGeneral; font-size: 24px;'>STIXGeneral</p>
+<p>STIXIntegralsD: <span style='font-family:STIXIntegralsD; font-size: 24px;'>STIXIntegralsD</p>
+<p>STIXIntegralsSm: <span style='font-family:STIXIntegralsSm; font-size: 24px;'>STIXIntegralsSm</p>
+<p>STIXIntegralsUp: <span style='font-family:STIXIntegralsUp; font-size: 24px;'>STIXIntegralsUp</p>
+<p>STIXIntegralsUpD: <span style='font-family:STIXIntegralsUpD; font-size: 24px;'>STIXIntegralsUpD</p>
+<p>STIXIntegralsUpSm: <span style='font-family:STIXIntegralsUpSm; font-size: 24px;'>STIXIntegralsUpSm</p>
+<p>STIXNonUnicode: <span style='font-family:STIXNonUnicode; font-size: 24px;'>STIXNonUnicode</p>
+<p>STIXSizeFiveSym: <span style='font-family:STIXSizeFiveSym; font-size: 24px;'>STIXSizeFiveSym</p>
+<p>STIXSizeFourSym: <span style='font-family:STIXSizeFourSym; font-size: 24px;'>STIXSizeFourSym</p>
+<p>STIXSizeOneSym: <span style='font-family:STIXSizeOneSym; font-size: 24px;'>STIXSizeOneSym</p>
+<p>STIXSizeThreeSym: <span style='font-family:STIXSizeThreeSym; font-size: 24px;'>STIXSizeThreeSym</p>
+<p>STIXSizeTwoSym: <span style='font-family:STIXSizeTwoSym; font-size: 24px;'>STIXSizeTwoSym</p>
+<p>STIXVariants: <span style='font-family:STIXVariants; font-size: 24px;'>STIXVariants</p>
+<p>Saab: <span style='font-family:Saab; font-size: 24px;'>Saab</p>
+<p>Sahadeva: <span style='font-family:Sahadeva; font-size: 24px;'>Sahadeva</p>
+<p>Samanata: <span style='font-family:Samanata; font-size: 24px;'>Samanata</p>
+<p>Samyak Devanagari: <span style='font-family:Samyak Devanagari; font-size: 24px;'>Samyak Devanagari</p>
+<p>Samyak Gujarati: <span style='font-family:Samyak Gujarati; font-size: 24px;'>Samyak Gujarati</p>
+<p>Samyak Malayalam: <span style='font-family:Samyak Malayalam; font-size: 24px;'>Samyak Malayalam</p>
+<p>Samyak Tamil: <span style='font-family:Samyak Tamil; font-size: 24px;'>Samyak Tamil</p>
+<p>Sarai: <span style='font-family:Sarai; font-size: 24px;'>Sarai</p>
+<p>Sawasdee: <span style='font-family:Sawasdee; font-size: 24px;'>Sawasdee</p>
+<p>Standard Symbols PS: <span style='font-family:Standard Symbols PS; font-size: 24px;'>Standard Symbols PS</p>
+<p>Suruma: <span style='font-family:Suruma; font-size: 24px;'>Suruma</p>
+<p>TeX Gyre Adventor: <span style='font-family:TeX Gyre Adventor; font-size: 24px;'>TeX Gyre Adventor</p>
+<p>TeX Gyre Bonum: <span style='font-family:TeX Gyre Bonum; font-size: 24px;'>TeX Gyre Bonum</p>
+<p>TeX Gyre Bonum Math: <span style='font-family:TeX Gyre Bonum Math; font-size: 24px;'>TeX Gyre Bonum Math</p>
+<p>TeX Gyre Chorus: <span style='font-family:TeX Gyre Chorus; font-size: 24px;'>TeX Gyre Chorus</p>
+<p>TeX Gyre Cursor: <span style='font-family:TeX Gyre Cursor; font-size: 24px;'>TeX Gyre Cursor</p>
+<p>TeX Gyre DejaVu Math: <span style='font-family:TeX Gyre DejaVu Math; font-size: 24px;'>TeX Gyre DejaVu Math</p>
+<p>TeX Gyre Heros: <span style='font-family:TeX Gyre Heros; font-size: 24px;'>TeX Gyre Heros</p>
+<p>TeX Gyre Heros Cn: <span style='font-family:TeX Gyre Heros Cn; font-size: 24px;'>TeX Gyre Heros Cn</p>
+<p>TeX Gyre Pagella: <span style='font-family:TeX Gyre Pagella; font-size: 24px;'>TeX Gyre Pagella</p>
+<p>TeX Gyre Pagella Math: <span style='font-family:TeX Gyre Pagella Math; font-size: 24px;'>TeX Gyre Pagella Math</p>
+<p>TeX Gyre Schola: <span style='font-family:TeX Gyre Schola; font-size: 24px;'>TeX Gyre Schola</p>
+<p>TeX Gyre Schola Math: <span style='font-family:TeX Gyre Schola Math; font-size: 24px;'>TeX Gyre Schola Math</p>
+<p>TeX Gyre Termes: <span style='font-family:TeX Gyre Termes; font-size: 24px;'>TeX Gyre Termes</p>
+<p>TeX Gyre Termes Math: <span style='font-family:TeX Gyre Termes Math; font-size: 24px;'>TeX Gyre Termes Math</p>
+<p>Tibetan Machine Uni: <span style='font-family:Tibetan Machine Uni; font-size: 24px;'>Tibetan Machine Uni</p>
+<p>Tinos: <span style='font-family:Tinos; font-size: 24px;'>Tinos</p>
+<p>Tlwg Mono: <span style='font-family:Tlwg Mono; font-size: 24px;'>Tlwg Mono</p>
+<p>Tlwg Typewriter: <span style='font-family:Tlwg Typewriter; font-size: 24px;'>Tlwg Typewriter</p>
+<p>Tlwg Typist: <span style='font-family:Tlwg Typist; font-size: 24px;'>Tlwg Typist</p>
+<p>Tlwg Typo: <span style='font-family:Tlwg Typo; font-size: 24px;'>Tlwg Typo</p>
+<p>URW Bookman: <span style='font-family:URW Bookman; font-size: 24px;'>URW Bookman</p>
+<p>URW Gothic: <span style='font-family:URW Gothic; font-size: 24px;'>URW Gothic</p>
+<p>Ubuntu: <span style='font-family:Ubuntu; font-size: 24px;'>Ubuntu</p>
+<p>Ubuntu Condensed: <span style='font-family:Ubuntu Condensed; font-size: 24px;'>Ubuntu Condensed</p>
+<p>Ubuntu Mono: <span style='font-family:Ubuntu Mono; font-size: 24px;'>Ubuntu Mono</p>
+<p>Umpush: <span style='font-family:Umpush; font-size: 24px;'>Umpush</p>
+<p>UnBatang: <span style='font-family:UnBatang; font-size: 24px;'>UnBatang</p>
+<p>UnDinaru: <span style='font-family:UnDinaru; font-size: 24px;'>UnDinaru</p>
+<p>UnDotum: <span style='font-family:UnDotum; font-size: 24px;'>UnDotum</p>
+<p>UnGraphic: <span style='font-family:UnGraphic; font-size: 24px;'>UnGraphic</p>
+<p>UnGungseo: <span style='font-family:UnGungseo; font-size: 24px;'>UnGungseo</p>
+<p>UnJamoBatang: <span style='font-family:UnJamoBatang; font-size: 24px;'>UnJamoBatang</p>
+<p>UnJamoDotum: <span style='font-family:UnJamoDotum; font-size: 24px;'>UnJamoDotum</p>
+<p>UnJamoNovel: <span style='font-family:UnJamoNovel; font-size: 24px;'>UnJamoNovel</p>
+<p>UnJamoSora: <span style='font-family:UnJamoSora; font-size: 24px;'>UnJamoSora</p>
+<p>UnPen: <span style='font-family:UnPen; font-size: 24px;'>UnPen</p>
+<p>UnPenheulim: <span style='font-family:UnPenheulim; font-size: 24px;'>UnPenheulim</p>
+<p>UnPilgi: <span style='font-family:UnPilgi; font-size: 24px;'>UnPilgi</p>
+<p>UnPilgia: <span style='font-family:UnPilgia; font-size: 24px;'>UnPilgia</p>
+<p>UnShinmun: <span style='font-family:UnShinmun; font-size: 24px;'>UnShinmun</p>
+<p>UnTaza: <span style='font-family:UnTaza; font-size: 24px;'>UnTaza</p>
+<p>UnVada: <span style='font-family:UnVada; font-size: 24px;'>UnVada</p>
+<p>UnYetgul: <span style='font-family:UnYetgul; font-size: 24px;'>UnYetgul</p>
+<p>Universalis ADF Std: <span style='font-family:Universalis ADF Std; font-size: 24px;'>Universalis ADF Std</p>
+<p>Uroob: <span style='font-family:Uroob; font-size: 24px;'>Uroob</p>
+<p>Vemana2000: <span style='font-family:Vemana2000; font-size: 24px;'>Vemana2000</p>
+<p>Waree: <span style='font-family:Waree; font-size: 24px;'>Waree</p>
+<p>Yrsa: <span style='font-family:Yrsa; font-size: 24px;'>Yrsa</p>
+<p>Z003: <span style='font-family:Z003; font-size: 24px;'>Z003</p>
+<p>aakar: <span style='font-family:aakar; font-size: 24px;'>aakar</p>
+<p>cmb10: <span style='font-family:cmb10; font-size: 24px;'>cmb10</p>
+<p>cmex10: <span style='font-family:cmex10; font-size: 24px;'>cmex10</p>
+<p>cmmi10: <span style='font-family:cmmi10; font-size: 24px;'>cmmi10</p>
+<p>cmr10: <span style='font-family:cmr10; font-size: 24px;'>cmr10</p>
+<p>cmss10: <span style='font-family:cmss10; font-size: 24px;'>cmss10</p>
+<p>cmsy10: <span style='font-family:cmsy10; font-size: 24px;'>cmsy10</p>
+<p>cmtt10: <span style='font-family:cmtt10; font-size: 24px;'>cmtt10</p>
+<p>mry_KacstQurn: <span style='font-family:mry_KacstQurn; font-size: 24px;'>mry_KacstQurn</p>
+<p>ori1Uni: <span style='font-family:ori1Uni; font-size: 24px;'>ori1Uni</p>
+<p>padmaa: <span style='font-family:padmaa; font-size: 24px;'>padmaa</p>
+<p>padmaa-Bold.1.1: <span style='font-family:padmaa-Bold.1.1; font-size: 24px;'>padmaa-Bold.1.1</p></div></div>
+</div>
+<p>In case you are writing your document in <em>LaTeX</em>, the <strong>cmXXXX</strong> fonts might be of interest to you as the match the font used in the <em>LaTeX</em> documents. Here is an example:</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[57]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cmfont</span> <span class="o">=</span> <span class="n">font_manager</span><span class="o">.</span><span class="n">FontProperties</span><span class="p">(</span><span class="n">fname</span><span class="o">=</span><span class="n">mpl</span><span class="o">.</span><span class="n">get_data_path</span><span class="p">()</span> <span class="o">+</span> <span class="s1">&#39;/fonts/ttf/cmr10.ttf&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s1">&#39;font.size&#39;</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span>
+                     <span class="s1">&#39;axes.titlesize&#39;</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span>
+                     <span class="s1">&#39;axes.labelsize&#39;</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span>
+                     <span class="s1">&#39;axes.labelpad&#39;</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span>
+                     <span class="s1">&#39;lines.linewidth&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+                     <span class="s1">&#39;lines.markersize&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+                     <span class="s1">&#39;xtick.labelsize&#39;</span> <span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+                     <span class="s1">&#39;ytick.labelsize&#39;</span> <span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+                     <span class="s1">&#39;xtick.top&#39;</span> <span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+                     <span class="s1">&#39;xtick.direction&#39;</span> <span class="p">:</span> <span class="s1">&#39;in&#39;</span><span class="p">,</span>
+                     <span class="s1">&#39;ytick.right&#39;</span> <span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+                     <span class="s1">&#39;ytick.direction&#39;</span> <span class="p">:</span> <span class="s1">&#39;in&#39;</span><span class="p">,</span>
+                     <span class="s1">&#39;font.family&#39;</span> <span class="p">:</span> <span class="s1">&#39;serif&#39;</span><span class="p">,</span>
+                     <span class="s1">&#39;font.serif&#39;</span> <span class="p">:</span> <span class="n">cmfont</span><span class="o">.</span><span class="n">get_name</span><span class="p">(),</span>
+                     <span class="s2">&quot;axes.formatter.use_mathtext&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+                     <span class="c1">#&#39;text.usetex&#39;: True,</span>
+                     <span class="s1">&#39;mathtext.fontset&#39;</span> <span class="p">:</span> <span class="s1">&#39;cm&#39;</span>
+                    <span class="p">})</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[58]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[59]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span><span class="n">dpi</span><span class="o">=</span><span class="mi">150</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;velocity $v$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;position $r$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/notebooks_L2_25_publication_ready_figures_18_0.png" class="no-scaled-link" src="../../_images/notebooks_L2_25_publication_ready_figures_18_0.png" style="width: 470px; height: 333px;" />
+</div>
+</div>
 <script type="application/vnd.jupyter.widget-state+json">
 {"state": {}, "version_major": 2, "version_minor": 0}
 </script></section>
@@ -371,7 +889,17 @@ your code that sets this size of the axis frame. This function could be</p>
         
         <div class="related-pages">
           
-          
+          <a class="prev-page" href="../../lectures/L2/assignment_2.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">Exercise 2</div>
+                
+              </div>
+            </a>
         </div>
         <div class="bottom-of-page">
           <div class="left-details">
@@ -382,7 +910,7 @@ your code that sets this size of the axis frame. This function could be</p>
             
             <a href="https://github.com/pradyunsg/furo">Furo</a>
             <div class="last-updated">
-              Last updated on Apr 17, 2023</div>
+              Last updated on Apr 18, 2023</div>
           </div>
           <div class="right-details">
             
@@ -403,9 +931,10 @@ your code that sets this size of the axis frame. This function could be</p>
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">Making publication ready figures</a><ul>
+<li><a class="reference internal" href="#">Add On: Making publication ready figures</a><ul>
 <li><a class="reference internal" href="#Creating-a-plot-with-a-specific-bounding-box-size">Creating a plot with a specific bounding box size</a></li>
 <li><a class="reference internal" href="#Creating-a-plot-with-a-specific-axis-frame-size">Creating a plot with a specific axis frame size</a></li>
+<li><a class="reference internal" href="#Choosing-fonts">Choosing fonts</a></li>
 </ul>
 </li>
 </ul>
