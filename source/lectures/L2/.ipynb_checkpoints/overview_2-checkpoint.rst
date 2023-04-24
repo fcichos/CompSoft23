@@ -10,6 +10,10 @@ In this second lecture we will have a look at some
 
 
 
+We will have a little add-on on preparing publication ready figures in the seminar. In addition, we have prepared a small example of how to work with figures and LateX manuscripts.
+
+`Add On: Example for Figures in Manuscripts  <https://github.com/fcichos/CompSoft23/tree/master/source/lectures/L2/L2%20Tips%20For%20Figures>`_
+
 .. raw:: html
 
     <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; height: auto;">
