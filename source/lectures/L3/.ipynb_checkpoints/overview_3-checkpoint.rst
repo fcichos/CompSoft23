@@ -11,6 +11,10 @@ In this third lecture we will have a look at
 
 The video is missing the reandom number part, which is in the previous lectures video.
 
+There is today also a tiny add-on we will talk about in the seminar. It is about the reactive Pluto notebook system.
+
+   `Add On: Pluto <https://fcichos.github.io/CompSoft22/lectures/L12/pluto/lecture.jl.html>`_
+
 Have fun!
 
 .. raw:: html
