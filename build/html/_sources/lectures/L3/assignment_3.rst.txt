@@ -1,7 +1,7 @@
 Exercise 3
 ==========
 
-The third assignment took a bit longer, but its even better now. Please have a look and not only a look!
+The third assignment is also available now. Please have a look and not only a look! It is about 
 
 1. Input & Output
 2. Flow Control
