@@ -378,13 +378,13 @@ from ipycanvas import MultiCanvas, hold_canvas,Canvas
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "32bffc23d13c4d9f8afd4ad71d7ae613", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "9eedce65e1524f0a8c37ef35eca3bbe7", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <img alt="particles" src="../../_images/particles.png" />
 <p>We realize the drawing in a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop, which is first updating all particle positions and then drawing all the particles.</p>
 <p>The loop contains one interesting statement, which is the <code class="docutils literal notranslate"><span class="pre">with</span> <span class="pre">hold_canvas(canvas):</span></code>. Its useful to know that this statement halts the execution of all subsequent drawing comments in the following code block to create a “batch” of drawing commands send at one to the <code class="docutils literal notranslate"><span class="pre">ipycanvas</span></code> module. This will allow fast drawing of the whole scene. All the rest of the commands are shortly explained in the loop comments.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">scale</span><span class="o">=</span><span class="mf">1e7</span> <span class="c1"># this is to scale up all from µm to pixels</span>
@@ -492,7 +492,7 @@ simulation.start()
 <li><p><strong>Introduce collisions:</strong> To study the spreading of an infection, we have to introduce collisions between particles.</p></li>
 </ol>
 <script type="application/vnd.jupyter.widget-state+json">
-{"state": {}, "version_major": 2, "version_minor": 0}
+{"state": {"0b7114d34d51416fb02f4baf9fcef7e3": {"model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "model_name": "LayoutModel", "state": {}}, "9eedce65e1524f0a8c37ef35eca3bbe7": {"model_module": "ipycanvas", "model_module_version": "^0.13", "model_name": "CanvasModel", "state": {"_canvas_manager": "IPY_MODEL_a5315e0a137640f7be03c8159ece19ec", "_model_module_version": "^0.13", "_view_module_version": "^0.13", "height": 300, "layout": "IPY_MODEL_0b7114d34d51416fb02f4baf9fcef7e3", "width": 300}}, "a5315e0a137640f7be03c8159ece19ec": {"model_module": "ipycanvas", "model_module_version": "^0.13", "model_name": "CanvasManagerModel", "state": {"_model_module_version": "^0.13", "_view_module": null, "_view_module_version": ""}}}, "version_major": 2, "version_minor": 0}
 </script></section>
 </section>
 
@@ -513,7 +513,7 @@ simulation.start()
             
             <a href="https://github.com/pradyunsg/furo">Furo</a>
             <div class="last-updated">
-              Last updated on Apr 24, 2023</div>
+              Last updated on Apr 25, 2023</div>
           </div>
           <div class="right-details">
             
