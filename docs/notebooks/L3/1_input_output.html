@@ -296,6 +296,8 @@ float
 <section id="Screen-output">
 <h2>Screen output<a class="headerlink" href="#Screen-output" title="Permalink to this heading">#</a></h2>
 <p>Screen output is possible by using the <code class="docutils literal notranslate"><span class="pre">print</span></code> command. The argument of the print function can be of different type.</p>
+<section id="str.format()-Formatting">
+<h3>str.format() Formatting<a class="headerlink" href="#str.format()-Formatting" title="Permalink to this heading">#</a></h3>
 <p>You can format your output by modifying the string given to the <code class="docutils literal notranslate"><span class="pre">print</span></code> function by <code class="docutils literal notranslate"><span class="pre">str.format()</span></code>, The <code class="docutils literal notranslate"><span class="pre">str</span></code> contains text that is written to be the screen, as well as certain format specifiers contained in curly braces {}. The format function contains the list of variables that are to be printed.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
@@ -364,6 +366,69 @@ How are you my friend?
 16. are you my friend?--      34, 3.142e-14
 </pre></div></div>
 </div>
+</section>
+<section id="%-Formatting">
+<h3>%-Formatting<a class="headerlink" href="#%-Formatting" title="Permalink to this heading">#</a></h3>
+<p>A very similar formatting can be achieved with the <code class="docutils literal notranslate"><span class="pre">%</span></code>operator.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Frank&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello, </span><span class="si">%s</span><span class="s2">.&quot;</span> <span class="o">%</span> <span class="n">name</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Hello, Frank.
+</pre></div></div>
+</div>
+</section>
+<section id="f-Strings">
+<h3>f-Strings<a class="headerlink" href="#f-Strings" title="Permalink to this heading">#</a></h3>
+<p><strong>Formatted string literals</strong> are the string literals that start with an <code class="docutils literal notranslate"><span class="pre">f</span></code> at the beginning and use curly braces {} to enclose the expressions that will be replaced with other values.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Python Lecture&quot;</span>
+<span class="n">number</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">fstring</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;I&#39;m here for the </span><span class="si">{</span><span class="n">number</span><span class="si">}</span><span class="s2">. time and this </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2"> is awesome!&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">fstring</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+I&#39;m here for the 3. time and this Python Lecture is awesome!
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><br/><span></span><span class="n">times</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">fstring</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;You just have to sent me </span><span class="si">{</span><span class="n">times</span><span class="si">:</span><span class="s2">10.3f</span><span class="si">}</span><span class="s2"> Euros.&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">fstring</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+You just have to sent me    100.000 Euros.
+</pre></div></div>
+</div>
+</section>
 </section>
 <section id="File-input/output">
 <h2>File input/output<a class="headerlink" href="#File-input/output" title="Permalink to this heading">#</a></h2>
@@ -463,7 +528,7 @@ data point  time (sec)  height (mm) uncertainty (mm)
 </section>
 <section id="File-I/O-with-Pandas">
 <h3>File I/O with Pandas<a class="headerlink" href="#File-I/O-with-Pandas" title="Permalink to this heading">#</a></h3>
-<p>Pandas is a software library written for the Python programming language. It is used for data manipulation and analysis. It provides special data structures and operations for the manipulation of numerical tables and time series and builds on top of numpy.</p>
+<p><a class="reference external" href="https://pandas.pydata.org/docs/user_guide/index.html">Pandas</a> is a software library written for the Python programming language. It is used for data manipulation and analysis. It provides special data structures and operations for the manipulation of numerical tables and time series and builds on top of numpy.</p>
 <ul class="simple">
 <li><p>Easy handling of missing data</p></li>
 <li><p>Intelligent label-based slicing, fancy indexing, and subsetting of large data sets</p></li>
@@ -831,7 +896,7 @@ array([[1, 5, 6, 4, 9],
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_L3_1_input_output_42_1.png" src="../../_images/notebooks_L3_1_input_output_42_1.png" />
+<img alt="../../_images/notebooks_L3_1_input_output_50_1.png" src="../../_images/notebooks_L3_1_input_output_50_1.png" />
 </div>
 </div>
 <div class="nbinput docutils container">
@@ -855,7 +920,7 @@ array([[1, 5, 6, 4, 9],
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_L3_1_input_output_43_1.png" src="../../_images/notebooks_L3_1_input_output_43_1.png" />
+<img alt="../../_images/notebooks_L3_1_input_output_51_1.png" src="../../_images/notebooks_L3_1_input_output_51_1.png" />
 </div>
 </div>
 <script type="application/vnd.jupyter.widget-state+json">
@@ -900,7 +965,7 @@ array([[1, 5, 6, 4, 9],
             
             <a href="https://github.com/pradyunsg/furo">Furo</a>
             <div class="last-updated">
-              Last updated on Apr 24, 2023</div>
+              Last updated on Apr 25, 2023</div>
           </div>
           <div class="right-details">
             
@@ -923,7 +988,12 @@ array([[1, 5, 6, 4, 9],
             <ul>
 <li><a class="reference internal" href="#">Input and output</a><ul>
 <li><a class="reference internal" href="#Keyboard-input">Keyboard input</a></li>
-<li><a class="reference internal" href="#Screen-output">Screen output</a></li>
+<li><a class="reference internal" href="#Screen-output">Screen output</a><ul>
+<li><a class="reference internal" href="#str.format()-Formatting">str.format() Formatting</a></li>
+<li><a class="reference internal" href="#%-Formatting">%-Formatting</a></li>
+<li><a class="reference internal" href="#f-Strings">f-Strings</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#File-input/output">File input/output</a><ul>
 <li><a class="reference internal" href="#File-I/O-with-NumPy">File I/O with NumPy</a><ul>
 <li><a class="reference internal" href="#Reading-data-from-a-text-file">Reading data from a text file</a></li>
