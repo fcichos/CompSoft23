@@ -3,7 +3,7 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
-<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Exceptions" href="4_exceptions.html" /><link rel="prev" title="Flow Control" href="2_flowcontrol.html" />
+<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Classes and Objects" href="../L4/1_classes.html" /><link rel="prev" title="Lecture Contents" href="../../lectures/L4/overview_4.html" />
 
     <!-- Generated with Sphinx 6.1.3 and Furo 2023.03.27 -->
         <title>Functions - Introduction to Computer-based Physical Modeling 23 documentation</title>
@@ -193,16 +193,23 @@
 <li class="toctree-l1"><a class="reference internal" href="../L2/25_publication_ready_figures.html">Add On: Making publication ready figures</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Lecture 3:</span></p>
-<ul class="current">
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../../lectures/L3/overview_3.html">Lecture Contents</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../L2/3_randomnumbers.html">Random numbers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="1_input_output.html">Input and output</a></li>
 <li class="toctree-l1"><a class="reference internal" href="2_flowcontrol.html">Flow Control</a></li>
-<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Functions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="4_exceptions.html">Exceptions</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../lectures/L3/assignment_3.html">Exercise 3</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="simple">
 </ul>
 </li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Lecture 4:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../lectures/L4/overview_4.html">Lecture Contents</a></li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L4/1_classes.html">Classes and Objects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L4/2_brownian_motion.html">Brownian Motion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L4/3_animations.html">Animations</a></li>
 </ul>
 
 </div>
@@ -242,17 +249,7 @@
 <span class="raw-html"><br/><a href="https://colab.research.google.com/github/fcichos/CompSoft23/blob/master/source/notebooks/L3/3_functions.ipynb"><img alt="Binder badge" src="https://img.shields.io/badge/launch-%20colab-green.svg" style="vertical-align:text-bottom"></a></span>
 <span class="raw-html"><br/><a href="https://mybinder.org/v2/gh/fcichos/CompSoft23.git/master?labpath=source/notebooks/L3/3_functions.ipynb"><img alt="Binder badge" src="https://img.shields.io/badge/launch-%20myBinder-red.svg" style="vertical-align:text-bottom"></a></span></p>
 </div>
-<h1><p>Table of Contents</p>
-</h1><div class="toc"><ul class="toc-item"><li><p>1  Functions</p>
-<ul class="toc-item"><li><p>1.1  Function definition</p>
-</li><li><p>1.2  Variables in functions</p>
-</li><li><p>1.3  Functions with more than one input or output</p>
-<ul class="toc-item"><li><p>1.3.1  Positional and keyword arguments</p>
-</li><li><p>1.3.2  Functions with variable number of arguments</p>
-</li></ul></li><li><p>1.4  Unnamed functions (lambda function)</p>
-</li><li><p>1.5  Functions as arguments of functions</p>
-</li><li><p>1.6  First-Class Objects, Inner Functions and Decorators</p>
-</li></ul></li></ul></div><section id="Functions">
+<section id="Functions">
 <h1>Functions<a class="headerlink" href="#Functions" title="Permalink to this heading">#</a></h1>
 <p>Python allows to define functions. Functions collect code that you would use repeatedly in your program.</p>
 <div class="nbinput nblast docutils container">
@@ -382,7 +379,7 @@ array([        nan,  0.95885108,  0.84147098,  0.66499666,  0.45464871,
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_L3_3_functions_13_0.png" class="no-scaled-link" src="../../_images/notebooks_L3_3_functions_13_0.png" style="width: 401px; height: 250px;" />
+<img alt="../../_images/notebooks_L3_3_functions_12_0.png" class="no-scaled-link" src="../../_images/notebooks_L3_3_functions_12_0.png" style="width: 401px; height: 250px;" />
 </div>
 </div>
 <p>Loops are in general slowly executed and there is a faster way of checking the elements of an array by the <code class="docutils literal notranslate"><span class="pre">np.where</span></code> function of the NumPy library. There where function has the form</p>
@@ -505,7 +502,7 @@ This is a changed global : 15
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_L3_3_functions_30_0.png" class="no-scaled-link" src="../../_images/notebooks_L3_3_functions_30_0.png" style="width: 208px; height: 196px;" />
+<img alt="../../_images/notebooks_L3_3_functions_29_0.png" class="no-scaled-link" src="../../_images/notebooks_L3_3_functions_29_0.png" style="width: 208px; height: 196px;" />
 </div>
 </div>
 </section>
@@ -653,6 +650,25 @@ args = (2, 3, 4, 5, 6)
 <div class="highlight"><pre>
 90
 9000
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">)]</span>
+
+<span class="n">q</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">q</span><span class="p">)</span> <span class="c1"># [(2, 2), (1, 7), (4, 2), (3, 3), (5, 2)]</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[(2, 2), (1, 7), (4, 2), (3, 3), (5, 2)]
 </pre></div></div>
 </div>
 </section>
@@ -1034,23 +1050,23 @@ Then I execute the original function!
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="4_exceptions.html">
+          <a class="next-page" href="../L4/1_classes.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Exceptions</div>
+                <div class="title">Classes and Objects</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="2_flowcontrol.html">
+          <a class="prev-page" href="../../lectures/L4/overview_4.html">
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Flow Control</div>
+                <div class="title">Lecture Contents</div>
                 
               </div>
             </a>
@@ -1064,7 +1080,7 @@ Then I execute the original function!
             
             <a href="https://github.com/pradyunsg/furo">Furo</a>
             <div class="last-updated">
-              Last updated on Apr 24, 2023</div>
+              Last updated on May 01, 2023</div>
           </div>
           <div class="right-details">
             

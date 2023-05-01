@@ -3,13 +3,13 @@ Lecture Contents
 
 In this 4th lecture we will have a look at 
 
-1. Classes and Objects
-2. Physics Project: Brownian Motion
-3. Animations 
+1. Functions (pedning from last lecture)
+2. Classes and Objects
+3. Physics Project: Brownian Motion
+4. Animations 
 
 
-Note that the section on Animations will not show the final animations. I have added a short sequence at the end of the video. 
-If you want to have a look at the animations, please use the Binder version of the lecture. The lecture notebooks may slightly deviate from the video and are subject to changes until the Lecture date.
+Note that the section on Animations will not show the final animations. I have added a short sequence at the end of the video. If you want to have a look at the animations, please use the Binder version of the lecture. The lecture notebooks may slightly deviate from the video and are subject to changes until the Lecture date.
 
 .. raw:: html
 

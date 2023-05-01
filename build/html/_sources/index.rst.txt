@@ -81,10 +81,18 @@ We will not present a comprehensive list of numerical simulation schemes, but us
    notebooks/L2/3_randomnumbers.ipynb
    notebooks/L3/1_input_output.ipynb
    notebooks/L3/2_flowcontrol.ipynb   
-   notebooks/L3/3_functions.ipynb  
    notebooks/L3/4_exceptions.ipynb
    lectures/L3/assignment_3.rst
 
+.. toctree::
+   :maxdepth: 2
+   :caption: Lecture 4:
+
+   lectures/L4/overview_4.rst
+   notebooks/L3/3_functions.ipynb  
+   notebooks/L4/1_classes.ipynb
+   notebooks/L4/2_brownian_motion.ipynb   
+   notebooks/L4/3_animations.ipynb  
    
    
 Indices and tables
