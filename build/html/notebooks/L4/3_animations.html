@@ -385,7 +385,7 @@ from ipycanvas import MultiCanvas, hold_canvas,Canvas
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "9eedce65e1524f0a8c37ef35eca3bbe7", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "59fb18d5644249429594722eff2517bd", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <img alt="particles" src="../../_images/particles.png" />
 <p>We realize the drawing in a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop, which is first updating all particle positions and then drawing all the particles.</p>
@@ -428,7 +428,7 @@ simulation.start()
 </div>
 <p>That’s all you need. So lets wrap all our drawing before into a draw function.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">draw</span><span class="p">():</span>
@@ -448,7 +448,7 @@ simulation.start()
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">simulation</span> <span class="o">=</span> <span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">draw</span><span class="p">)</span>
@@ -457,7 +457,7 @@ simulation.start()
 </div>
 <p>We create a new canvas here, even though we could use the one on the top. It’s just nice to not have to scroll up.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">canvas</span> <span class="o">=</span> <span class="n">Canvas</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
@@ -469,11 +469,11 @@ simulation.start()
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "27f41077812541e981661031740acd65", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "eebfb591816747758bb71486c29ee992", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <img alt="particles" src="../../_images/particles.png" />
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># start the simulation</span>
@@ -483,7 +483,7 @@ simulation.start()
 </div>
 <p>One of the intruiging things of this type of threading is that all of the parameters of the Colloids may still be changed on the fly while the process is running. So lets just reset the particle positions to the origin and see what is happening in the canvas.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
@@ -499,7 +499,7 @@ simulation.start()
 <li><p><strong>Introduce collisions:</strong> To study the spreading of an infection, we have to introduce collisions between particles.</p></li>
 </ol>
 <script type="application/vnd.jupyter.widget-state+json">
-{"state": {"0b7114d34d51416fb02f4baf9fcef7e3": {"model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "model_name": "LayoutModel", "state": {}}, "9eedce65e1524f0a8c37ef35eca3bbe7": {"model_module": "ipycanvas", "model_module_version": "^0.13", "model_name": "CanvasModel", "state": {"_canvas_manager": "IPY_MODEL_a5315e0a137640f7be03c8159ece19ec", "_model_module_version": "^0.13", "_view_module_version": "^0.13", "height": 300, "layout": "IPY_MODEL_0b7114d34d51416fb02f4baf9fcef7e3", "width": 300}}, "a5315e0a137640f7be03c8159ece19ec": {"model_module": "ipycanvas", "model_module_version": "^0.13", "model_name": "CanvasManagerModel", "state": {"_model_module_version": "^0.13", "_view_module": null, "_view_module_version": ""}}}, "version_major": 2, "version_minor": 0}
+{"state": {"07f435ee8fad4f8d855f32b41bf37c22": {"model_module": "ipycanvas", "model_module_version": "^0.13", "model_name": "CanvasManagerModel", "state": {"_model_module_version": "^0.13", "_view_module": null, "_view_module_version": ""}}, "59fb18d5644249429594722eff2517bd": {"model_module": "ipycanvas", "model_module_version": "^0.13", "model_name": "CanvasModel", "state": {"_canvas_manager": "IPY_MODEL_07f435ee8fad4f8d855f32b41bf37c22", "_model_module_version": "^0.13", "_view_module_version": "^0.13", "height": 300, "layout": "IPY_MODEL_63ff105c22794123ab4b62dea1072bc4", "width": 300}}, "63ff105c22794123ab4b62dea1072bc4": {"model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "model_name": "LayoutModel", "state": {}}, "b0069eb65382476d9978c8d3ec322802": {"model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "model_name": "LayoutModel", "state": {}}, "eebfb591816747758bb71486c29ee992": {"model_module": "ipycanvas", "model_module_version": "^0.13", "model_name": "CanvasModel", "state": {"_canvas_manager": "IPY_MODEL_07f435ee8fad4f8d855f32b41bf37c22", "_model_module_version": "^0.13", "_view_module_version": "^0.13", "height": 300, "layout": "IPY_MODEL_b0069eb65382476d9978c8d3ec322802", "width": 300}}}, "version_major": 2, "version_minor": 0}
 </script></section>
 </section>
 
@@ -530,7 +530,7 @@ simulation.start()
             
             <a href="https://github.com/pradyunsg/furo">Furo</a>
             <div class="last-updated">
-              Last updated on May 01, 2023</div>
+              Last updated on May 02, 2023</div>
           </div>
           <div class="right-details">
             
