@@ -3,7 +3,7 @@ Lecture Contents
 
 In this 4th lecture we will have a look at 
 
-1. Functions (pedning from last lecture)
+1. Functions (pending from last lecture)
 2. Classes and Objects
 3. Physics Project: Brownian Motion
 4. Animations 
