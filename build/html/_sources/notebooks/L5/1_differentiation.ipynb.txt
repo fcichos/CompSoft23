@@ -85,7 +85,13 @@
     "f^{\\prime}_{i}\\approx \\frac{f_{i+1}-f_{i}}{\\Delta x}\n",
     "\\end{equation}\n",
     "\n",
-    "Here we look to the right of the current posiiton $i$ and devide by the interval $\\Delta x$."
+    "Here we look to the right of the current posiiton $i$ and devide by the interval $\\Delta x$.\n",
+    "\n",
+    "It is not difficult to see that the resulting local error $\\delta$ at each step is given by\n",
+    "\n",
+    "$$\n",
+    "\\mathrm{\\delta}=y\\left(t_0+h\\right)-y_1=\\frac{1}{2} h^2 y^{\\prime \\prime}(\\xi)\n",
+    "$$"
    ]
   },
   {
@@ -96,7 +102,7 @@
     }
    },
    "source": [
-    "Some better notation may be found by the Taylor expansion:\n",
+    "Some better expression may be found by the Taylor expansion:\n",
     "\n",
     "\\begin{equation}\n",
     "f(x)=f(x_{0})+(x-x_0)f^{\\prime}(x)+\\frac{(x-x_0)^2}{2!}f^{\\prime\\prime}(x)+\\frac{(x-x_0)^3}{3!}f^{(3)}(x)+\\ldots\n",
@@ -113,29 +119,6 @@
     "\\begin{equation}\n",
     "f_{i-1}=f_{i}-\\Delta x f_{i}^{\\prime}+\\frac{\\Delta x^2 }{2!}f_{i}^{\\prime\\prime}-\\frac{\\Delta x^3 }{3!}f_{i}^{(3)}+\\ldots\n",
     "\\end{equation}"
-   ]
-  },
-  {
-   "cell_type": "markdown",
-   "metadata": {
-    "slideshow": {
-     "slide_type": "subslide"
-    }
-   },
-   "source": [
-    "Subtracting the two last equations, i.e. calculating $f_{i+1}-f_{i-1}$, results in \n",
-    "\n",
-    "\\begin{equation}\n",
-    "f_{i+1}-f_{i-1}=2\\Delta x f_{i}^{\\prime}+2\\frac{\\Delta x^3}{6} f_{i}^{(3)}+ \\ldots\n",
-    "\\end{equation}\n",
-    "\n",
-    "which when neglecting the last term on the right side yields\n",
-    "\n",
-    "\\begin{equation}\n",
-    "f^{\\prime}_{i}\\approx \\frac{f_{i+1}-f_{i-1}}{2\\Delta x}\n",
-    "\\end{equation}\n",
-    "\n",
-    "This is similar to the formula we obtained from the definition of the derivative. Here, however, we use the function value to the left and the right of the position $i$ and twice the interval, which actually improves accuracy."
    ]
   },
   {
@@ -575,7 +558,7 @@
    "name": "python",
    "nbconvert_exporter": "python",
    "pygments_lexer": "ipython3",
-   "version": "3.8.12"
+   "version": "3.8.16"
   },
   "nteract": {
    "version": "0.23.3"

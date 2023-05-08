@@ -295,7 +295,12 @@ f^{\prime}(x)=\lim_{\Delta x \rightarrow 0}\frac{f(x+x_{0})-f(x)}{\Delta x}
 f^{\prime}_{i}\approx \frac{f_{i+1}-f_{i}}{\Delta x}
 \end{equation}</span></p>
 <p>Here we look to the right of the current posiiton <span class="math notranslate nohighlight">\(i\)</span> and devide by the interval <span class="math notranslate nohighlight">\(\Delta x\)</span>.</p>
-<p>Some better notation may be found by the Taylor expansion:</p>
+<p>It is not difficult to see that the resulting local error <span class="math notranslate nohighlight">\(\delta\)</span> at each step is given by</p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[\mathrm{\delta}=y\left(t_0+h\right)-y_1=\frac{1}{2} h^2 y^{\prime \prime}(\xi)\]</div>
+</div>
+<p>Some better expression may be found by the Taylor expansion:</p>
 <p><span class="math">\begin{equation}
 f(x)=f(x_{0})+(x-x_0)f^{\prime}(x)+\frac{(x-x_0)^2}{2!}f^{\prime\prime}(x)+\frac{(x-x_0)^3}{3!}f^{(3)}(x)+\ldots
 \end{equation}</span></p>
@@ -307,15 +312,6 @@ f_{i+1}=f_{i}+\Delta x f_{i}^{\prime}+\frac{\Delta x^2 }{2!}f_{i}^{\prime\prime}
 <p><span class="math">\begin{equation}
 f_{i-1}=f_{i}-\Delta x f_{i}^{\prime}+\frac{\Delta x^2 }{2!}f_{i}^{\prime\prime}-\frac{\Delta x^3 }{3!}f_{i}^{(3)}+\ldots
 \end{equation}</span></p>
-<p>Subtracting the two last equations, i.e. calculating <span class="math notranslate nohighlight">\(f_{i+1}-f_{i-1}\)</span>, results in</p>
-<p><span class="math">\begin{equation}
-f_{i+1}-f_{i-1}=2\Delta x f_{i}^{\prime}+2\frac{\Delta x^3}{6} f_{i}^{(3)}+ \ldots
-\end{equation}</span></p>
-<p>which when neglecting the last term on the right side yields</p>
-<p><span class="math">\begin{equation}
-f^{\prime}_{i}\approx \frac{f_{i+1}-f_{i-1}}{2\Delta x}
-\end{equation}</span></p>
-<p>This is similar to the formula we obtained from the definition of the derivative. Here, however, we use the function value to the left and the right of the position <span class="math notranslate nohighlight">\(i\)</span> and twice the interval, which actually improves accuracy.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
@@ -476,7 +472,7 @@ matrix([[-1.,  1.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.],
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_L5_1_differentiation_30_0.png" class="no-scaled-link" src="../../_images/notebooks_L5_1_differentiation_30_0.png" style="width: 562px; height: 420px;" />
+<img alt="../../_images/notebooks_L5_1_differentiation_29_0.png" class="no-scaled-link" src="../../_images/notebooks_L5_1_differentiation_29_0.png" style="width: 562px; height: 420px;" />
 </div>
 </div>
 <p>Check yourself, that the following line of code will calculate the second derivative.</p>
@@ -524,7 +520,7 @@ matrix([[-1.,  1.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.],
             
             <a href="https://github.com/pradyunsg/furo">Furo</a>
             <div class="last-updated">
-              Last updated on May 07, 2023</div>
+              Last updated on May 08, 2023</div>
           </div>
           <div class="right-details">
             
