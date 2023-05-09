@@ -312,6 +312,11 @@ f_{i+1}=f_{i}+\Delta x f_{i}^{\prime}+\frac{\Delta x^2 }{2!}f_{i}^{\prime\prime}
 <p><span class="math">\begin{equation}
 f_{i-1}=f_{i}-\Delta x f_{i}^{\prime}+\frac{\Delta x^2 }{2!}f_{i}^{\prime\prime}-\frac{\Delta x^3 }{3!}f_{i}^{(3)}+\ldots
 \end{equation}</span></p>
+<p>which when neglecting the last term on the right side yields</p>
+<p><span class="math">\begin{equation}
+f^{\prime}_{i}\approx \frac{f_{i+1}-f_{i-1}}{2\Delta x}
+\end{equation}</span></p>
+<p>This is similar to the formula we obtained from the definition of the derivative. Here, however, we use the function value to the left and the right of the position <span class="math notranslate nohighlight">\(i\)</span> and twice the interval, which actually improves accuracy.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
@@ -520,7 +525,7 @@ matrix([[-1.,  1.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.],
             
             <a href="https://github.com/pradyunsg/furo">Furo</a>
             <div class="last-updated">
-              Last updated on May 08, 2023</div>
+              Last updated on May 09, 2023</div>
           </div>
           <div class="right-details">
             

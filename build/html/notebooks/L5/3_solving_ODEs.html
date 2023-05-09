@@ -590,7 +590,7 @@ x(t+\Delta t) = x(t) + \frac{\dot{x}(t+\Delta t)+\dot{x}(t)}{2} \Delta t
 <p>We have to convert that into our vector <span class="math notranslate nohighlight">\(y\)</span>, where the first element is the position and the second the velocity. This vector is and argument to a function we define</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>def SHO(state , time):
 
-    g0 = state[1]  # veliocity
+    g0 = state[1]  # velocity
     g1 = −k/m*state[0] # acceleration
     return(numpy.array([g0, g1]))
 </pre></div>
@@ -908,7 +908,7 @@ method and the <em>Runge Kutta</em> method (which we have not really addressed).
             
             <a href="https://github.com/pradyunsg/furo">Furo</a>
             <div class="last-updated">
-              Last updated on May 08, 2023</div>
+              Last updated on May 09, 2023</div>
           </div>
           <div class="right-details">
             
