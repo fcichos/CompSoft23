@@ -268,7 +268,7 @@
 <h1>COVID19<a class="headerlink" href="#COVID19" title="Permalink to this heading">#</a></h1>
 <p>In the previous assignment you have developed a particle based simulation of disease spreading. One infected individual was infecting other individuals when meeting them. The individuals were then recovering after a certain time of being infected and becoming immune to further infections. We now have a look at a model of disease spreading, which describes the same problem in terms of three coupled differential equations. This is the Kermack-McKendrick Model.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -333,10 +333,10 @@ number of people who are infected <span class="math notranslate nohighlight">\(y
 </ul>
 <p>These rates are just guesses (well I tried earlier), but you might want to map the earlier particle based simulation onto this model to compare the dynamics observed both.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span><span class="o">=</span><span class="mi">1000</span> <span class="c1"># total people</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span><span class="o">=</span><span class="mi">1000000</span> <span class="c1"># total people</span>
 <span class="n">i</span><span class="o">=</span><span class="mi">1</span> <span class="c1"># infected people</span>
 <span class="n">state</span><span class="o">=</span><span class="p">[</span><span class="n">n</span><span class="o">-</span><span class="n">i</span><span class="p">,</span><span class="n">i</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="c1"># initial state</span>
 <span class="n">N</span><span class="o">=</span><span class="mi">200</span>
@@ -350,13 +350,13 @@ number of people who are infected <span class="math notranslate nohighlight">\(y
 <h2>Definition<a class="headerlink" href="#Definition" title="Permalink to this heading">#</a></h2>
 <p>Our <code class="docutils literal notranslate"><span class="pre">covid19</span></code> function now implements the differential equations above into a function. This is rather straight forward, as they are only first order differential euqations.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">covid19</span><span class="p">(</span><span class="n">state</span> <span class="p">,</span> <span class="n">time</span><span class="p">):</span>
-    <span class="n">k_I</span><span class="o">=</span><span class="mf">0.2</span><span class="o">/</span><span class="n">n</span> <span class="c1">## infection rate</span>
+    <span class="n">k_I</span><span class="o">=</span><span class="mf">0.5</span><span class="o">/</span><span class="n">n</span> <span class="c1">## infection rate</span>
     <span class="n">k_R</span><span class="o">=</span><span class="mi">1</span><span class="o">/</span><span class="mi">10</span> <span class="c1">## recovery rate</span>
-    <span class="n">k_D</span><span class="o">=</span><span class="mf">0.01</span> <span class="c1">## death rate</span>
+    <span class="n">k_D</span><span class="o">=</span><span class="mf">0.05</span> <span class="c1">## death rate</span>
     <span class="n">g0</span> <span class="o">=</span> <span class="o">-</span><span class="n">k_I</span><span class="o">*</span><span class="n">state</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">state</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
     <span class="n">g1</span> <span class="o">=</span> <span class="n">k_I</span><span class="o">*</span><span class="n">state</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">state</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">k_R</span><span class="o">*</span><span class="n">state</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">k_D</span><span class="o">*</span><span class="n">state</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
     <span class="n">g2</span> <span class="o">=</span> <span class="n">k_R</span><span class="o">*</span><span class="n">state</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
@@ -369,7 +369,7 @@ number of people who are infected <span class="math notranslate nohighlight">\(y
 <h2>Solution<a class="headerlink" href="#Solution" title="Permalink to this heading">#</a></h2>
 <p>The following code solves the coupled differential equations and sorts the solution into individual arrays for further plotting.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">answer</span> <span class="o">=</span> <span class="n">odeint</span><span class="p">(</span> <span class="n">covid19</span><span class="p">,</span> <span class="n">state</span> <span class="p">,</span> <span class="n">t</span> <span class="p">)</span>
@@ -386,7 +386,7 @@ number of people who are infected <span class="math notranslate nohighlight">\(y
 <h2>Plotting<a class="headerlink" href="#Plotting" title="Permalink to this heading">#</a></h2>
 <p>We can now plot the solution of the model. You see that after some delay, the number of infected people quickly increases until the recovery sets in. Then the number of infected people decreases again until all are recovered. You may change the above rate of death now to see how it effects the diagram. You can now play around and check out what happens if you increase the recovery or infection rate.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">percent</span><span class="o">=</span><span class="mi">100</span><span class="o">/</span><span class="n">n</span>
@@ -407,7 +407,7 @@ number of people who are infected <span class="math notranslate nohighlight">\(y
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_L6_1_covid19_19_0.png" class="no-scaled-link" src="../../_images/notebooks_L6_1_covid19_19_0.png" style="width: 651px; height: 497px;" />
+<img alt="../../_images/notebooks_L6_1_covid19_19_0.png" class="no-scaled-link" src="../../_images/notebooks_L6_1_covid19_19_0.png" style="width: 904px; height: 703px;" />
 </div>
 </div>
 </section>
@@ -415,7 +415,7 @@ number of people who are infected <span class="math notranslate nohighlight">\(y
 <h2>Real COVID19 numbers<a class="headerlink" href="#Real-COVID19-numbers" title="Permalink to this heading">#</a></h2>
 <p>To compare the behavior to the current pandemic, I have downloaded some the current data for 5 different countries and stored them in the <code class="docutils literal notranslate"><span class="pre">covid19.csv</span></code> file. The data file reports <strong>Date</strong>, <strong>Country</strong>, <strong>Confirmed</strong>, <strong>Recovered</strong> and <strong>Deaths</strong>. To make the data comparable, I have already normalized the cases to the population of the country and multiplied by 1 million. That means the data is showsing the number of cases per million.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cut</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;covid19.csv&#39;</span><span class="p">)</span>
@@ -427,7 +427,7 @@ number of people who are infected <span class="math notranslate nohighlight">\(y
 <p>To analyze the current situation we want to plot the total number of cases. To make the data more comparable, we do the following calculations. We first normalize the number of cases to the total population of the country. I have done that already in the dataset as mentioned above. The second issue is, that one should compare the data of different countries, when the total number of cases per million inhabitants crosses one for example. That is the only useful way to compare data. Note that this
 is a cummulative number.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
@@ -442,7 +442,7 @@ is a cummulative number.</p>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;days since 1 case per million inhabitants&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;cases per milliion inhabitants&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;cases per million inhabitants&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -451,7 +451,7 @@ is a cummulative number.</p>
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_L6_1_covid19_25_0.png" class="no-scaled-link" src="../../_images/notebooks_L6_1_covid19_25_0.png" style="width: 633px; height: 497px;" />
+<img alt="../../_images/notebooks_L6_1_covid19_25_0.png" class="no-scaled-link" src="../../_images/notebooks_L6_1_covid19_25_0.png" style="width: 879px; height: 703px;" />
 </div>
 </div>
 </section>
@@ -483,7 +483,7 @@ is a cummulative number.</p>
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_L6_1_covid19_28_0.png" class="no-scaled-link" src="../../_images/notebooks_L6_1_covid19_28_0.png" style="width: 633px; height: 497px;" />
+<img alt="../../_images/notebooks_L6_1_covid19_28_0.png" class="no-scaled-link" src="../../_images/notebooks_L6_1_covid19_28_0.png" style="width: 879px; height: 703px;" />
 </div>
 </div>
 </section>
@@ -491,7 +491,7 @@ is a cummulative number.</p>
 <h3>New cases per day<a class="headerlink" href="#New-cases-per-day" title="Permalink to this heading">#</a></h3>
 <p>The next plot is comparing the new cases that appear per million people each day. Have a look at how this is done with the help of pandas. The data would be rather “noisy” as this is just the derivative of the confirmed cases curve. To smooth that out, I have included a rolling average. This rolling average takes the average of 5 following days and the moves one day forward each time. You may recognize the different dynamics in the countries</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[333]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
@@ -517,7 +517,7 @@ is a cummulative number.</p>
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_L6_1_covid19_31_0.png" class="no-scaled-link" src="../../_images/notebooks_L6_1_covid19_31_0.png" style="width: 635px; height: 497px;" />
+<img alt="../../_images/notebooks_L6_1_covid19_31_0.png" class="no-scaled-link" src="../../_images/notebooks_L6_1_covid19_31_0.png" style="width: 883px; height: 703px;" />
 </div>
 </div>
 </section>
@@ -593,7 +593,7 @@ is a cummulative number.</p>
             
             <a href="https://github.com/pradyunsg/furo">Furo</a>
             <div class="last-updated">
-              Last updated on May 15, 2023</div>
+              Last updated on May 18, 2023</div>
           </div>
           <div class="right-details">
             

@@ -268,7 +268,21 @@
 <h1>Coupled Pendula<a class="headerlink" href="#Coupled-Pendula" title="Permalink to this heading">#</a></h1>
 <p>We will continue our course with some physical problems, we are going to tackle. One of the more extensive solutions will consider two coupled pendula. This belongs to the class of coupled oscillators, which are extremely important. They will later yield propagating waves. They are important for phonons, i.e. coupled vibration of atoms in solids, but there are also many other axamples. One can realize the coupled oscillation on different ways. He we will do that not with spring oscillators, by
 with pendula.</p>
-<p>import Cell from <a class="reference external" href="mailto:'&#37;&#52;&#48;nteract/presentational-components/src/components/cell">‘<span>&#64;</span>nteract/presentational-components/src/components/cell</a>’;</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[54]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
+  <span class="kn">import</span> <span class="nn">google.colab</span>
+  <span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span><span class="nv">ipycanvas</span><span class="o">==</span><span class="m">0</span>.11
+  <span class="kn">from</span> <span class="nn">google.colab</span> <span class="kn">import</span> <span class="n">output</span>
+  <span class="n">output</span><span class="o">.</span><span class="n">enable_custom_widget_manager</span><span class="p">()</span>
+  <span class="n">IN_COLAB</span><span class="o">=</span><span class="kc">True</span>
+<span class="k">except</span><span class="p">:</span>
+  <span class="n">IN_COLAB</span> <span class="o">=</span> <span class="kc">False</span>
+</pre></div>
+</div>
+</div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
@@ -394,7 +408,7 @@ state[1] -&gt; velocity
 <li><p>spring constant of the coupling spring, <span class="math notranslate nohighlight">\(k=5\)</span></p></li>
 </ul>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Initial parameters</span>
@@ -404,17 +418,17 @@ state[1] -&gt; velocity
 <span class="n">g</span><span class="o">=</span><span class="mf">9.81</span> <span class="c1"># gravitational acceleration</span>
 <span class="n">m</span><span class="o">=</span><span class="mi">1</span>    <span class="c1"># mass of at each of the pendula</span>
 <span class="n">c</span><span class="o">=</span><span class="mi">2</span>  <span class="c1"># coupling distance from the mount</span>
-<span class="n">k</span><span class="o">=</span><span class="mf">0.5</span>    <span class="c1"># coupling spring constant</span>
+<span class="n">k</span><span class="o">=</span><span class="mf">0.7</span>    <span class="c1"># coupling spring constant</span>
 </pre></div>
 </div>
 </div>
 <p>As compared to our previous problem of a damped driven pendulum, where we had two initial conditions for the second order differential equation, we have now two second order differential equation. We therefore need 4 initial parameters, which are the initial elongations of both pendula and their corresponding initial angular velocities We will notice, that the solution,i.e. the motion of the pendula, will strongly depend on the initial conditions.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># inital angles, initial angular velocities</span>
-<span class="n">a</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">12</span>   <span class="c1"># initial angle for pendulum 1</span>
+<span class="n">a</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">5</span>   <span class="c1"># initial angle for pendulum 1</span>
 <span class="n">b</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">20</span>  <span class="c1"># initial angle for pendulum 2</span>
 <span class="n">o1</span><span class="o">=</span><span class="mf">0.0</span>        <span class="c1"># initial angular velocity for pendulum 1</span>
 <span class="n">o2</span><span class="o">=</span><span class="mf">0.0</span>        <span class="c1"># initial angular velocity for pendulum 2</span>
@@ -431,7 +445,7 @@ state[1] -&gt; velocity
 <h3>Solve the equation of motion<a class="headerlink" href="#Solve-the-equation-of-motion" title="Permalink to this heading">#</a></h3>
 <p>We have to define a timeperiod over which we would like to obtain the solution. We use here a period of 400s where we calculate the solution at 10000 points along the 400s.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Solution</span>
@@ -443,7 +457,7 @@ state[1] -&gt; velocity
 </div>
 <p>We are now ready to calculate the solution. Finally, we extract also the angles of the individual pendula, their angular velocities and the position of the point masses at the end of the pendulum. This can be then readily used to create some animation.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#solve the differential equations</span>
@@ -470,7 +484,7 @@ state[1] -&gt; velocity
 <h3>Plotting<a class="headerlink" href="#Plotting" title="Permalink to this heading">#</a></h3>
 <p>First, get some impression of how the angles change over time.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plotting angles over time</span>
@@ -491,7 +505,7 @@ state[1] -&gt; velocity
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_L6_2_coupled_pendula_26_0.png" class="no-scaled-link" src="../../_images/notebooks_L6_2_coupled_pendula_26_0.png" style="width: 719px; height: 348px;" />
+<img alt="../../_images/notebooks_L6_2_coupled_pendula_26_0.png" class="no-scaled-link" src="../../_images/notebooks_L6_2_coupled_pendula_26_0.png" style="width: 999px; height: 482px;" />
 </div>
 </div>
 </section>
@@ -499,7 +513,7 @@ state[1] -&gt; velocity
 <h3>Animation<a class="headerlink" href="#Animation" title="Permalink to this heading">#</a></h3>
 <p>The plot of the angles over time is not always giving a good insight. With our knowledge about animations, we may easily animate the motion of the two pendula as well.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## create our canvas</span>
@@ -509,7 +523,7 @@ state[1] -&gt; velocity
 </div>
 <p>For the physics, it has neven been interesting to define at which distance the pendula are mounted at a ceiling for example. For drawing them we have to do that together with some additional parameters, which define for example the position of where to draw in the canvas and the conversion of <em>meters</em> to <em>pixels</em>.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">distance</span><span class="o">=</span><span class="mi">2</span> <span class="c1"># distance of the pendula in m</span>
@@ -521,7 +535,7 @@ state[1] -&gt; velocity
 </div>
 <p>The function below will do the drawing for us. We define a function such that we can create a background animation with a <code class="docutils literal notranslate"><span class="pre">thread</span></code>. Note that we have inserted <code class="docutils literal notranslate"><span class="pre">sleep(t[1]-t[0])</span></code> at the end. The drawing of the 4 objects will be pretty fast so that we can wait a certain amount of time until we display the next frame. That means at the end, that our simulation will run in real time.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[394]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">draw</span><span class="p">():</span>
@@ -549,7 +563,7 @@ state[1] -&gt; velocity
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[398]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">simulation</span> <span class="o">=</span> <span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">draw</span><span class="p">)</span>
@@ -558,7 +572,7 @@ state[1] -&gt; velocity
 </div>
 <p>Looks pretty slow, but remember the pendula are 3 meters long.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[399]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[35]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="n">canvas</span><span class="p">)</span>
@@ -570,7 +584,7 @@ state[1] -&gt; velocity
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "2d43f4acdfc6493994a71b0a17d59b9d", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <img alt="../../_images/motion.mov" src="../../_images/motion.mov" />
 </section>
@@ -582,7 +596,7 @@ state[1] -&gt; velocity
 <h3>In-phase motion<a class="headerlink" href="#In-phase-motion" title="Permalink to this heading">#</a></h3>
 <p>The first one, will create an in-phase motion of the two pendula by setting their initial elongation equal, i.e. <span class="math notranslate nohighlight">\(\theta_{1}(t=0)=\theta_{2}(t=0)\)</span>. Both pendula then oscillate with their natural frequency and the coupling spring is never elongated.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[36]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># inital angles, initial angular velocities</span>
@@ -599,7 +613,7 @@ state[1] -&gt; velocity
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[37]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#solve the differential equations</span>
@@ -622,7 +636,7 @@ state[1] -&gt; velocity
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[38]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plotting angles over time</span>
@@ -642,7 +656,7 @@ state[1] -&gt; velocity
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_L6_2_coupled_pendula_44_0.png" class="no-scaled-link" src="../../_images/notebooks_L6_2_coupled_pendula_44_0.png" style="width: 715px; height: 348px;" />
+<img alt="../../_images/notebooks_L6_2_coupled_pendula_44_0.png" class="no-scaled-link" src="../../_images/notebooks_L6_2_coupled_pendula_44_0.png" style="width: 993px; height: 482px;" />
 </div>
 </div>
 </section>
@@ -650,7 +664,7 @@ state[1] -&gt; velocity
 <h3>Out-of-phase motion<a class="headerlink" href="#Out-of-phase-motion" title="Permalink to this heading">#</a></h3>
 <p>The second one, will create a motion in which the two pendula are out-of-phase by a phase angle of <span class="math notranslate nohighlight">\(\pi\)</span> , i.e. <span class="math notranslate nohighlight">\(\theta_{1}(t=0)=-\theta_{2}(t=0)\)</span>. Both pendula then oscillate with a frequency higher than their natural frequency. This is due to the fact that there is a higher restoring force due to the action of the spring.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[348]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[39]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># inital angles, initial angular velocities</span>
@@ -667,7 +681,7 @@ state[1] -&gt; velocity
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[349]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[40]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#solve the differential equations</span>
@@ -690,7 +704,7 @@ state[1] -&gt; velocity
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[350]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[41]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plotting angles over time</span>
@@ -710,7 +724,7 @@ state[1] -&gt; velocity
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_L6_2_coupled_pendula_49_0.png" class="no-scaled-link" src="../../_images/notebooks_L6_2_coupled_pendula_49_0.png" style="width: 715px; height: 348px;" />
+<img alt="../../_images/notebooks_L6_2_coupled_pendula_49_0.png" class="no-scaled-link" src="../../_images/notebooks_L6_2_coupled_pendula_49_0.png" style="width: 993px; height: 482px;" />
 </div>
 </div>
 </section>
@@ -719,7 +733,7 @@ state[1] -&gt; velocity
 <p>The last case is not a normal mode but represents a more general case. We start with two different initial angles, i.e. <span class="math notranslate nohighlight">\(\theta_{1}(t=0)=\pi/12\)</span> and <span class="math notranslate nohighlight">\(\theta_{2}(t=0)=0\)</span>. This is the so-called <em>beat</em> case, where the pendula exchange energy. The oscillation, which is at the beginning in only in the first pendulum is then transfer to the second one. This transfer of energy is continuously occurring from one pendulum to the other since there’s nowhere for the energy to go. From this
 point it’s easily to recognize how the wife is generated. In a set of many coupled pendula one pendulum is starting to oscillate and is transferring it’s energy to the next one and then to the next one and then to the next one and this way the energy is propagating along all oscillators.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[374]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[42]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># inital angles, initial angular velocities</span>
@@ -736,7 +750,7 @@ point it’s easily to recognize how the wife is generated. In a set of many cou
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[375]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[43]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#solve the differential equations</span>
@@ -759,7 +773,7 @@ point it’s easily to recognize how the wife is generated. In a set of many cou
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[376]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[44]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plotting angles over time</span>
@@ -779,7 +793,7 @@ point it’s easily to recognize how the wife is generated. In a set of many cou
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_L6_2_coupled_pendula_54_0.png" class="no-scaled-link" src="../../_images/notebooks_L6_2_coupled_pendula_54_0.png" style="width: 715px; height: 348px;" />
+<img alt="../../_images/notebooks_L6_2_coupled_pendula_54_0.png" class="no-scaled-link" src="../../_images/notebooks_L6_2_coupled_pendula_54_0.png" style="width: 993px; height: 482px;" />
 </div>
 </div>
 </section>
@@ -790,7 +804,7 @@ point it’s easily to recognize how the wife is generated. In a set of many cou
 <h4>Potential energy of the pendula<a class="headerlink" href="#Potential-energy-of-the-pendula" title="Permalink to this heading">#</a></h4>
 <p>The potential energy plot below nicely shows the exchange of energy between the two pendula in the beat case.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[377]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[45]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># calculate and plot the potential energies of each pendulum and plot dem independently</span>
@@ -812,14 +826,14 @@ point it’s easily to recognize how the wife is generated. In a set of many cou
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_L6_2_coupled_pendula_59_0.png" class="no-scaled-link" src="../../_images/notebooks_L6_2_coupled_pendula_59_0.png" style="width: 751px; height: 333px;" />
+<img alt="../../_images/notebooks_L6_2_coupled_pendula_59_0.png" class="no-scaled-link" src="../../_images/notebooks_L6_2_coupled_pendula_59_0.png" style="width: 1043px; height: 469px;" />
 </div>
 </div>
 </section>
 <section id="Potential-energy-of-the-spring">
 <h4>Potential energy of the spring<a class="headerlink" href="#Potential-energy-of-the-spring" title="Permalink to this heading">#</a></h4>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[378]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[46]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># calculate and plot the potential energy stored in the spring</span>
@@ -840,14 +854,14 @@ point it’s easily to recognize how the wife is generated. In a set of many cou
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_L6_2_coupled_pendula_61_0.png" class="no-scaled-link" src="../../_images/notebooks_L6_2_coupled_pendula_61_0.png" style="width: 760px; height: 337px;" />
+<img alt="../../_images/notebooks_L6_2_coupled_pendula_61_0.png" class="no-scaled-link" src="../../_images/notebooks_L6_2_coupled_pendula_61_0.png" style="width: 1055px; height: 469px;" />
 </div>
 </div>
 </section>
 <section id="Kinetic-energies">
 <h4>Kinetic energies<a class="headerlink" href="#Kinetic-energies" title="Permalink to this heading">#</a></h4>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[379]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[47]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># calculate and plot the kinetic energies of each pendulum and plot dem independently</span>
@@ -869,7 +883,7 @@ point it’s easily to recognize how the wife is generated. In a set of many cou
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_L6_2_coupled_pendula_63_0.png" class="no-scaled-link" src="../../_images/notebooks_L6_2_coupled_pendula_63_0.png" style="width: 750px; height: 333px;" />
+<img alt="../../_images/notebooks_L6_2_coupled_pendula_63_0.png" class="no-scaled-link" src="../../_images/notebooks_L6_2_coupled_pendula_63_0.png" style="width: 1041px; height: 469px;" />
 </div>
 </div>
 </section>
@@ -877,7 +891,7 @@ point it’s easily to recognize how the wife is generated. In a set of many cou
 <h4>Total energy<a class="headerlink" href="#Total-energy" title="Permalink to this heading">#</a></h4>
 <p>As the total energy in the system shall nbe conserved, the sum of all energy contributions should yield a flat line.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[383]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[51]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># calculate the total energy of the system</span>
@@ -899,7 +913,7 @@ point it’s easily to recognize how the wife is generated. In a set of many cou
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_L6_2_coupled_pendula_66_0.png" class="no-scaled-link" src="../../_images/notebooks_L6_2_coupled_pendula_66_0.png" style="width: 757px; height: 338px;" />
+<img alt="../../_images/notebooks_L6_2_coupled_pendula_66_0.png" class="no-scaled-link" src="../../_images/notebooks_L6_2_coupled_pendula_66_0.png" style="width: 1051px; height: 477px;" />
 </div>
 </div>
 </section>
@@ -907,7 +921,7 @@ point it’s easily to recognize how the wife is generated. In a set of many cou
 <h4>Total energy exchange of the pendula<a class="headerlink" href="#Total-energy-exchange-of-the-pendula" title="Permalink to this heading">#</a></h4>
 <p>While the plot above Shows the total energy of both pendula we may now have a look at the total energy in each pendulum. The plots clearly show that the energy is exchanged between the two pendula. The residual ripples on the curve results from the fact that we here exclude the potential energy stored in the spring.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[384]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[52]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># calculate the total energy of the system</span>
@@ -929,11 +943,11 @@ point it’s easily to recognize how the wife is generated. In a set of many cou
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_L6_2_coupled_pendula_69_0.png" class="no-scaled-link" src="../../_images/notebooks_L6_2_coupled_pendula_69_0.png" style="width: 748px; height: 333px;" />
+<img alt="../../_images/notebooks_L6_2_coupled_pendula_69_0.png" class="no-scaled-link" src="../../_images/notebooks_L6_2_coupled_pendula_69_0.png" style="width: 1039px; height: 469px;" />
 </div>
 </div>
 <script type="application/vnd.jupyter.widget-state+json">
-{"state": {}, "version_major": 2, "version_minor": 0}
+{"state": {"0d7a8a3ef3a84b94b019bc2b7b6c8267": {"model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "model_name": "LayoutModel", "state": {}}, "2d43f4acdfc6493994a71b0a17d59b9d": {"model_module": "ipycanvas", "model_module_version": "^0.13", "model_name": "CanvasModel", "state": {"_canvas_manager": "IPY_MODEL_c6bd77d3d89840b0bd5ccef35b88922f", "_model_module_version": "^0.13", "_view_module_version": "^0.13", "height": 200, "layout": "IPY_MODEL_445005f86cc64d88ba33889ef8c2fce5", "width": 300}}, "445005f86cc64d88ba33889ef8c2fce5": {"model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "model_name": "LayoutModel", "state": {}}, "c6bd77d3d89840b0bd5ccef35b88922f": {"model_module": "ipycanvas", "model_module_version": "^0.13", "model_name": "CanvasManagerModel", "state": {"_model_module_version": "^0.13", "_view_module": null, "_view_module_version": ""}}, "e47385a50193428bbdc2d79c9bcd3b5b": {"model_module": "ipycanvas", "model_module_version": "^0.13", "model_name": "CanvasModel", "state": {"_canvas_manager": "IPY_MODEL_c6bd77d3d89840b0bd5ccef35b88922f", "_model_module_version": "^0.13", "_view_module_version": "^0.13", "height": 200, "layout": "IPY_MODEL_0d7a8a3ef3a84b94b019bc2b7b6c8267", "width": 300}}}, "version_major": 2, "version_minor": 0}
 </script></section>
 </section>
 </section>
@@ -974,7 +988,7 @@ point it’s easily to recognize how the wife is generated. In a set of many cou
             
             <a href="https://github.com/pradyunsg/furo">Furo</a>
             <div class="last-updated">
-              Last updated on May 15, 2023</div>
+              Last updated on May 18, 2023</div>
           </div>
           <div class="right-details">
             
