@@ -129,6 +129,7 @@ We will not present a comprehensive list of numerical simulation schemes, but us
 
    lectures/L8/overview_8.rst
    notebooks/L8/1_curve_fitting.ipynb
+   notebooks/L9/1_plane_waves.ipynb
    
 
 Indices and tables
