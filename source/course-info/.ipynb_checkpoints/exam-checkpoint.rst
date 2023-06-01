@@ -6,24 +6,36 @@
 Exam
 ====
 
-We will close this course with an exam in form of a final project. This final project shall be on a topic of your choice or on one of the topics we provide as example topics. **The final project shall be handed in as a Jupyter Notebook and a short Video presenting the notebook.** Each individual student is required to hand in a Jupyter Notebook. No group work is allowed.
+We will close this course with an exam in form of a final project. This final project shall be on a topic of your choice or on one of the topics we provide as example topics. Each individual student is required to hand in a Jupyter Notebook. No group work is allowed.
 
-All notebooks shall follow the following outline
+The final project is in the form of a **portfolio exam** as it consists of **two parts**:
+
+**1. Jupyter notebook containing the final project**
+
+Notebooks shall follow the following outline
 
 - **Introduction** You introduce into the problem your are covering with your notebook and motivate what your are going to do. The Introduction should also cover a basic theoretical description for the problem to be solved.
 - **Results & Discussion** You develop the code for your problem and discuss and anotate the individual steps in your notebook. It is important the you discuss the individual results highlighting their consequences.
 - **Summary** You summarize your findings.
 
+Grading: Notebooks will be graded based on:
+- structure of the notebook (outline, citations, ...)
+- quality of the code (use of functions, classes, modules, function of the notebook)
+- quality of the plots (axis labels, readability of the labels)
+
+**2. Video explaining the notebook**
 
 The videos shall 
 
 - explain what topic you have chosen and why
 - explain how you tackled the problem
-- show quickly the main results
+- show the main results
 - summarize what you think you have achieved
+- be not longer than **5 min**
 
-
-The videos will be made available to all students in the course after they have been handed in. They will be able to rate the videos. The notbooks will be graded. 
+Grading: Videos will be graded based on:
+- quality of the presentation (structure, oral and visual presentation)
+- sticking to maximum time
 
 The deadline for handing in the project is **3. September 2023** 
 
