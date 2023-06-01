@@ -37,7 +37,7 @@ Grading: Videos will be graded based on:
 - quality of the presentation (structure, oral and visual presentation)
 - sticking to maximum time
 
-The deadline for handing in the project is **3. September 2023** 
+The deadline for handing in the project is **1. September 2023** 
 
 The projects and videos shall be handed in via the `Molecular Nanophotonics Website <https://home.uni-leipzig.de/~physik/sites/mona/>`_
 
