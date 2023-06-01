@@ -8,7 +8,7 @@ Exam
 
 We will close this course with an exam in form of a final project. This final project shall be on a topic of your choice or on one of the topics we provide as example topics. Each individual student is required to hand in a Jupyter Notebook. No group work is allowed.
 
-The final project is in the form of a **portfolio exam** as it consists of **two parts**:
+The final project is in the form of a **portfolio exam** as it consists of **two parts**, which will be equally weighted:
 
 **1. Jupyter notebook containing the final project**
 
@@ -19,6 +19,7 @@ Notebooks shall follow the following outline
 - **Summary** You summarize your findings.
 
 Grading: Notebooks will be graded based on:
+
 - structure of the notebook (outline, citations, ...)
 - quality of the code (use of functions, classes, modules, function of the notebook)
 - quality of the plots (axis labels, readability of the labels)
@@ -34,6 +35,7 @@ The videos shall
 - be not longer than **5 min**
 
 Grading: Videos will be graded based on:
+    
 - quality of the presentation (structure, oral and visual presentation)
 - sticking to maximum time
 
