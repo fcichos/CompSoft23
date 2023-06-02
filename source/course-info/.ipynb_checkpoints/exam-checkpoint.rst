@@ -14,8 +14,8 @@ The final project is in the form of a **portfolio exam** as it consists of **two
 
 Notebooks shall follow the following outline
 
-- **Introduction** You introduce into the problem your are covering with your notebook and motivate what your are going to do. The Introduction should also cover a basic theoretical description for the problem to be solved.
-- **Results & Discussion** You develop the code for your problem and discuss and anotate the individual steps in your notebook. It is important the you discuss the individual results highlighting their consequences.
+- **Introduction** You introduce into the problem you are covering with your notebook and motivate what your are going to do. The Introduction should also cover a basic theoretical description for the problem to be solved.
+- **Results & Discussion** You develop the code for your problem and discuss and anotate the individual steps in your notebook. It is important that you discuss the individual results highlighting their consequences.
 - **Summary** You summarize your findings.
 
 Grading: Notebooks will be graded based on:
@@ -39,12 +39,12 @@ Grading: Videos will be graded based on:
 - quality of the presentation (structure, oral and visual presentation)
 - sticking to maximum time
 
-The deadline for handing in the project is **1. September 2023** 
+The deadline for handing in the project is **September, 1. 2023** 
 
-The projects and videos shall be handed in via the `Molecular Nanophotonics Website <https://home.uni-leipzig.de/~physik/sites/mona/>`_
+Please submit your projects via email to Andrea Kramer,  **firstname.surname@uni-leipzig.de**.
 
 
-Since many of you asked for some guiding topics abnd I as well hope that you do not submit a simulation of planetary motion, here are some topics, though some of them might be for the advanced physicist.
+Since many of you asked for some guiding topics and I as well hope that you do not submit a simulation of planetary motion, here are some topics, though some of them might be for the advanced physicist.
 
 
 Mechanics
@@ -71,7 +71,7 @@ Optics
 - Caustics: ray tracing through spherical surfaces without paraxial approximation
 - imaging errors, aberations 
 - ray tracing of a prism with wavelength dependent refractive index
-- light propagation though and optical fiber
+- light propagation through and optical fiber
 
 
 Electrodynamics
