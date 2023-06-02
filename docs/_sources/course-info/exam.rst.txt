@@ -39,7 +39,7 @@ Grading: Videos will be graded based on:
 - quality of the presentation (structure, oral and visual presentation)
 - sticking to maximum time
 
-The deadline for handing in the project is **September, 1. 2023** 
+The deadline for handing in the project is **September 1, 2023** 
 
 Please submit your projects via email to Andrea Kramer,  **firstname.surname@uni-leipzig.de**.
 
@@ -86,4 +86,4 @@ Electrodynamics
 Quantum Mechanics
 *****************
 - wave packet in a periodic potential
-- scattering of an electron on a coulomb potential (quantum mechanical)
+- scattering of an electron on a Coulomb potential (quantum mechanical)
