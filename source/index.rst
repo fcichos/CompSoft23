@@ -131,6 +131,17 @@ We will not present a comprehensive list of numerical simulation schemes, but us
    notebooks/L8/1_curve_fitting.ipynb
    notebooks/L9/1_plane_waves.ipynb
    
+.. toctree::
+   :maxdepth: 2
+   :caption: Lecture 9:
+
+   lectures/L9/overview_9.rst
+   notebooks/L9/1_plane_waves.ipynb
+   notebooks/L9/2_spherical_waves.ipynb
+   notebooks/L9/3_huygens_principle.ipynb
+   notebooks/L9/4_gaussian_beams.ipynb
+   
+   
 
 Indices and tables
 ==================
