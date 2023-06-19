@@ -7,7 +7,7 @@ In Lecture 11 we want to cover dynamical problems of quantum mechanics. We did s
 2. Particle in a box
 3. Tunneling
 
-I hope you stay motivated! Stay safe!
+We will discuss in the next lecture the details of this lecture again, as the topic is a bit more challenging.
 
 .. raw:: html
 
