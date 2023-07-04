@@ -268,6 +268,12 @@
 <li class="toctree-l1"><a class="reference internal" href="../L12/1_hydrodynamics.html">Hydrodynamics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../L12/2_reinforcement_learning.html">Machine Learning and Neural Networks</a></li>
 </ul>
+<p class="caption" role="heading"><span class="caption-text">Lecture 13:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../lectures/L13/overview_13.html">Lecture Contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L13/1_deep_learning.html">Neural Networks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L13/2_deep_learning_keras.html">Neural Network with Keras</a></li>
+</ul>
 
 </div>
 </div>
@@ -310,7 +316,7 @@
 <h1>Time Dependent Quantum Mechanics<a class="headerlink" href="#Time-Dependent-Quantum-Mechanics" title="Permalink to this heading">#</a></h1>
 <p>In Lecture 10, we developed some solutions for the stationary Schrödinger equation. We solved the harmonic oscillator or the particle in a box model. All of this did not give any dynamics of particles in potentials but rather a static picture. Today we would like to consider the time dependent Schrödinger equations which yields the dynamics of the system. We will develop a solution based on Fourier transforms, as we still have to practice that a bit.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -330,12 +336,12 @@
 <span class="c1"># default values for plotting</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s1">&#39;font.size&#39;</span><span class="p">:</span> <span class="mi">16</span><span class="p">,</span>
                      <span class="s1">&#39;axes.titlesize&#39;</span><span class="p">:</span> <span class="mi">18</span><span class="p">,</span>
-                     <span class="s1">&#39;axes.labelsize&#39;</span><span class="p">:</span> <span class="mi">16</span><span class="p">,</span>
-                     <span class="s1">&#39;axes.labelpad&#39;</span><span class="p">:</span> <span class="mi">14</span><span class="p">,</span>
+                     <span class="s1">&#39;axes.labelsize&#39;</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span>
+                     <span class="s1">&#39;axes.labelpad&#39;</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span>
                      <span class="s1">&#39;lines.linewidth&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
                      <span class="s1">&#39;lines.markersize&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
-                     <span class="s1">&#39;xtick.labelsize&#39;</span> <span class="p">:</span> <span class="mi">16</span><span class="p">,</span>
-                     <span class="s1">&#39;ytick.labelsize&#39;</span> <span class="p">:</span> <span class="mi">16</span><span class="p">,</span>
+                     <span class="s1">&#39;xtick.labelsize&#39;</span> <span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+                     <span class="s1">&#39;ytick.labelsize&#39;</span> <span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
                      <span class="s1">&#39;xtick.top&#39;</span> <span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
                      <span class="s1">&#39;xtick.direction&#39;</span> <span class="p">:</span> <span class="s1">&#39;in&#39;</span><span class="p">,</span>
                      <span class="s1">&#39;ytick.right&#39;</span> <span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
@@ -366,7 +372,7 @@
 <h3>Demonstration of superposition of plane waves<a class="headerlink" href="#Demonstration-of-superposition-of-plane-waves" title="Permalink to this heading">#</a></h3>
 <p>The code below just shows how waves of different wave vector can be combined to result in a wave packet, i.e. n object that is localized in space. This is nothing else then a Fourier decomposition of a spatially extended object.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wavelength</span><span class="o">=</span><span class="mf">1e-10</span> <span class="c1"># wavelenth of the matter wave in Angstroem</span>
@@ -378,7 +384,7 @@
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
@@ -418,7 +424,7 @@
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_L11_1_quantum_dynamics_9_0.png" class="no-scaled-link" src="../../_images/notebooks_L11_1_quantum_dynamics_9_0.png" style="width: 720px; height: 389px;" />
+<img alt="../../_images/notebooks_L11_1_quantum_dynamics_9_0.png" class="no-scaled-link" src="../../_images/notebooks_L11_1_quantum_dynamics_9_0.png" style="width: 1000px; height: 549px;" />
 </div>
 </div>
 </section>
@@ -443,7 +449,7 @@
 <h3>Wavepacket with rectangular amplitude<a class="headerlink" href="#Wavepacket-with-rectangular-amplitude" title="Permalink to this heading">#</a></h3>
 <p>The wavepacket above had just constant amplitudes over a range of wavenumbers. While we have an analytical function for this type of wave, we just program a function to show that the superposition works as well.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># matter wave packet with a frequency that scales with the square of the wave vector</span>
@@ -460,7 +466,7 @@
 </div>
 <p>The plot below now shows the magnitude square of the wavefunction, i.e. <span class="math notranslate nohighlight">\(|\Psi |^2\)</span>. You may recognize the side lobes besides the main peak. The whole distribution is reminiscent of the diffraction pattern of a single slit in the far field as tackeled also in our lectures on electromagnetic waves. You may want to think about this similarity a bit longer.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
@@ -478,7 +484,7 @@
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_L11_1_quantum_dynamics_17_0.png" class="no-scaled-link" src="../../_images/notebooks_L11_1_quantum_dynamics_17_0.png" style="width: 742px; height: 389px;" />
+<img alt="../../_images/notebooks_L11_1_quantum_dynamics_17_0.png" class="no-scaled-link" src="../../_images/notebooks_L11_1_quantum_dynamics_17_0.png" style="width: 1015px; height: 539px;" />
 </div>
 </div>
 </section>
@@ -486,7 +492,7 @@
 <h3>Gaussian Wave Packet<a class="headerlink" href="#Gaussian-Wave-Packet" title="Permalink to this heading">#</a></h3>
 <p>We next create a Gaussian wave packet, which means that the amplitudes <span class="math notranslate nohighlight">\(\phi(k)\)</span> of the interfering plane waves follow a Gaussian distribution. The result is then also a Gaussian function for the spatial distribution.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[37]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[35]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">gauss_wave_packet</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">t</span><span class="p">):</span>
@@ -500,7 +506,7 @@
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[48]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[36]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
@@ -519,7 +525,7 @@
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_L11_1_quantum_dynamics_20_0.png" class="no-scaled-link" src="../../_images/notebooks_L11_1_quantum_dynamics_20_0.png" style="width: 760px; height: 389px;" />
+<img alt="../../_images/notebooks_L11_1_quantum_dynamics_20_0.png" class="no-scaled-link" src="../../_images/notebooks_L11_1_quantum_dynamics_20_0.png" style="width: 1031px; height: 539px;" />
 </div>
 </div>
 </section>
@@ -529,11 +535,11 @@
 <p>We would like to plot in the next sections the time evolution of the wavefunction. Of course, we want to see the function developing live over time in a nice diagram. We could use the <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> <code class="docutils literal notranslate"><span class="pre">animate</span></code> method, which is commonly used to create a movie file that is later embedded in the notebook. Here we want to take a different route. We use <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> to generate the plot. We store the image data for the plot in an numpy array, which we then show with the help of our <code class="docutils literal notranslate"><span class="pre">ipycanvas</span></code>
 module. When calculations are not taking to long, this is a good way to animate in real time.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[49]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[37]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## setup the canvas</span>
-<span class="n">canvas</span> <span class="o">=</span> <span class="n">Canvas</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">800</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span><span class="n">sync_image_data</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">canvas</span> <span class="o">=</span> <span class="n">Canvas</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">800</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span><span class="n">sync_image_data</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="n">display</span><span class="p">(</span><span class="n">canvas</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -542,10 +548,10 @@ module. When calculations are not taking to long, this is a good way to animate 
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "e480c2df3f95456e9418bd7920c316f3", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "91cabdf7784c4107a884e98f303d559b", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[50]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="ch">#![](wavepacket.mov)</span>
@@ -561,12 +567,12 @@ plt.close()
 </div>
 <p>which draws the diagram without the data into the buffer. We store that buffer as the background with <code class="docutils literal notranslate"><span class="pre">fig.canvas.copy_from_bbox(ax.bbox)</span></code>, because it is everytime the same. The third line obtains the data point list as a matplotlib object. This list can be later updated with new data for the animation. Finally, we close the figure with <code class="docutils literal notranslate"><span class="pre">plt.close()</span></code> to prevent extra drawing below the cell.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[51]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[38]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">20e-9</span><span class="p">,</span><span class="mi">1000</span><span class="p">)</span>
 
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span><span class="n">dpi</span><span class="o">=</span><span class="mi">150</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">20</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">100000</span><span class="p">)</span>
 
@@ -584,7 +590,7 @@ plt.close()
 </div>
 <p>The animation is then done by a for loop through time calculating the new wavefunction data and supplying it to the <code class="docutils literal notranslate"><span class="pre">points</span></code> object as new data. In detail it looks this way.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[53]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[41]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">5e-15</span><span class="p">,</span><span class="mi">100</span><span class="p">):</span>
@@ -604,8 +610,16 @@ plt.close()
 </pre></div>
 </div>
 </div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</div>
 <script type="application/vnd.jupyter.widget-state+json">
-{"state": {"785f9409e0f84253a0d8752a535b4707": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "7b31c20a95d54cfaa7ea32bf303397b8": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "8cc64d4d037544a1ae4d98b222b624e6": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "900628548e0446b88d62b9053f3245ee": {"model_module": "ipycanvas", "model_module_version": "^0.10.2", "model_name": "CanvasModel", "state": {"_model_module_version": "^0.10.2", "_view_module_version": "^0.10.2", "height": 200, "layout": "IPY_MODEL_8cc64d4d037544a1ae4d98b222b624e6", "width": 800}}, "9a16b40aa2c145b68085e4f13de4698e": {"model_module": "ipycanvas", "model_module_version": "^0.10.2", "model_name": "CanvasModel", "state": {"_model_module_version": "^0.10.2", "_view_module_version": "^0.10.2", "height": 200, "layout": "IPY_MODEL_7b31c20a95d54cfaa7ea32bf303397b8", "width": 800}}, "e480c2df3f95456e9418bd7920c316f3": {"model_module": "ipycanvas", "model_module_version": "^0.10.2", "model_name": "CanvasModel", "state": {"_model_module_version": "^0.10.2", "_view_module_version": "^0.10.2", "height": 200, "layout": "IPY_MODEL_785f9409e0f84253a0d8752a535b4707", "width": 800}}}, "version_major": 2, "version_minor": 0}
+{"state": {"50e924ea0faa49d5b0d99bfed0ac572b": {"model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "model_name": "LayoutModel", "state": {}}, "80dc8dd62d894fb985e27a5719c04bc8": {"model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "model_name": "LayoutModel", "state": {}}, "81c6c38ab54e4aa5bd4733de391b7082": {"model_module": "ipycanvas", "model_module_version": "^0.13", "model_name": "CanvasModel", "state": {"_canvas_manager": "IPY_MODEL_f0cfa14afaa241f3a7e2f81f073c6abd", "_model_module_version": "^0.13", "_view_module_version": "^0.13", "height": 200, "layout": "IPY_MODEL_b5b78891f6e04a9e9fc138b0ab969baa", "width": 800}}, "91cabdf7784c4107a884e98f303d559b": {"model_module": "ipycanvas", "model_module_version": "^0.13", "model_name": "CanvasModel", "state": {"_canvas_manager": "IPY_MODEL_f0cfa14afaa241f3a7e2f81f073c6abd", "_model_module_version": "^0.13", "_view_module_version": "^0.13", "height": 300, "layout": "IPY_MODEL_e4d9489558484f4f8b7dd8b3395ae851", "width": 800}}, "9f6ba9f8e87a40ddade404680fa13399": {"model_module": "ipycanvas", "model_module_version": "^0.13", "model_name": "CanvasModel", "state": {"_canvas_manager": "IPY_MODEL_f0cfa14afaa241f3a7e2f81f073c6abd", "_model_module_version": "^0.13", "_view_module_version": "^0.13", "height": 200, "layout": "IPY_MODEL_50e924ea0faa49d5b0d99bfed0ac572b", "width": 800}}, "b5b78891f6e04a9e9fc138b0ab969baa": {"model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "model_name": "LayoutModel", "state": {}}, "ce43fe4e323a49369d366df134b31bd1": {"model_module": "ipycanvas", "model_module_version": "^0.13", "model_name": "CanvasModel", "state": {"_canvas_manager": "IPY_MODEL_f0cfa14afaa241f3a7e2f81f073c6abd", "_model_module_version": "^0.13", "_view_module_version": "^0.13", "height": 300, "layout": "IPY_MODEL_80dc8dd62d894fb985e27a5719c04bc8", "width": 800}}, "e4d9489558484f4f8b7dd8b3395ae851": {"model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "model_name": "LayoutModel", "state": {}}, "f0cfa14afaa241f3a7e2f81f073c6abd": {"model_module": "ipycanvas", "model_module_version": "^0.13", "model_name": "CanvasManagerModel", "state": {"_model_module_version": "^0.13", "_view_module": null, "_view_module_version": ""}}}, "version_major": 2, "version_minor": 0}
 </script></section>
 </section>
 
@@ -644,7 +658,7 @@ plt.close()
             
             <a href="https://github.com/pradyunsg/furo">Furo</a>
             <div class="last-updated">
-              Last updated on Jun 27, 2023</div>
+              Last updated on Jul 04, 2023</div>
           </div>
           <div class="right-details">
             
