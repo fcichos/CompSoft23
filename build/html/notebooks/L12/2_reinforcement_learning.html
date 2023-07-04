@@ -317,7 +317,7 @@
 <p>We are close to the end of the course and covered different applications of Python to physical problems. The course is not intended to teach the physics, but exercise the application of Python. One field, which is increasingly important also in physics is the field of machine learning. Machine learning is the summarizing term for a number of computational procedures to extract useful information from data. We would like to spend the rest of the course to introduce you into a tiny part of machine
 learning. We will do that in a way that you calculate as much as possible in pure Python without any additional packages.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[767]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -437,7 +437,7 @@ we would like to explore in a small Python program, which is not too difficult.<
 <p>Our agent shall learn with a learning rate of <span class="math notranslate nohighlight">\(\alpha=0.5\)</span> and we will discount future rewards with <span class="math notranslate nohighlight">\(\gamma=0.5\)</span>.</p>
 <p>There is one tiny detail, which is useful to understand. If we run into a certain strategy and this is not the optimal strategy, it is difficult for the algorithm to choose a different action. Therefore the so called <span class="math notranslate nohighlight">\(\epsilon\)</span>-greedy factor is introduced. It tells you at which fraction of events in a state a random action is to be chosen over the action with the larges Q-value. We will set this <span class="math notranslate nohighlight">\(\epsilon\)</span>-greedy value to 0.2, meaning that 20% of the actions are chosen randomly.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[805]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n_actions</span><span class="o">=</span><span class="mi">4</span>
@@ -458,7 +458,7 @@ we would like to explore in a small Python program, which is not too difficult.<
 <h3>List of actions<a class="headerlink" href="#List-of-actions" title="Permalink to this heading">#</a></h3>
 <p>The actions, which we can take in each state are defined by 2-d vectors here which increase either the row or the column index in our gridworld.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[806]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">acl</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">]])</span>
@@ -470,7 +470,7 @@ we would like to explore in a small Python program, which is not too difficult.<
 <h3>Initial state<a class="headerlink" href="#Initial-state" title="Permalink to this heading">#</a></h3>
 <p>We chose the initial state from which we start randomly. We also initialize a list, where we register the sum of all Q-values. This is helpful to monitor the convergence of our algorithm.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[807]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">curr_state</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">([</span><span class="n">n_rows</span><span class="p">,</span><span class="n">n_columns</span><span class="p">])</span>
@@ -485,7 +485,7 @@ we would like to explore in a small Python program, which is not too difficult.<
 <h3>Reinforcement Learning Loop<a class="headerlink" href="#Reinforcement-Learning-Loop" title="Permalink to this heading">#</a></h3>
 <p>The cell below is all you need for the learning how to navigate the grid world.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[808]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10000</span><span class="p">):</span>
@@ -520,7 +520,7 @@ we would like to explore in a small Python program, which is not too difficult.<
 <h3>Convergence of the Q-learning<a class="headerlink" href="#Convergence-of-the-Q-learning" title="Permalink to this heading">#</a></h3>
 <p>The convergence of our learning is best judged from the sum of all Q-values in the matrix. This should converge to a negative value as most of the time our agent is getting the penalty <span class="math notranslate nohighlight">\(R=-1\)</span> and only sparsely <span class="math notranslate nohighlight">\(R=10\)</span> at the goal.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[809]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">qsum</span><span class="p">)</span>
@@ -534,7 +534,7 @@ we would like to explore in a small Python program, which is not too difficult.<
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_L12_2_reinforcement_learning_49_0.png" class="no-scaled-link" src="../../_images/notebooks_L12_2_reinforcement_learning_49_0.png" style="width: 454px; height: 280px;" />
+<img alt="../../_images/notebooks_L12_2_reinforcement_learning_49_0.png" class="no-scaled-link" src="../../_images/notebooks_L12_2_reinforcement_learning_49_0.png" style="width: 658px; height: 456px;" />
 </div>
 </div>
 </section>
@@ -546,7 +546,7 @@ we would like to explore in a small Python program, which is not too difficult.<
 \[\pi^{*}(s)={\rm argmax_{a}}Q^{*}(s,a)\]</div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[810]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">policy</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">Q</span><span class="p">[:,:,:],</span><span class="n">axis</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
@@ -558,7 +558,7 @@ we would like to explore in a small Python program, which is not too difficult.<
 <section id="Plot-the-policy">
 <h3>Plot the policy<a class="headerlink" href="#Plot-the-policy" title="Permalink to this heading">#</a></h3>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[811]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="p">,</span><span class="n">ax</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
@@ -579,7 +579,7 @@ we would like to explore in a small Python program, which is not too difficult.<
 
 <span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">n_rows</span><span class="o">*</span><span class="n">n_columns</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">6</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">n_rows</span><span class="o">*</span><span class="n">n_columns</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">6</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">6</span><span class="o">*</span><span class="n">n_columns</span><span class="p">)</span><span class="n">b</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">6</span><span class="o">*</span><span class="n">n_columns</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">6</span><span class="o">*</span><span class="n">n_rows</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span><span class="n">ls</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
 
@@ -593,7 +593,7 @@ we would like to explore in a small Python program, which is not too difficult.<
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_L12_2_reinforcement_learning_54_0.png" class="no-scaled-link" src="../../_images/notebooks_L12_2_reinforcement_learning_54_0.png" style="width: 349px; height: 340px;" />
+<img alt="../../_images/notebooks_L12_2_reinforcement_learning_54_0.png" class="no-scaled-link" src="../../_images/notebooks_L12_2_reinforcement_learning_54_0.png" style="width: 484px; height: 482px;" />
 </div>
 </div>
 </section>
@@ -602,7 +602,7 @@ we would like to explore in a small Python program, which is not too difficult.<
 <h2>Where to go from here<a class="headerlink" href="#Where-to-go-from-here" title="Permalink to this heading">#</a></h2>
 <p>If you want to know more about Reinforcement Learning, have a look at the <a class="reference external" href="http://incompleteideas.net/book/bookdraft2017nov5.pdf">book</a> of Sutton and Barto.</p>
 <script type="application/vnd.jupyter.widget-state+json">
-{"state": {}, "version_major": 2, "version_minor": 0}
+{"state": {"3d72d4ad20ba41e28f2e1d3456d01f39": {"model_module": "ipycanvas", "model_module_version": "^0.13", "model_name": "CanvasManagerModel", "state": {"_model_module_version": "^0.13", "_view_module": null, "_view_module_version": ""}}}, "version_major": 2, "version_minor": 0}
 </script></section>
 </section>
 
