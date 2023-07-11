@@ -3,7 +3,7 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
-<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="prev" title="Convolutional Neural Networks" href="1_CNN.html" />
+<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Lecture Contents" href="../../lectures/L15/overview_15.html" /><link rel="prev" title="Convolutional Neural Networks" href="1_CNN.html" />
 
     <!-- Generated with Sphinx 6.1.3 and Furo 2023.03.27 -->
         <title>Autoencoder CNN for Time Series Denoising - Introduction to Computer-based Physical Modeling 23 documentation</title>
@@ -281,6 +281,12 @@
 <li class="toctree-l1"><a class="reference internal" href="1_CNN.html#Example-CNN-with-Keras">Example CNN with Keras</a></li>
 <li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Autoencoder CNN for Time Series Denoising</a></li>
 </ul>
+<p class="caption" role="heading"><span class="caption-text">Lecture 15:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../lectures/L15/overview_15.html">Lecture Contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L15/1_python_hardware.html">Python and Hardware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L15/2_project_template.html">Project: YOUR PROJECT TITLE</a></li>
+</ul>
 
 </div>
 </div>
@@ -323,11 +329,12 @@
 <h1>Autoencoder CNN for Time Series Denoising<a class="headerlink" href="#Autoencoder-CNN-for-Time-Series-Denoising" title="Permalink to this heading">#</a></h1>
 <p>As a second example, we will create another convolutional neural network (CNN), but this time for time series denoising. The type of neural network architecture we ar using for that purpose is the one of an <strong>autoencoder</strong>.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">tensorflow.keras.utils</span> <span class="kn">import</span> <span class="n">to_categorical</span><span class="p">,</span><span class="n">plot_model</span>
 
 <span class="o">%</span><span class="k">matplotlib</span> inline
 <span class="o">%</span><span class="k">config</span> InlineBackend.figure_format = &#39;retina&#39;
@@ -369,7 +376,7 @@
 <h2>Data Generation<a class="headerlink" href="#Data-Generation" title="Permalink to this heading">#</a></h2>
 <p>We will apply (and train) the network to a data series containing a noisy sine wave. In a first step, we will generate data for that purpose. For the convolutional network, our data shall be two dimensional. We therefore squeeze our linear timeseries in a two dimensional array with 28 x 28 data points.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_len</span><span class="o">=</span><span class="mi">28</span><span class="o">**</span><span class="mi">2</span>
@@ -383,7 +390,7 @@
 </ul>
 <p>Overall we will generate 100000 datasets. We will take from that data the training, the testing and the validation data.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">noisy_sample</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">data_len</span><span class="p">)</span>
@@ -393,7 +400,7 @@
 </div>
 <p>The following cell will generate all the data based on a sine function and add quite a lot of noise. It will also normalize the input data to have all in a restructed value range.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y_val_noisy_r</span> <span class="o">=</span> <span class="p">[]</span>
@@ -421,7 +428,7 @@
 </div>
 <p>The plot below just depicts a random sample of our data.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[39]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">10000</span><span class="p">)</span>
@@ -447,7 +454,7 @@
 <h2>Create the Autoencoder network<a class="headerlink" href="#Create-the-Autoencoder-network" title="Permalink to this heading">#</a></h2>
 <p>This creates an autoencoder. Two convolutional layers for the encoding and two for decoding.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[40]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">keras</span>
@@ -463,7 +470,7 @@
 <section id="Define-model-data">
 <h3>Define model data<a class="headerlink" href="#Define-model-data" title="Permalink to this heading">#</a></h3>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Model configuration</span>
@@ -478,7 +485,7 @@
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[41]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Train/test split</span>
@@ -496,7 +503,7 @@
 <p><strong>decoder</strong> - convolutional layer with 128 kernels of 3 x 3 size and ReLU activation - upsampling layer increasing the data by a factor of 2 x 2 - convolutional layer with 64 kernels of 3 x 3 size and ReLU activation - upsampling layer increasing the data by a factor of 2 x 2 - convolutional layer with 1 kernels of 3 x 3 size and ReLU activation</p>
 <p>The summary function shows the parameters of the network, especially the output shape of each layer.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[42]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">=</span><span class="n">Sequential</span><span class="p">()</span>
@@ -519,38 +526,38 @@
 </pre></div>
 </div>
 </div>
-<div class="nboutput docutils container">
+<div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Model: &#34;sequential&#34;
+Model: &#34;sequential_2&#34;
 _________________________________________________________________
  Layer (type)                Output Shape              Param #
 =================================================================
- conv2d (Conv2D)             (None, 28, 28, 32)        320
+ conv2d_12 (Conv2D)          (None, 28, 28, 32)        320
 
- max_pooling2d (MaxPooling2D  (None, 14, 14, 32)       0
- )
-
- conv2d_1 (Conv2D)           (None, 14, 14, 64)        18496
-
- max_pooling2d_1 (MaxPooling  (None, 7, 7, 64)         0
+ max_pooling2d_4 (MaxPooling  (None, 14, 14, 32)       0
  2D)
 
- conv2d_2 (Conv2D)           (None, 7, 7, 128)         73856
+ conv2d_13 (Conv2D)          (None, 14, 14, 64)        18496
 
- conv2d_3 (Conv2D)           (None, 7, 7, 128)         147584
-
- up_sampling2d (UpSampling2D  (None, 14, 14, 128)      0
- )
-
- conv2d_4 (Conv2D)           (None, 14, 14, 64)        73792
-
- up_sampling2d_1 (UpSampling  (None, 28, 28, 64)       0
+ max_pooling2d_5 (MaxPooling  (None, 7, 7, 64)         0
  2D)
 
- conv2d_5 (Conv2D)           (None, 28, 28, 1)         577
+ conv2d_14 (Conv2D)          (None, 7, 7, 128)         73856
+
+ conv2d_15 (Conv2D)          (None, 7, 7, 128)         147584
+
+ up_sampling2d_4 (UpSampling  (None, 14, 14, 128)      0
+ 2D)
+
+ conv2d_16 (Conv2D)          (None, 14, 14, 64)        73792
+
+ up_sampling2d_5 (UpSampling  (None, 28, 28, 64)       0
+ 2D)
+
+ conv2d_17 (Conv2D)          (None, 28, 28, 1)         577
 
 =================================================================
 Total params: 314,625
@@ -559,27 +566,39 @@ Non-trainable params: 0
 _________________________________________________________________
 </pre></div></div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[43]:
+</pre></div>
 </div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-2023-07-10 17:49:44.912093: E tensorflow/stream_executor/cuda/cuda_driver.cc:271] failed call to cuInit: CUDA_ERROR_COMPAT_NOT_SUPPORTED_ON_DEVICE: forward compatibility was attempted on non supported HW
-2023-07-10 17:49:44.912121: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:169] retrieving CUDA diagnostic information for host: jupy
-2023-07-10 17:49:44.912127: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:176] hostname: jupy
-2023-07-10 17:49:44.912221: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:200] libcuda reported version is: 470.199.2
-2023-07-10 17:49:44.912240: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:204] kernel reported version is: 470.182.3
-2023-07-10 17:49:44.912245: E tensorflow/stream_executor/cuda/cuda_diagnostics.cc:313] kernel version 470.182.3 does not match DSO version 470.199.2 -- cannot find working devices in this configuration
-2023-07-10 17:49:44.912564: I tensorflow/core/platform/cpu_feature_guard.cc:151] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 FMA
-To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
-</pre></div></div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_model</span><span class="p">(</span>
+    <span class="n">model</span><span class="p">,</span>
+    <span class="n">to_file</span><span class="o">=</span><span class="s1">&#39;model.png&#39;</span><span class="p">,</span>
+    <span class="n">show_shapes</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">show_dtype</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">show_layer_names</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">rankdir</span><span class="o">=</span><span class="s1">&#39;TB&#39;</span><span class="p">,</span>
+    <span class="n">expand_nested</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">dpi</span><span class="o">=</span><span class="mi">96</span><span class="p">,</span>
+    <span class="n">layer_range</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">show_layer_activations</span><span class="o">=</span><span class="kc">False</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[43]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/notebooks_L14_2_AutoEncoder_24_0.png" src="../../_images/notebooks_L14_2_AutoEncoder_24_0.png" />
+</div>
 </div>
 </section>
 <section id="Training-the-encoder">
 <h3>Training the encoder<a class="headerlink" href="#Training-the-encoder" title="Permalink to this heading">#</a></h3>
 <p>The only thing we have to do now, is to compile the model and train the network on our generated data.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[44]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Compile and fit data</span>
@@ -604,8 +623,8 @@ Epoch 1/5
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-2023-07-10 17:49:53.140041: W tensorflow/core/framework/cpu_allocator_impl.cc:82] Allocation of 175616000 exceeds 10% of free system memory.
-2023-07-10 17:49:53.259172: W tensorflow/core/framework/cpu_allocator_impl.cc:82] Allocation of 175616000 exceeds 10% of free system memory.
+2023-07-11 15:17:25.371248: W tensorflow/core/framework/cpu_allocator_impl.cc:82] Allocation of 175616000 exceeds 10% of free system memory.
+2023-07-11 15:17:25.470598: W tensorflow/core/framework/cpu_allocator_impl.cc:82] Allocation of 175616000 exceeds 10% of free system memory.
 </pre></div></div>
 </div>
 <div class="nboutput docutils container">
@@ -613,24 +632,24 @@ Epoch 1/5
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-374/374 [==============================] - 115s 306ms/step - loss: 0.0389 - val_loss: 0.0027
+374/374 [==============================] - 73s 193ms/step - loss: 0.0193 - val_loss: 0.0063
 Epoch 2/5
-374/374 [==============================] - 114s 304ms/step - loss: 0.0024 - val_loss: 0.0018
+374/374 [==============================] - 73s 194ms/step - loss: 0.0025 - val_loss: 0.0015
 Epoch 3/5
-374/374 [==============================] - 114s 304ms/step - loss: 0.0017 - val_loss: 5.4458e-04
+374/374 [==============================] - 73s 194ms/step - loss: 0.0016 - val_loss: 7.3326e-04
 Epoch 4/5
-374/374 [==============================] - 112s 300ms/step - loss: 0.0013 - val_loss: 8.7826e-04
+374/374 [==============================] - 73s 195ms/step - loss: 0.0012 - val_loss: 0.0026
 Epoch 5/5
-374/374 [==============================] - 113s 302ms/step - loss: 0.0011 - val_loss: 6.7420e-04
+374/374 [==============================] - 73s 194ms/step - loss: 0.0011 - val_loss: 0.0013
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[44]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&lt;keras.callbacks.History at 0x7fada407cc10&gt;
+&lt;keras.callbacks.History at 0x7fae84ba6340&gt;
 </pre></div></div>
 </div>
 </section>
@@ -639,7 +658,7 @@ Epoch 5/5
 <h2>Reconstruction of the Data<a class="headerlink" href="#Reconstruction-of-the-Data" title="Permalink to this heading">#</a></h2>
 <p>After 5 episodes of training, we are ready to test the model on a testing example of our data. That means we supply some timeseries that is unknown to the network. The cell below is doing 2000 reconstructions at a time.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[45]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">num_reconstructions</span> <span class="o">=</span> <span class="mi">2000</span>
@@ -650,7 +669,7 @@ Epoch 5/5
 </div>
 <p>Having done all these 2000 reconstructions, we can select an arbitrary one to plot the noisy input data together with the denoised data.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[51]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">num_reconstructions</span><span class="p">)</span>
@@ -668,7 +687,7 @@ Epoch 5/5
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_L14_2_AutoEncoder_31_0.png" class="no-scaled-link" src="../../_images/notebooks_L14_2_AutoEncoder_31_0.png" style="width: 872px; height: 462px;" />
+<img alt="../../_images/notebooks_L14_2_AutoEncoder_32_0.png" class="no-scaled-link" src="../../_images/notebooks_L14_2_AutoEncoder_32_0.png" style="width: 872px; height: 462px;" />
 </div>
 </div>
 <div class="nbinput nblast docutils container">
@@ -689,7 +708,15 @@ Epoch 5/5
       <footer>
         
         <div class="related-pages">
-          
+          <a class="next-page" href="../../lectures/L15/overview_15.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">Lecture Contents</div>
+              </div>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+            </a>
           <a class="prev-page" href="1_CNN.html">
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">

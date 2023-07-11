@@ -281,6 +281,12 @@
 <li class="toctree-l1"><a class="reference internal" href="../L14/1_CNN.html#Example-CNN-with-Keras">Example CNN with Keras</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../L14/2_AutoEncoder.html">Autoencoder CNN for Time Series Denoising</a></li>
 </ul>
+<p class="caption" role="heading"><span class="caption-text">Lecture 15:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../lectures/L15/overview_15.html">Lecture Contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L15/1_python_hardware.html">Python and Hardware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L15/2_project_template.html">Project: YOUR PROJECT TITLE</a></li>
+</ul>
 
 </div>
 </div>
@@ -324,7 +330,7 @@
 <p>Neural networks are one of the most commonly used machine learning objects nowadays. Mostly these systems are known as <strong>deep neural networks</strong>, which just says something about how many layers in which neurons are arranged exist. We will in this lecture have a look at the basic unit, the neuron, and how to connect and train a network. We will do all ourselves, that means, we will not use one of the many existing python modules, that simplifies the task. This notebook has been largely developed
 by <strong>Martin Fränzl</strong>.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[52]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[85]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -358,8 +364,8 @@ by <strong>Martin Fränzl</strong>.</p>
 <p>The MNIST data set contains 70,000 images of hand-written digits, each 28 x 28 pixels, in greyscale with pixel-values from 0 to 255. We could download and preprocess the data ourselves, but the makers of the module <code class="docutils literal notranslate"><span class="pre">sklearn</span></code> already did that for us:</p>
 <section id="Load-the-data">
 <h3>Load the data<a class="headerlink" href="#Load-the-data" title="Permalink to this heading">#</a></h3>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[53]:
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[86]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">fetch_openml</span>
@@ -367,18 +373,9 @@ by <strong>Martin Fränzl</strong>.</p>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-/home/lectures/.local/lib/python3.8/site-packages/sklearn/datasets/_openml.py:1002: FutureWarning: The default value of `parser` will change from `&#39;liac-arff&#39;` to `&#39;auto&#39;` in 1.4. You can set `parser=&#39;auto&#39;` to silence this warning. Therefore, an `ImportError` will be raised from 1.4 if the dataset is dense and pandas is not installed. Note that the pandas parser may return different data types. See the Notes Section in fetch_openml&#39;s API doc for details.
-  warn(
-</pre></div></div>
-</div>
 <p>The images are now contained in the array <code class="docutils literal notranslate"><span class="pre">X</span></code>, while the labels (so which number it is) are contained in <code class="docutils literal notranslate"><span class="pre">y</span></code>. Let’s have a look at a random image and label.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[55]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[87]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">i</span> <span class="o">=</span> <span class="mi">10</span>
@@ -950,7 +947,7 @@ the number predicted.</p>
 <p>would therefore correspond to the value 1.</p>
 <p>For this purpose, we need to reload the right labels.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[73]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[84]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">fetch_openml</span>

@@ -281,6 +281,12 @@
 <li class="toctree-l1"><a class="reference internal" href="../L14/1_CNN.html#Example-CNN-with-Keras">Example CNN with Keras</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../L14/2_AutoEncoder.html">Autoencoder CNN for Time Series Denoising</a></li>
 </ul>
+<p class="caption" role="heading"><span class="caption-text">Lecture 15:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../lectures/L15/overview_15.html">Lecture Contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L15/1_python_hardware.html">Python and Hardware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L15/2_project_template.html">Project: YOUR PROJECT TITLE</a></li>
+</ul>
 
 </div>
 </div>
@@ -324,11 +330,11 @@
 <p>We have made a lot of effort to program our neural network that is able to classify differenr handwritten number with the help of numpy. A lot of other people did that already and since this is the basis for many applications nowadays, a large number of API (application programming interfaces) exist. Python plays therby a leading role. We will use in the follwing the interface provided by the <code class="docutils literal notranslate"><span class="pre">keras</span></code> module. <code class="docutils literal notranslate"><span class="pre">keras</span></code> is actually sitting on top of the real machine learning API, which is in our
 case <code class="docutils literal notranslate"><span class="pre">tensorflow</span></code>. <code class="docutils literal notranslate"><span class="pre">keras</span></code> makes the use of tensorflow a bit more friendly and from the example below, you wil recognize by how much shorter our code gets with the keras and tensorflow API.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">keras.datasets</span> <span class="kn">import</span> <span class="n">mnist</span>
-<span class="kn">from</span> <span class="nn">tensorflow.keras.utils</span> <span class="kn">import</span> <span class="n">to_categorical</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">tensorflow.keras.datasets</span> <span class="kn">import</span> <span class="n">mnist</span>
+<span class="kn">from</span> <span class="nn">tensorflow.keras.utils</span> <span class="kn">import</span> <span class="n">to_categorical</span><span class="p">,</span><span class="n">plot_model</span>
 
 <span class="kn">from</span> <span class="nn">keras</span> <span class="kn">import</span> <span class="n">Sequential</span>
 <span class="kn">from</span> <span class="nn">keras.layers</span> <span class="kn">import</span> <span class="n">Dense</span>
@@ -358,8 +364,8 @@ case <code class="docutils literal notranslate"><span class="pre">tensorflow</sp
 <section id="MNIST-Data-Set-(Keras)">
 <h2>MNIST Data Set (Keras)<a class="headerlink" href="#MNIST-Data-Set-(Keras)" title="Permalink to this heading">#</a></h2>
 <p>This loads the same data as in our previous notebook, except that the function to do that is directly provided by <code class="docutils literal notranslate"><span class="pre">keras</span></code>.</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[38]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">),</span> <span class="p">(</span><span class="n">x_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span> <span class="o">=</span> <span class="n">mnist</span><span class="o">.</span><span class="n">load_data</span><span class="p">()</span>
@@ -376,22 +382,12 @@ case <code class="docutils literal notranslate"><span class="pre">tensorflow</sp
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-Downloading data from https://storage.googleapis.com/tensorflow/tf-keras-datasets/mnist.npz
-11493376/11490434 [==============================] - 1s 0us/step
-11501568/11490434 [==============================] - 1s 0us/step
-</pre></div></div>
-</div>
 </section>
 <section id="Build-the-model">
 <h2>Build the model<a class="headerlink" href="#Build-the-model" title="Permalink to this heading">#</a></h2>
 <p>The next few lines create the whole neural network with an input layer, a hidden layer with 64 neurons and and output layer with 10 neurons.</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[47]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">Sequential</span><span class="p">([</span>
@@ -401,27 +397,39 @@ Downloading data from https://storage.googleapis.com/tensorflow/tf-keras-dataset
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[48]:
+</pre></div>
 </div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-2023-07-10 17:29:59.744123: E tensorflow/stream_executor/cuda/cuda_driver.cc:271] failed call to cuInit: CUDA_ERROR_COMPAT_NOT_SUPPORTED_ON_DEVICE: forward compatibility was attempted on non supported HW
-2023-07-10 17:29:59.744148: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:169] retrieving CUDA diagnostic information for host: jupy
-2023-07-10 17:29:59.744153: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:176] hostname: jupy
-2023-07-10 17:29:59.744238: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:200] libcuda reported version is: 470.199.2
-2023-07-10 17:29:59.744256: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:204] kernel reported version is: 470.182.3
-2023-07-10 17:29:59.744260: E tensorflow/stream_executor/cuda/cuda_diagnostics.cc:313] kernel version 470.182.3 does not match DSO version 470.199.2 -- cannot find working devices in this configuration
-2023-07-10 17:29:59.745231: I tensorflow/core/platform/cpu_feature_guard.cc:151] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 FMA
-To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
-</pre></div></div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_model</span><span class="p">(</span>
+    <span class="n">model</span><span class="p">,</span>
+    <span class="n">to_file</span><span class="o">=</span><span class="s1">&#39;model.png&#39;</span><span class="p">,</span>
+    <span class="n">show_shapes</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">show_dtype</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">show_layer_names</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">rankdir</span><span class="o">=</span><span class="s1">&#39;TB&#39;</span><span class="p">,</span>
+    <span class="n">expand_nested</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">dpi</span><span class="o">=</span><span class="mi">96</span><span class="p">,</span>
+    <span class="n">layer_range</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">show_layer_activations</span><span class="o">=</span><span class="kc">False</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[48]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/notebooks_L13_2_deep_learning_keras_9_0.png" src="../../_images/notebooks_L13_2_deep_learning_keras_9_0.png" />
+</div>
 </div>
 </section>
 <section id="Compile-the-model">
 <h2>Compile the model<a class="headerlink" href="#Compile-the-model" title="Permalink to this heading">#</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">compile</span></code> method assembles everything to create a model for training. You can specify here the stochastic gradient descent method in the same way as the loss function.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[49]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">optimizer</span><span class="o">=</span><span class="s1">&#39;SGD&#39;</span><span class="p">,</span>
@@ -435,10 +443,10 @@ To enable them in other operations, rebuild TensorFlow with the appropriate comp
 <h2>Train the model<a class="headerlink" href="#Train-the-model" title="Permalink to this heading">#</a></h2>
 <p>Finally, the <code class="docutils literal notranslate"><span class="pre">fit</span></code> method allows us to train the model for a specified number of epochs.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[51]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -447,7 +455,8 @@ To enable them in other operations, rebuild TensorFlow with the appropriate comp
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Epoch 1/10
+Epoch 1/20
+ 275/1875 [===&gt;..........................] - ETA: 0s - loss: 0.3216 - accuracy: 0.9075
 </pre></div></div>
 </div>
 <div class="nboutput docutils container">
@@ -455,7 +464,7 @@ Epoch 1/10
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-2023-07-10 17:30:24.796532: W tensorflow/core/framework/cpu_allocator_impl.cc:82] Allocation of 188160000 exceeds 10% of free system memory.
+2023-07-11 13:53:05.833950: W tensorflow/core/framework/cpu_allocator_impl.cc:82] Allocation of 188160000 exceeds 10% of free system memory.
 </pre></div></div>
 </div>
 <div class="nboutput docutils container">
@@ -463,34 +472,54 @@ Epoch 1/10
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-1875/1875 [==============================] - 1s 560us/step - loss: 1.5069 - accuracy: 0.6892
-Epoch 2/10
-1875/1875 [==============================] - 1s 554us/step - loss: 0.7578 - accuracy: 0.8420
-Epoch 3/10
-1875/1875 [==============================] - 1s 579us/step - loss: 0.5553 - accuracy: 0.8697
-Epoch 4/10
-1875/1875 [==============================] - 1s 558us/step - loss: 0.4683 - accuracy: 0.8837
-Epoch 5/10
-1875/1875 [==============================] - 1s 557us/step - loss: 0.4195 - accuracy: 0.8910
-Epoch 6/10
-1875/1875 [==============================] - 1s 551us/step - loss: 0.3882 - accuracy: 0.8960
-Epoch 7/10
-1875/1875 [==============================] - 1s 557us/step - loss: 0.3660 - accuracy: 0.9001
-Epoch 8/10
-1875/1875 [==============================] - 1s 553us/step - loss: 0.3492 - accuracy: 0.9032
-Epoch 9/10
-1875/1875 [==============================] - 1s 548us/step - loss: 0.3358 - accuracy: 0.9058
-Epoch 10/10
-1875/1875 [==============================] - 1s 553us/step - loss: 0.3247 - accuracy: 0.9084
+1875/1875 [==============================] - 1s 567us/step - loss: 0.3172 - accuracy: 0.9098
+Epoch 2/20
+1875/1875 [==============================] - 1s 552us/step - loss: 0.3084 - accuracy: 0.9119
+Epoch 3/20
+1875/1875 [==============================] - 1s 549us/step - loss: 0.3006 - accuracy: 0.9144
+Epoch 4/20
+1875/1875 [==============================] - 1s 551us/step - loss: 0.2935 - accuracy: 0.9169
+Epoch 5/20
+1875/1875 [==============================] - 1s 555us/step - loss: 0.2870 - accuracy: 0.9188
+Epoch 6/20
+1875/1875 [==============================] - 1s 553us/step - loss: 0.2808 - accuracy: 0.9201
+Epoch 7/20
+1875/1875 [==============================] - 1s 551us/step - loss: 0.2753 - accuracy: 0.9218
+Epoch 8/20
+1875/1875 [==============================] - 1s 549us/step - loss: 0.2700 - accuracy: 0.9233
+Epoch 9/20
+1875/1875 [==============================] - 1s 550us/step - loss: 0.2649 - accuracy: 0.9247
+Epoch 10/20
+1875/1875 [==============================] - 1s 550us/step - loss: 0.2601 - accuracy: 0.9265
+Epoch 11/20
+1875/1875 [==============================] - 1s 566us/step - loss: 0.2556 - accuracy: 0.9278
+Epoch 12/20
+1875/1875 [==============================] - 1s 546us/step - loss: 0.2512 - accuracy: 0.9288
+Epoch 13/20
+1875/1875 [==============================] - 1s 548us/step - loss: 0.2469 - accuracy: 0.9302
+Epoch 14/20
+1875/1875 [==============================] - 1s 550us/step - loss: 0.2429 - accuracy: 0.9314
+Epoch 15/20
+1875/1875 [==============================] - 1s 562us/step - loss: 0.2390 - accuracy: 0.9323
+Epoch 16/20
+1875/1875 [==============================] - 1s 549us/step - loss: 0.2352 - accuracy: 0.9333
+Epoch 17/20
+1875/1875 [==============================] - 1s 546us/step - loss: 0.2316 - accuracy: 0.9341
+Epoch 18/20
+1875/1875 [==============================] - 1s 547us/step - loss: 0.2280 - accuracy: 0.9352
+Epoch 19/20
+1875/1875 [==============================] - 1s 546us/step - loss: 0.2247 - accuracy: 0.9361
+Epoch 20/20
+1875/1875 [==============================] - 1s 548us/step - loss: 0.2214 - accuracy: 0.9371
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[51]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&lt;keras.callbacks.History at 0x7f317f469d60&gt;
+&lt;keras.callbacks.History at 0x7f54450047c0&gt;
 </pre></div></div>
 </div>
 </section>
@@ -498,12 +527,63 @@ Epoch 10/10
 <h2>Testing the model<a class="headerlink" href="#Testing-the-model" title="Permalink to this heading">#</a></h2>
 <p>We may now use our trained model to predict the number in the image with the <code class="docutils literal notranslate"><span class="pre">model.predict</span></code> function. This delivers an array of 10 numbers, which represent the confidences that the number <span class="math notranslate nohighlight">\(0,\ldots,9\)</span> are contained. The index of the biggest number thus represents the number contained in the image.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[54]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">i</span><span class="o">=</span><span class="mi">19</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">x_test</span><span class="p">[</span><span class="n">i</span><span class="p">,:]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">28</span><span class="p">,</span><span class="mi">28</span><span class="p">),</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;prediction: &quot;</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">x_test</span><span class="p">[</span><span class="n">i</span><span class="p">,:]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">784</span><span class="p">))))</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">x_test</span><span class="p">[</span><span class="n">i</span><span class="p">,:]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">784</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[54]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([[3.3470042e-05, 8.6805121e-06, 1.1352806e-04, 5.8598683e-04,
+        1.9212976e-02, 8.8488462e-04, 1.8833722e-05, 1.4240003e-02,
+        5.1060988e-04, 9.6439105e-01]], dtype=float32)
+</pre></div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[61]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">student</span><span class="o">=</span><span class="p">(</span><span class="n">x_test</span><span class="p">[</span><span class="mi">12</span><span class="p">,:]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">28</span><span class="p">,</span><span class="mi">28</span><span class="p">)</span><span class="o">+</span><span class="n">x_test</span><span class="p">[</span><span class="mi">42</span><span class="p">,:]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">28</span><span class="p">,</span><span class="mi">28</span><span class="p">)</span><span class="o">+</span><span class="n">x_test</span><span class="p">[</span><span class="mi">3</span><span class="p">,:]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">28</span><span class="p">,</span><span class="mi">28</span><span class="p">))</span><span class="o">/</span><span class="mi">3</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[62]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">student</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[62]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;matplotlib.image.AxesImage at 0x7f5446a01fd0&gt;
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/notebooks_L13_2_deep_learning_keras_20_1.png" class="no-scaled-link" src="../../_images/notebooks_L13_2_deep_learning_keras_20_1.png" style="width: 426px; height: 421px;" />
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[63]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">i</span><span class="o">=</span><span class="mi">42</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">student</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">28</span><span class="p">,</span><span class="mi">28</span><span class="p">),</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;prediction: &quot;</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">student</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">784</span><span class="p">))))</span>
 </pre></div>
 </div>
 </div>
@@ -512,22 +592,57 @@ Epoch 10/10
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-prediction:  4
+prediction:  9
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_L13_2_deep_learning_keras_17_1.png" class="no-scaled-link" src="../../_images/notebooks_L13_2_deep_learning_keras_17_1.png" style="width: 426px; height: 421px;" />
+<img alt="../../_images/notebooks_L13_2_deep_learning_keras_21_1.png" class="no-scaled-link" src="../../_images/notebooks_L13_2_deep_learning_keras_21_1.png" style="width: 426px; height: 421px;" />
 </div>
 </div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[64]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">student</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">784</span><span class="p">))</span>
 </pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[64]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([[1.77512094e-02, 9.22485924e-05, 8.42965860e-03, 8.65467917e-03,
+        4.02621441e-02, 1.75370630e-02, 1.91166031e-03, 1.20765775e-01,
+        6.74873590e-02, 7.17108250e-01]], dtype=float32)
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[68]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">),</span><span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">student</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">784</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[68]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;matplotlib.collections.PathCollection at 0x7f544685a640&gt;
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/notebooks_L13_2_deep_learning_keras_23_1.png" class="no-scaled-link" src="../../_images/notebooks_L13_2_deep_learning_keras_23_1.png" style="width: 560px; height: 418px;" />
 </div>
 </div>
 <script type="application/vnd.jupyter.widget-state+json">
