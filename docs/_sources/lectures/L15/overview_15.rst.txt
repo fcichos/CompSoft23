@@ -4,7 +4,7 @@ Lecture Contents
 Lecture 16 is out last lecture. There are two topics. At first we will have a quick look at how to interface an Ardnuino to our Jupyter Notebook environment. Using that might be useful to measure something in the future.
 The second topic will just be a template you may use for your final project. You may download you the template from the mybinder service. Please upload the **project including the video** as a **ZIP** file on the website of our course (Molecular Nanophotonics site) once you are finished. The video's will be made available to the course for voting.
 
-The deadline for handing in the project is **3. September 2022**. Please check also the exam page.
+The deadline for handing in the project is **1. September 2023**. Please check the exam page.
 
 Please **do not** send me your projects by email, because they might get lost. The deadline for the project submission will be on the website as well. 
 
