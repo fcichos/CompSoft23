@@ -1,18 +1,18 @@
 Lecture Contents
 ================
 
-In this second lecture we will have a look at some
+In der zweiten Vorlesung werden wir auf folgende Themen schauen:
 
-1. NumPy module
-2. 2D plotting
-3. 3D plotting
-4. Random number generation
+1. DataTypes
+2. Modules
+1. NumPy Module
+2. Plotting
 
 
 
-We will have a little add-on on preparing publication ready figures in the seminar. In addition, we have prepared a small example of how to work with figures and LateX manuscripts.
+Wir werden in dem Seminar ein kleines Add-on zur Erstellung von publikationsreifen Abbildungen anbieten. Darüber hinaus haben wir ein kleines Beispiel für die Arbeit mit Abbildungen und LateX-Manuskripten vorbereitet.
 
-`Add On: Example for Figures in Manuscripts  <https://github.com/fcichos/CompSoft23/tree/master/source/lectures/L2/L2%20Tips%20For%20Figures>`_
+`Add On: Beispiel für Abbildungen in Manuskripten  <https://github.com/fcichos/CompSoft23/tree/master/source/lectures/L2/L2%20Tips%20For%20Figures>`_
 
 .. raw:: html
 
