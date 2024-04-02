@@ -18,7 +18,7 @@
 # -- Project information -----------------------------------------------------
 
 project = 'Introduction to Computer-based Physical Modeling'
-copyright = '2023, Frank Cichos'
+copyright = '2024, Frank Cichos'
 author = 'Frank Cichos'
 master_doc = 'index'
 

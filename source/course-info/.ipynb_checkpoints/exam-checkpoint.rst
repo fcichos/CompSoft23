@@ -6,7 +6,7 @@
 Exam
 ====
 
-We will close this course with an exam in form of a final project. This final project shall be on a topic of your choice or on one of the topics we provide as example topics. Each individual student is required to hand in a Jupyter Notebook. No group work is allowed.
+We will close this course with an exam in form of a final project. This final project shall be on a topic of your choice or on one of the topics we provide as example topics. Each individual student is required to hand in a Jupyter Notebook. No group work is allowed for the final project.
 
 The final project is in the form of a **portfolio exam** as it consists of **two parts**, which will be equally weighted:
 
@@ -39,7 +39,7 @@ Grading: Videos will be graded based on:
 - quality of the presentation (structure, oral and visual presentation)
 - sticking to maximum time
 
-The deadline for handing in the project is **September 1, 2023** 
+The deadline for handing in the project is **September 1, 2024** 
 
 Please submit your projects via email to Andrea Kramer,  **firstname.surname@uni-leipzig.de**.
 
